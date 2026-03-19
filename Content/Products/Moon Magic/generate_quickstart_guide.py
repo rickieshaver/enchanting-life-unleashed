@@ -541,5 +541,6 @@ if __name__ == "__main__":
         draw_phase(c, phase)
         c.showPage()
     draw_cheatsheet(c); c.showPage()
+    draw_cta(c);        c.showPage()
     c.save()
     print(f"Saved: {OUTPUT}")
