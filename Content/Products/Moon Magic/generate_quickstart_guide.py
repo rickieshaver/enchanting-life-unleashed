@@ -35,7 +35,7 @@ F_ACCENT = "Helvetica-Oblique" # → swap to Allura once TTF registered
 # ── Phase Content ─────────────────────────────────────────────────────────────
 PHASES = [
     {
-        "emoji": "🌑",
+        "emoji": "●",
         "name": "New Moon",
         "tagline": "Begin · Seed · Intend",
         "description": (
@@ -52,7 +52,7 @@ PHASES = [
         "prompt": "What do you want to call in this cycle? Write it as if it's already real.",
     },
     {
-        "emoji": "🌒",
+        "emoji": "◑",
         "name": "Waxing Crescent",
         "tagline": "Move · Reach · Start",
         "description": (
@@ -68,7 +68,7 @@ PHASES = [
         "prompt": "What's one tiny step toward your intention that you've been avoiding? What would it feel like to just do it?",
     },
     {
-        "emoji": "🌓",
+        "emoji": "◑",
         "name": "First Quarter",
         "tagline": "Commit · Act · Decide",
         "description": (
@@ -84,7 +84,7 @@ PHASES = [
         "prompt": "Where are you hesitating? What would you do if you weren't afraid of getting it wrong?",
     },
     {
-        "emoji": "🌔",
+        "emoji": "◕",
         "name": "Waxing Gibbous",
         "tagline": "Refine · Trust · Adjust",
         "description": (
@@ -101,7 +101,7 @@ PHASES = [
         "prompt": "What's working? What's one thing you can release control over right now?",
     },
     {
-        "emoji": "🌕",
+        "emoji": "○",
         "name": "Full Moon",
         "tagline": "Celebrate · Release · Receive",
         "description": (
@@ -118,7 +118,7 @@ PHASES = [
         "prompt": "What has this cycle shown you about yourself? What are you finally ready to let go of?",
     },
     {
-        "emoji": "🌖",
+        "emoji": "◕",
         "name": "Waning Gibbous",
         "tagline": "Share · Integrate · Give",
         "description": (
@@ -134,7 +134,7 @@ PHASES = [
         "prompt": "What did this full moon reveal? What wisdom are you ready to share or act on?",
     },
     {
-        "emoji": "🌗",
+        "emoji": "◑",
         "name": "Last Quarter",
         "tagline": "Release · Clear · Forgive",
         "description": (
@@ -150,7 +150,7 @@ PHASES = [
         "prompt": "What are you ready to stop carrying? What would feel lighter if you just... let it go?",
     },
     {
-        "emoji": "🌘",
+        "emoji": "◑",
         "name": "Waning Crescent",
         "tagline": "Rest · Restore · Surrender",
         "description": (
@@ -170,14 +170,14 @@ PHASES = [
 
 # ── Cheat Sheet Rows ──────────────────────────────────────────────────────────
 CHEAT_ROWS = [
-    ("🌑", "New Moon",       "Begin",    "Plant seeds · Set intention · Go inward"),
-    ("🌒", "Waxing Crescent","Move",     "First steps · Reach out · Start small"),
-    ("🌓", "First Quarter",  "Commit",   "Act · Decide · Push through"),
-    ("🌔", "Waxing Gibbous", "Refine",   "Adjust · Trust · Stay patient"),
-    ("🌕", "Full Moon",      "Release",  "Celebrate · Gratitude · Let go"),
-    ("🌖", "Waning Gibbous", "Integrate","Share · Reflect · Give back"),
-    ("🌗", "Last Quarter",   "Clear",    "Release · Forgive · Cut ties"),
-    ("🌘", "Waning Crescent","Rest",     "Surrender · Restore · Prepare"),
+    ("●", "New Moon",       "Begin",    "Plant seeds · Set intention · Go inward"),
+    ("◑", "Waxing Crescent","Move",     "First steps · Reach out · Start small"),
+    ("◑", "First Quarter",  "Commit",   "Act · Decide · Push through"),
+    ("◕", "Waxing Gibbous", "Refine",   "Adjust · Trust · Stay patient"),
+    ("○", "Full Moon",      "Release",  "Celebrate · Gratitude · Let go"),
+    ("◕", "Waning Gibbous", "Integrate","Share · Reflect · Give back"),
+    ("◑", "Last Quarter",   "Clear",    "Release · Forgive · Cut ties"),
+    ("◑", "Waning Crescent","Rest",     "Surrender · Restore · Prepare"),
 ]
 
 # ── Drawing Helpers ───────────────────────────────────────────────────────────
@@ -243,5 +243,176 @@ def centered_text(c, text, y, font, size, color):
     c.drawCentredString(W / 2, y, text)
 
 
+# ── Page: Cover ───────────────────────────────────────────────────────────────
+
+def draw_cover(c):
+    # Full-page gradient background
+    draw_gradient_rect(c, 0, 0, W, H, BURGUNDY, DARK_PLUM)
+
+    # Allura accent above title
+    centered_text(c, "A Guide for the Modern Mystic", H - 180, F_ACCENT, 28, GOLD)
+
+    # Main title (two lines)
+    centered_text(c, "Moon Magic", H - 230, F_TITLE, 38, CREAM)
+    centered_text(c, "Quick Start Guide", H - 278, F_TITLE, 28, CREAM)
+
+    # Gold divider line
+    c.setStrokeColor(GOLD)
+    c.setLineWidth(0.75)
+    c.line(W/2 - 80, H - 305, W/2 + 80, H - 305)
+
+    # Byline
+    centered_text(c, "by Enchanting Life Unleashed", H - 330, F_BODY, 11, DUSTY_ROSE)
+
+    # Moon phase text row near bottom
+    moons = "●  ◑  ◑  ◕  ○  ◕  ◑  ◑"
+    centered_text(c, moons, 120, F_BODY, 18, CREAM)
+
+    # Tagline at bottom
+    centered_text(c, "Where Soul Meets Strategy", 80, F_ACCENT, 16, GOLD)
+
+
+# ── Page: Welcome ─────────────────────────────────────────────────────────────
+
+WELCOME_BODY = (
+    "The moon has been tracking time longer than any calendar, planner, or productivity "
+    "app ever will. And for good reason — she's reliable, rhythmic, and she never "
+    "pushes you to do more than you're energetically built for right now.\n\n"
+    "Moon magic isn't about crystals or rituals you have to perform perfectly. It's about "
+    "learning to move with natural energy cycles instead of white-knuckling your way "
+    "through them. When you align with the moon, you stop fighting yourself.\n\n"
+    "This guide covers all 8 phases of the lunar cycle — what each one means, how to "
+    "work with its energy, and a simple ritual you can do right now. Use it as a "
+    "teaching tool, a journal companion, or a quick reference whenever you need to "
+    "remember where you are in the cycle.\n\n"
+    "You already have the magic. This guide just helps you remember."
+)
+
+HOW_TO_USE = (
+    "Read through each phase. Come back to the one you're in right now. "
+    "Do the ritual. Journal in the writing box. Keep the cheat sheet (last page) "
+    "saved to your phone or printed on your desk."
+)
+
+
+def draw_welcome(c):
+    # Cream background
+    c.setFillColor(CREAM)
+    c.rect(0, 0, W, H, stroke=0, fill=1)
+
+    y = H - MARGIN
+
+    # Gold section label
+    centered_text(c, "✦  WELCOME  ✦", y - 10, F_BODY, 9, GOLD)
+    y -= 36
+
+    # Heading
+    centered_text(c, "Welcome, Modern Mystic", y, F_TITLE, 26, BURGUNDY)
+    y -= 44
+
+    # Dusty rose divider
+    c.setStrokeColor(DUSTY_ROSE)
+    c.setLineWidth(0.5)
+    c.line(MARGIN, y, W - MARGIN, y)
+    y -= 24
+
+    # Body text
+    for para in WELCOME_BODY.split("\n\n"):
+        y = wrapped_text(c, para, MARGIN, y, SAFE_W, F_BODY, 10, BURGUNDY, line_height=17)
+        y -= 10
+
+    y -= 8
+
+    # How to use box
+    draw_rounded_rect(c, MARGIN, y - 72, SAFE_W, 72, 8, SOFT_PINK)
+    c.setFont(F_BODY, 8)
+    c.setFillColor(DUSTY_ROSE)
+    c.drawString(MARGIN + 14, y - 18, "HOW TO USE THIS GUIDE")
+    wrapped_text(c, HOW_TO_USE, MARGIN + 14, y - 34, SAFE_W - 28, F_BODY, 9, BURGUNDY, line_height=15)
+
+
+# ── Page: Phase ───────────────────────────────────────────────────────────────
+
+HEADER_H = 180   # top 180pt = ~2.5 inches
+
+def draw_phase(c, phase):
+    # ── Header gradient ──────────────────────────────────────────────────────
+    draw_gradient_rect(c, 0, H - HEADER_H, W, HEADER_H, BURGUNDY, DARK_PLUM)
+
+    # Moon emoji + phase name on same horizontal line
+    emoji_x = MARGIN
+    text_x  = MARGIN + 54   # 54pt emoji column
+    mid_y   = H - HEADER_H + (HEADER_H - 28) / 2 + 10  # vertically centered
+
+    c.setFont(F_BODY, 40)
+    c.setFillColor(CREAM)
+    c.drawString(emoji_x, mid_y, phase["emoji"])
+
+    c.setFont(F_TITLE, 28)
+    c.setFillColor(CREAM)
+    c.drawString(text_x, mid_y, phase["name"])
+
+    # Action tagline below name
+    c.setFont(F_BODY, 9)
+    c.setFillColor(GOLD)
+    c.drawString(text_x, mid_y - 22, phase["tagline"].upper())
+
+    # ── Body (cream background) ───────────────────────────────────────────────
+    c.setFillColor(CREAM)
+    c.rect(0, 0, W, H - HEADER_H, stroke=0, fill=1)
+
+    y = H - HEADER_H - 24
+
+    # Description
+    y = wrapped_text(c, phase["description"], MARGIN, y, SAFE_W, F_BODY, 10, BURGUNDY, line_height=17)
+    y -= 18
+
+    # Mini Ritual label
+    c.setFont(F_BODY, 8)
+    c.setFillColor(BURGUNDY)
+    c.drawString(MARGIN, y, "✦  MINI RITUAL")
+    y -= 16
+
+    # Numbered steps
+    for i, step in enumerate(phase["ritual_steps"], 1):
+        # Circle
+        draw_circle(c, MARGIN + 7, y + 3, 7, BURGUNDY)
+        c.setFont(F_BODY, 8)
+        c.setFillColor(CREAM)
+        c.drawCentredString(MARGIN + 7, y - 1, str(i))
+        # Step text
+        step_x = MARGIN + 20
+        y = wrapped_text(c, step, step_x, y, SAFE_W - 20, F_BODY, 10, BURGUNDY, line_height=15)
+        y -= 6
+
+    y -= 12
+
+    # Write-in box
+    box_h = 110
+    if y - box_h < MARGIN:
+        box_h = y - MARGIN - 4
+    draw_rounded_rect(c, MARGIN, y - box_h, SAFE_W, box_h, 8, SOFT_PINK)
+
+    # Prompt
+    prompt_y = y - 18
+    wrapped_text(c, phase["prompt"], MARGIN + 14, prompt_y, SAFE_W - 28, F_ACCENT, 9, BURGUNDY, line_height=14)
+
+    # Writing lines
+    line_y = y - 46
+    for _ in range(4):
+        if line_y > y - box_h + 8:
+            c.setStrokeColor(DUSTY_ROSE)
+            c.setLineWidth(0.5)
+            c.line(MARGIN + 14, line_y, W - MARGIN - 14, line_y)
+            line_y -= 18
+
+
 if __name__ == "__main__":
-    pass  # main() will be replaced in Task 4
+    c = canvas.Canvas(OUTPUT, pagesize=letter)
+    draw_cover(c);   c.showPage()
+    draw_welcome(c); c.showPage()
+    for phase in PHASES:
+        draw_phase(c, phase)
+        c.showPage()
+    c.save()
+    print(f"Saved: {OUTPUT}")
