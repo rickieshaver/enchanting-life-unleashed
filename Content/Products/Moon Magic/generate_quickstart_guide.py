@@ -407,12 +407,139 @@ def draw_phase(c, phase):
             line_y -= 18
 
 
+# ── Page: Cheat Sheet ─────────────────────────────────────────────────────────
+
+def draw_cheatsheet(c):
+    # Header gradient (same height as phase pages)
+    draw_gradient_rect(c, 0, H - HEADER_H, W, HEADER_H, BURGUNDY, DARK_PLUM)
+    centered_text(c, "Moon Phase Quick Reference", H - HEADER_H + HEADER_H - 60, F_TITLE, 22, CREAM)
+    centered_text(c, "✦  YOUR AT-A-GLANCE GUIDE  ✦", H - HEADER_H + HEADER_H - 90, F_BODY, 9, GOLD)
+
+    # Cream body
+    c.setFillColor(CREAM)
+    c.rect(0, 0, W, H - HEADER_H, stroke=0, fill=1)
+
+    # Column widths (within MARGIN bounds)
+    col1_w = 54    # symbol
+    col2_w = 150   # phase name + action
+    row_h  = 44
+
+    y = H - HEADER_H - 20
+
+    for symbol, name, action, keywords in CHEAT_ROWS:
+        row_bottom = y - row_h
+
+        # Symbol
+        c.setFont(F_BODY, 14)
+        c.setFillColor(BURGUNDY)
+        c.drawCentredString(MARGIN + col1_w / 2, y - 24, symbol)
+
+        # Phase name
+        c.setFont(F_TITLE, 10)
+        c.setFillColor(BURGUNDY)
+        c.drawString(MARGIN + col1_w, y - 16, name)
+
+        # Action word
+        c.setFont(F_ACCENT, 9)
+        c.setFillColor(DUSTY_ROSE)
+        c.drawString(MARGIN + col1_w, y - 30, action)
+
+        # Keywords
+        c.setFont(F_BODY, 9)
+        c.setFillColor(BURGUNDY)
+        c.drawString(MARGIN + col1_w + col2_w, y - 24, keywords)
+
+        # Divider
+        y = row_bottom
+        c.setStrokeColor(DUSTY_ROSE)
+        c.setLineWidth(0.5)
+        c.line(MARGIN, y, W - MARGIN, y)
+
+    # Footer
+    centered_text(c, "Save this page. Screenshot it. Keep it close.", MARGIN + 10, F_ACCENT, 9, DUSTY_ROSE)
+
+
+# ── Page: Closing CTA ─────────────────────────────────────────────────────────
+
+def draw_cta(c):
+    # Full-page gradient
+    draw_gradient_rect(c, 0, 0, W, H, BURGUNDY, DARK_PLUM)
+
+    y = H - MARGIN - 20
+
+    # Allura accent
+    centered_text(c, "You already have the magic.", y, F_ACCENT, 24, GOLD)
+    y -= 52
+
+    # Heading
+    centered_text(c, "Ready to Go Deeper?", y, F_TITLE, 30, CREAM)
+    y -= 38
+
+    # Body (wrapped)
+    body = "You've learned the foundation. Now put it into practice with a full year of moon magic."
+    y = wrapped_text(c, body, MARGIN, y, SAFE_W, F_BODY, 10, SOFT_PINK, line_height=16)
+    y += 16  # compensate before gold divider
+
+    y -= 20
+
+    # Gold divider
+    c.setStrokeColor(GOLD)
+    c.setLineWidth(0.75)
+    c.line(W/2 - 60, y, W/2 + 60, y)
+    y -= 30
+
+    box_w = 380
+    box_x = (W - box_w) / 2
+
+    # Product box 1 — primary CTA
+    box1_h = 95
+    draw_rounded_rect(c, box_x, y - box1_h, box_w, box1_h, 8, DEEP_PLUM,
+                      stroke_color=GOLD, stroke_width=0.75)
+    c.setFont(F_BODY, 8)
+    c.setFillColor(GOLD)
+    c.drawString(box_x + 14, y - 18, "✦  NEXT STEP")
+    c.setFont(F_TITLE, 16)
+    c.setFillColor(CREAM)
+    c.drawString(box_x + 14, y - 38, "12 Full Moon Rituals 2026")
+    c.setFont(F_BODY, 10)
+    c.setFillColor(SOFT_PINK)
+    c.drawString(box_x + 14, y - 56, "A complete ritual for every full moon of the year")
+    c.setFont(F_BODY, 9)
+    c.setFillColor(GOLD)
+    c.drawString(box_x + 14, y - 74, "[INSERT PRODUCT LINK]")
+    y -= box1_h + 16
+
+    # Product box 2 — secondary CTA
+    box2_h = 95
+    dr_stroke = HexColor("#A26769")
+    draw_rounded_rect(c, box_x, y - box2_h, box_w, box2_h, 8, DEEP_PLUM,
+                      stroke_color=dr_stroke, stroke_width=0.75)
+    c.setFont(F_BODY, 8)
+    c.setFillColor(DUSTY_ROSE)
+    c.drawString(box_x + 14, y - 18, "✦  OR GO ALL IN")
+    c.setFont(F_TITLE, 16)
+    c.setFillColor(CREAM)
+    c.drawString(box_x + 14, y - 38, "Moon Cycle Life Planner")
+    c.setFont(F_BODY, 10)
+    c.setFillColor(SOFT_PINK)
+    c.drawString(box_x + 14, y - 56, "Plan your entire life in sync with the moon")
+    c.setFont(F_BODY, 9)
+    c.setFillColor(DUSTY_ROSE)
+    c.drawString(box_x + 14, y - 74, "[INSERT PRODUCT LINK]")
+    y -= box2_h + 30
+
+    # Brand footer
+    centered_text(c, "Where Soul Meets Strategy", y, F_ACCENT, 20, GOLD)
+    centered_text(c, "Enchanting Life Unleashed", y - 28, F_BODY, 9, DUSTY_ROSE)
+
+
 if __name__ == "__main__":
     c = canvas.Canvas(OUTPUT, pagesize=letter)
-    draw_cover(c);   c.showPage()
-    draw_welcome(c); c.showPage()
+    draw_cover(c);      c.showPage()
+    draw_welcome(c);    c.showPage()
     for phase in PHASES:
         draw_phase(c, phase)
         c.showPage()
+    draw_cheatsheet(c); c.showPage()
     c.save()
     print(f"Saved: {OUTPUT}")
