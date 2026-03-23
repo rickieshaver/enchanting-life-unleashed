@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 Lunar Boundary Setting Planner | Enchanting Life Unleashed</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy:    #6D2E46;
+    --dusty-rose:  #A26769;
+    --soft-pink:   #D5B9B2;
+    --warm-cream:  #FFFCF7;
+    --cream-2:     #FBF5F3;
+    --gold:        #EDB74D;
+    --gold-light:  #F5D07A;
+    --text-dark:   #3A1525;
+    --text-mid:    #6D2E46;
+    --text-soft:   #A26769;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    background: var(--warm-cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── UTILITY ── */
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .text-center { text-align: center; }
+  .gold { color: var(--gold); }
+  .rose { color: var(--dusty-rose); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,252,247,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(163,103,105,0.12);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--burgundy);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .nav-brand span {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--dusty-rose);
+  }
+  .nav-cta {
+    background: var(--burgundy);
+    color: var(--warm-cream);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  .nav-cta:hover { background: #5A2238; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--burgundy) 0%, #8B3A55 45%, #A26769 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* celestial glow background */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 30%, rgba(237,183,77,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(213,185,178,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 30% 50% at 85% 20%, rgba(237,183,77,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* subtle star field */
+  .hero::after {
+    content: '✦ · ✦ · · ✦ · · ✦ · ✦ · · ✦ ·';
+    position: absolute;
+    top: 12%;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 1.4em;
+    color: rgba(237,183,77,0.25);
+    pointer-events: none;
+  }
+
+  .hero-inner { position: relative; z-index: 1; max-width: 720px; }
+
+  .hero-eyebrow {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: clamp(38px, 7vw, 68px);
+    line-height: 1.1;
+    color: var(--warm-cream);
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-year {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--soft-pink);
+    margin-bottom: 28px;
+    display: block;
+  }
+
+  .hero-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(16px, 2.5vw, 21px);
+    color: rgba(245,237,227,0.85);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .hero-tagline {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--soft-pink);
+    letter-spacing: 0.08em;
+    margin-bottom: 44px;
+  }
+
+  .divider-star {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 28px auto;
+    color: var(--gold);
+    font-size: 12px;
+    opacity: 0.55;
+    max-width: 320px;
+  }
+  .divider-star::before, .divider-star::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(237,183,77,0.5), transparent);
+  }
+
+  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--burgundy);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 18px 44px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--warm-cream);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 17px 36px;
+    border: 1px solid rgba(245,237,227,0.35);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-ghost:hover { border-color: rgba(245,237,227,0.75); background: rgba(255,255,255,0.05); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(245,237,227,0.4);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    animation: scrollBob 2.5s ease-in-out infinite;
+  }
+  .hero-scroll::after { content: '↓'; font-size: 14px; }
+  @keyframes scrollBob {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--cream-2);
+    border-top: 1px solid rgba(163,103,105,0.12);
+    border-bottom: 1px solid rgba(163,103,105,0.12);
+    padding: 20px 24px;
+  }
+  .trust-bar-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--dusty-rose);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .trust-item .icon { font-size: 16px; opacity: 0.8; }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 0; }
+  section.alt-bg { background: var(--cream-2); }
+  section.dark-bg {
+    background: linear-gradient(135deg, var(--burgundy) 0%, #8B3A55 100%);
+    color: var(--warm-cream);
+  }
+
+  .section-eyebrow {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .section-eyebrow.light { color: var(--gold-light); }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.2;
+    color: var(--burgundy);
+    margin-bottom: 18px;
+  }
+  h2.on-dark { color: var(--warm-cream); }
+  h2 em { font-style: italic; color: var(--dusty-rose); }
+  h2.on-dark em { color: var(--gold-light); }
+
+  .section-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #5A3040;
+    max-width: 600px;
+  }
+  .section-body.on-dark { color: rgba(245,237,227,0.8); }
+  .section-body.centered { margin: 0 auto; text-align: center; }
+
+  /* ── WHAT IS IT ── */
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    margin-top: 56px;
+  }
+  .what-visual {
+    background: linear-gradient(145deg, var(--soft-pink) 0%, var(--dusty-rose) 100%);
+    border-radius: 2px;
+    aspect-ratio: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .what-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(255,252,247,0.08) 0%, transparent 60%);
+  }
+  .mock-planner {
+    width: 72%;
+    background: var(--warm-cream);
+    border-radius: 2px;
+    padding: 28px 24px;
+    box-shadow: 0 20px 60px rgba(58,21,37,0.25);
+    position: relative;
+    z-index: 1;
+  }
+  .mock-planner-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--burgundy);
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .mock-planner-sub {
+    font-size: 8px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--dusty-rose);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .mock-moon-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .mock-moon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--soft-pink);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+  }
+  .mock-line {
+    height: 6px;
+    background: var(--soft-pink);
+    border-radius: 3px;
+    margin-bottom: 8px;
+    opacity: 0.6;
+  }
+  .mock-line.short { width: 70%; }
+  .mock-line.shorter { width: 50%; }
+  .mock-gold-dot { color: var(--gold); text-align: center; font-size: 16px; margin: 10px 0 6px; }
+
+  .what-content { }
+  .what-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #5A3040;
+    margin-bottom: 20px;
+  }
+  .feature-list { list-style: none; margin-top: 24px; }
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 16px;
+    font-size: 15px;
+    color: #5A3040;
+    line-height: 1.5;
+  }
+  .feature-list .icon {
+    color: var(--gold);
+    font-size: 14px;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+  .feature-list strong { color: var(--burgundy); font-weight: 600; }
+
+  /* ── FOR WHO ── */
+  .for-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .for-card {
+    background: var(--warm-cream);
+    border: 1px solid rgba(163,103,105,0.18);
+    padding: 36px 28px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .for-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(109,46,70,0.1); }
+  .for-card-icon { font-size: 30px; margin-bottom: 16px; }
+  .for-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--burgundy);
+    margin-bottom: 12px;
+  }
+  .for-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--dusty-rose);
+  }
+
+  /* ── INSIDE THE PLANNER ── */
+  .inside-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 56px;
+  }
+  .inside-item {
+    background: rgba(255,252,247,0.06);
+    border: 1px solid rgba(245,237,227,0.12);
+    padding: 32px 28px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .inside-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold);
+    opacity: 0.35;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .inside-text h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--warm-cream);
+    margin-bottom: 8px;
+  }
+  .inside-text p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(245,237,227,0.65);
+  }
+
+  /* ── PHILOSOPHY ── */
+  .philosophy-wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .philosophy-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(22px, 3.5vw, 34px);
+    line-height: 1.5;
+    color: var(--burgundy);
+    margin: 36px 0;
+    position: relative;
+    padding: 0 40px;
+  }
+  .philosophy-quote::before {
+    content: '"';
+    position: absolute;
+    left: 0; top: -10px;
+    font-size: 80px;
+    color: var(--soft-pink);
+    opacity: 0.4;
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+  }
+  .philosophy-attr {
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--dusty-rose);
+    font-weight: 400;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .testi-card {
+    background: var(--warm-cream);
+    border: 1px solid rgba(163,103,105,0.15);
+    padding: 32px 24px;
+  }
+  .testi-stars { color: var(--gold); font-size: 13px; margin-bottom: 16px; letter-spacing: 3px; }
+  .testi-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+  }
+  .testi-author {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dusty-rose);
+  }
+
+  /* ── WHAT YOU GET ── */
+  .bundle-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 56px;
+  }
+  .bundle-list { list-style: none; }
+  .bundle-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(163,103,105,0.12);
+    font-size: 15px;
+    color: #5A3040;
+    line-height: 1.5;
+  }
+  .bundle-list li:last-child { border-bottom: none; }
+  .bundle-check { color: var(--gold); font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+  .bundle-list strong { color: var(--burgundy); font-weight: 600; }
+
+  .price-box {
+    background: linear-gradient(145deg, var(--burgundy) 0%, #8B3A55 100%);
+    padding: 48px 40px;
+    text-align: center;
+    color: var(--warm-cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .price-box::before {
+    content: '✦';
+    position: absolute;
+    font-size: 200px;
+    color: rgba(237,183,77,0.04);
+    top: -40px; right: -20px;
+    pointer-events: none;
+  }
+  .price-label {
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--soft-pink);
+    margin-bottom: 12px;
+  }
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 58px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .price-amount sup { font-size: 26px; vertical-align: top; margin-top: 8px; }
+  .price-was {
+    font-size: 13px;
+    color: rgba(245,237,227,0.45);
+    text-decoration: line-through;
+    margin-bottom: 6px;
+  }
+  .price-save {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--burgundy);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 5px 16px;
+    margin-bottom: 28px;
+  }
+  .price-box .btn-primary {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin-bottom: 16px;
+  }
+  .price-note {
+    font-size: 11px;
+    color: rgba(245,237,227,0.45);
+    line-height: 1.6;
+  }
+  .price-guarantee {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(245,237,227,0.12);
+    font-size: 12px;
+    color: rgba(245,237,227,0.6);
+  }
+  .price-guarantee strong { color: var(--soft-pink); }
+
+  /* ── FAQ ── */
+  .faq-list { max-width: 720px; margin: 56px auto 0; }
+  .faq-item {
+    border-bottom: 1px solid rgba(163,103,105,0.15);
+    padding: 24px 0;
+  }
+  .faq-q {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--burgundy);
+    margin-bottom: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .faq-q:hover { color: var(--dusty-rose); }
+  .faq-icon { color: var(--gold); font-size: 18px; flex-shrink: 0; transition: transform 0.3s; }
+  .faq-a {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #5A3040;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .faq-item.open .faq-a { max-height: 300px; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: linear-gradient(160deg, var(--burgundy) 0%, #A26769 100%);
+    padding: 100px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(237,183,77,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .final-cta-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+  .final-cta h2 { color: var(--warm-cream); margin-bottom: 16px; }
+  .final-cta h2 em { color: var(--gold-light); }
+  .final-cta p {
+    font-size: 17px;
+    color: rgba(245,237,227,0.8);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text-dark);
+    color: rgba(245,237,227,0.45);
+    padding: 40px 24px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 2;
+  }
+  footer .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--warm-cream);
+    margin-bottom: 8px;
+  }
+  footer .footer-tagline {
+    font-style: italic;
+    color: var(--dusty-rose);
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
+  footer a { color: var(--dusty-rose); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .what-grid, .bundle-wrap { grid-template-columns: 1fr; gap: 40px; }
+    .for-grid, .testi-grid { grid-template-columns: 1fr; }
+    .inside-grid { grid-template-columns: 1fr; }
+    .what-visual { aspect-ratio: 16/9; }
+    nav { padding: 14px 16px; }
+    .nav-cta { padding: 8px 18px; font-size: 10px; }
+    .trust-bar-inner { gap: 24px; }
+    .philosophy-quote { padding: 0 20px; font-size: 20px; }
+    .price-amount { font-size: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-brand">
+    Enchanting Life Unleashed
+    <span>Where Soul Meets Strategy</span>
+  </a>
+  <a href="#get-planner" class="nav-cta">Get the Planner</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Enchanting Life Unleashed Presents</p>
+
+    <h1>
+      The 2026 Lunar<br>
+      <em>Boundary Setting</em><br>
+      Planner
+    </h1>
+
+    <span class="hero-year">✦ &nbsp; 2026 Edition &nbsp; ✦</span>
+
+    <p class="hero-sub">
+      Plan your year with the moon. Set sacred boundaries.<br>
+      Build a life that actually feels like yours.
+    </p>
+
+    <p class="hero-tagline">The premium digital planner for the modern mystic who means business.</p>
+
+    <div class="divider-star">✦</div>
+
+    <div class="hero-actions">
+      <a href="#get-planner" class="btn-primary">Yes, I Want This ✦</a>
+      <a href="#inside" class="btn-ghost">See What's Inside</a>
+    </div>
+  </div>
+  <span class="hero-scroll">Scroll</span>
+</section>
+
+<!-- ── TRUST BAR ── -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><span class="icon">🌙</span> Moon-phase aligned layouts</div>
+    <div class="trust-item"><span class="icon">✦</span> Instant digital download</div>
+    <div class="trust-item"><span class="icon">💛</span> Print-ready 8.5 × 11"</div>
+    <div class="trust-item"><span class="icon">🔒</span> 30-day guarantee</div>
+  </div>
+</div>
+
+<!-- ── WHAT IS IT ── -->
+<section>
+  <div class="container">
+    <div class="what-grid">
+      <!-- Visual mock of planner -->
+      <div class="what-visual">
+        <div class="mock-planner">
+          <div class="mock-planner-header">2026 Lunar Planner</div>
+          <div class="mock-planner-sub">Enchanting Life Unleashed</div>
+          <div class="mock-moon-row">
+            <div class="mock-moon">🌑</div>
+            <div class="mock-moon">🌒</div>
+            <div class="mock-moon">🌓</div>
+            <div class="mock-moon">🌔</div>
+            <div class="mock-moon">🌕</div>
+          </div>
+          <div class="mock-line"></div>
+          <div class="mock-line short"></div>
+          <div class="mock-line"></div>
+          <div class="mock-line shorter"></div>
+          <div class="mock-gold-dot">✦</div>
+          <div class="mock-line short"></div>
+          <div class="mock-line"></div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="what-content">
+        <p class="section-eyebrow">What This Is</p>
+        <h2>Your year — aligned with the moon, <em>anchored in your power.</em></h2>
+        <p>This isn't another planner that turns into a guilt trip by February. The 2026 Lunar Boundary Setting Planner was built for women who are spiritually aware and seriously ambitious — women who know that real productivity starts with knowing your limits.</p>
+        <p>Each page works with your energy, not against it. New moons for planting. Full moons for releasing. Quarter moons for recalibrating.</p>
+        <ul class="feature-list">
+          <li><span class="icon">✦</span><div><strong>Lunar-synced structure</strong> — every month, week, and day maps to moon energy so you stop fighting your natural rhythms.</div></li>
+          <li><span class="icon">✦</span><div><strong>Boundary tracking built in</strong> — not as an afterthought, but as the foundation of your planning practice.</div></li>
+          <li><span class="icon">✦</span><div><strong>Soul + strategy, together</strong> — gorgeous enough to inspire, practical enough to actually use.</div></li>
+          <li><span class="icon">✦</span><div><strong>Print or use digitally</strong> — designed for GoodNotes, Notability, or your home printer.</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOR WHO ── -->
+<section class="alt-bg">
+  <div class="container text-center">
+    <p class="section-eyebrow">This Planner Is For You If…</p>
+    <h2>You're <em>done</em> letting hustle culture run your life.</h2>
+    <div class="for-grid">
+      <div class="for-card">
+        <div class="for-card-icon">🌕</div>
+        <h3>The Spiritual Entrepreneur</h3>
+        <p>You're building something meaningful and need a planning system that honors your intuition as much as your income goals.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-card-icon">🌿</div>
+        <h3>The Boundary-Setter in Progress</h3>
+        <p>You know you need stronger boundaries but struggle to maintain them. This planner gives you a monthly ritual to revisit and reset.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-card-icon">✨</div>
+        <h3>The Modern Mystic</h3>
+        <p>You track moon phases, trust your gut, and want a planner that doesn't make you feel like you have to choose between woo and work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INSIDE ── -->
+<section id="inside" class="dark-bg">
+  <div class="container text-center">
+    <p class="section-eyebrow light">Inside the Planner</p>
+    <h2 class="on-dark">Every page has a <em>purpose.</em></h2>
+    <p class="section-body on-dark centered" style="margin-top:16px;">Beautifully designed spreads that guide you through each lunar cycle — from intention to action to integration.</p>
+
+    <div class="inside-grid" style="margin-top:56px;">
+      <div class="inside-item">
+        <div class="inside-num">01</div>
+        <div class="inside-text">
+          <h4>Annual Lunar Calendar</h4>
+          <p>Every new moon, full moon, and eclipse mapped out so you can plan your big moves around cosmic energy — not against it.</p>
+        </div>
+      </div>
+      <div class="inside-item">
+        <div class="inside-num">02</div>
+        <div class="inside-text">
+          <h4>Monthly Boundary Focus Pages</h4>
+          <p>Dedicated space each month to identify the one boundary that needs your attention and build a real plan around it.</p>
+        </div>
+      </div>
+      <div class="inside-item">
+        <div class="inside-num">03</div>
+        <div class="inside-text">
+          <h4>New Moon Intention Rituals</h4>
+          <p>Guided prompts to set powerful intentions at every new moon — with space for your goals, your why, and your non-negotiables.</p>
+        </div>
+      </div>
+      <div class="inside-item">
+        <div class="inside-num">04</div>
+        <div class="inside-text">
+          <h4>Full Moon Release Pages</h4>
+          <p>Structured reflection to let go of what's no longer serving you — energetically, professionally, personally.</p>
+        </div>
+      </div>
+      <div class="inside-item">
+        <div class="inside-num">05</div>
+        <div class="inside-text">
+          <h4>Weekly Sacred Strategy Spreads</h4>
+          <p>A weekly layout that honors rest and action in equal measure — with space for tasks, energy tracking, and aligned priorities.</p>
+        </div>
+      </div>
+      <div class="inside-item">
+        <div class="inside-num">06</div>
+        <div class="inside-text">
+          <h4>Quarterly Review Rituals</h4>
+          <p>Deep-dive reflection pages every 90 days to celebrate wins, release what didn't land, and recalibrate your direction.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHILOSOPHY ── -->
+<section>
+  <div class="container">
+    <div class="philosophy-wrap">
+      <p class="section-eyebrow text-center">The ELU Philosophy</p>
+      <div class="philosophy-quote">
+        You don't have to choose between being spiritual and being successful. You're allowed to want both — and you're allowed to plan for both.
+      </div>
+      <p class="philosophy-attr">— Enchanting Life Unleashed</p>
+      <p class="section-body centered" style="margin-top:28px;">The Lunar Boundary Setting Planner was born from the belief that your most aligned life doesn't come from grinding harder — it comes from getting clear on what you want, what you won't accept, and using the moon as your natural planning partner.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="alt-bg">
+  <div class="container text-center">
+    <p class="section-eyebrow">What She's Saying</p>
+    <h2>Women are <em>transforming</em> how they plan.</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I've tried every planner and nothing stuck. This one actually fits how I think. The moon phases make it feel like I'm planning <em>with</em> myself, not fighting myself."</p>
+        <p class="testi-author">— Maya R., Holistic Coach</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The boundary pages alone are worth it. Every month I have a specific practice to check in with my limits — it's changed everything in my business and relationships."</p>
+        <p class="testi-author">— Jasmine T., Creative Director</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I printed it, I use GoodNotes on my iPad, and I still come back to these pages. It's the first planner I've actually finished a full quarter with."</p>
+        <p class="testi-author">— Simone K., Solopreneur</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT YOU GET + PRICE ── -->
+<section id="get-planner">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:0;">
+      <p class="section-eyebrow">Everything That's Included</p>
+      <h2>One purchase. A full year of <em>aligned planning.</em></h2>
+    </div>
+    <div class="bundle-wrap">
+      <ul class="bundle-list">
+        <li><span class="bundle-check">✦</span><div><strong>Full 2026 Lunar Boundary Setting Planner</strong> — all 12 months, all moon phases, print-ready PDF</div></li>
+        <li><span class="bundle-check">✦</span><div><strong>Annual Lunar Calendar Poster</strong> — a gorgeous one-page overview of every major lunar event in 2026</div></li>
+        <li><span class="bundle-check">✦</span><div><strong>Boundary Blueprint Workbook</strong> — the companion guide to help you identify, set, and hold your most important boundaries</div></li>
+        <li><span class="bundle-check">✦</span><div><strong>Moon Cycle Quick-Start Guide</strong> — a beautiful intro booklet explaining how to use lunar energy in daily planning</div></li>
+        <li><span class="bundle-check">✦</span><div><strong>GoodNotes & Notability compatible</strong> — optimized for digital use with clickable navigation</div></li>
+        <li><span class="bundle-check">✦</span><div><strong>Instant download</strong> — in your inbox within minutes, no waiting</div></li>
+      </ul>
+
+      <div class="price-box">
+        <p class="price-label">Get Instant Access</p>
+        <div class="price-amount"><sup>$</sup>37</div>
+        <p class="price-was">$67 regular price</p>
+        <span class="price-save">You save $30 — limited time</span>
+        <a href="#" class="btn-primary">Yes, I Want the Planner ✦</a>
+        <p class="price-note">🔒 Secure checkout &nbsp;·&nbsp; Instant PDF delivery<br>Works on any device, any printer</p>
+        <div class="price-guarantee">
+          <strong>30-Day Promise</strong><br>
+          If you're not in love with it, email us and we'll make it right.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="alt-bg">
+  <div class="container text-center">
+    <p class="section-eyebrow">Your Questions, Answered</p>
+    <h2>Everything you need to <em>know</em> before you say yes.</h2>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Do I need to know anything about moon phases to use this?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Not at all. The Moon Cycle Quick-Start Guide included with your purchase walks you through everything. Each planner page also has gentle cues about what each phase is for — you'll pick it up naturally as you go.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is this print-only or can I use it digitally?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Both! The PDF is designed to print beautifully on a standard home printer at 8.5 × 11". It's also fully compatible with GoodNotes, Notability, and any other PDF annotation app. Many women use both — printing the monthly pages and going digital for daily use.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          When will I receive my planner?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Immediately after purchase. You'll receive a download link by email within minutes. No shipping, no waiting — you can be planning with the moon tonight.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          I'm starting mid-year. Is it still worth it?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Absolutely. Each lunar cycle is self-contained, so you can jump in at any new moon and feel completely at home. Plus, you'll have the full structure ready the moment you want it — many women find starting at a meaningful moon phase actually more powerful than January 1st.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What's your refund policy?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">We offer a 30-day satisfaction promise. If you purchase and feel like it wasn't right for you, reach out and we'll work with you — no hoops, no drama. We're a small, real business and we want you to love this.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <div class="divider-star" style="margin-bottom:32px; max-width:200px; color:rgba(237,183,77,0.4);">✦</div>
+    <h2>Ready to plan a year that actually <em>feels like yours?</em></h2>
+    <p>Stop white-knuckling your way through the year on willpower alone. The moon has a rhythm. You have a rhythm. This planner brings them together.</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <a href="#get-planner" class="btn-primary" style="background:var(--gold); color:var(--burgundy);">Get the 2026 Planner — $37 ✦</a>
+    </div>
+    <p style="margin-top:20px; font-size:12px; color:rgba(245,237,227,0.4); letter-spacing:0.1em;">Instant download · Print or digital · 30-day promise</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-brand">Enchanting Life Unleashed</div>
+  <div class="footer-tagline">Where Soul Meets Strategy</div>
+  <p style="margin-bottom:12px;">
+    <a href="#">Shop</a> &nbsp;·&nbsp;
+    <a href="#">About</a> &nbsp;·&nbsp;
+    <a href="#">Contact</a> &nbsp;·&nbsp;
+    <a href="#">Privacy</a>
+  </p>
+  <p>© 2026 Enchanting Life Unleashed. All rights reserved.</p>
+  <p style="margin-top:8px; font-size:11px; opacity:0.6;">rickieshaver@gmail.com</p>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Smooth reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.for-card, .inside-item, .testi-card, .bundle-list li').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
