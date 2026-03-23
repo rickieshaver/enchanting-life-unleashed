@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lunar Boundary Setting Guide — Enchanting Life Unleashed</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: 8.5in 11in;
+    margin: 0.75in;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #FFFCF7;
+    color: #3A1525;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* --- Cover Page --- */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 2in 1in;
+    page-break-after: always;
+  }
+
+  .cover .moon-symbols {
+    color: #A26769;
+    font-size: 18pt;
+    letter-spacing: 12px;
+    margin-bottom: 40px;
+  }
+
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 36pt;
+    color: #6D2E46;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .cover .subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 14pt;
+    color: #A26769;
+    margin-bottom: 48px;
+  }
+
+  .cover .brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 13pt;
+    color: #6D2E46;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .cover .tagline {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 11pt;
+    color: #A26769;
+  }
+
+  /* --- Section Pages --- */
+  .section {
+    page-break-before: always;
+    padding: 0.25in 0;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 24pt;
+    color: #6D2E46;
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18pt;
+    color: #6D2E46;
+    margin-top: 28px;
+    margin-bottom: 8px;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 14pt;
+    color: #6D2E46;
+    margin-top: 20px;
+    margin-bottom: 6px;
+  }
+
+  p {
+    margin-bottom: 12px;
+  }
+
+  .divider {
+    text-align: center;
+    color: #A26769;
+    font-size: 14pt;
+    letter-spacing: 8px;
+    margin: 20px 0;
+  }
+
+  .star-divider {
+    text-align: center;
+    color: #EDB74D;
+    font-size: 12pt;
+    letter-spacing: 10px;
+    margin: 16px 0;
+  }
+
+  .moon-emoji {
+    font-size: 28pt;
+    display: block;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .phase-keyword {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #A26769;
+    margin-bottom: 16px;
+  }
+
+  /* --- Lists --- */
+  ul {
+    margin: 8px 0 16px 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  ul li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+
+  ul li::before {
+    content: "\2726";
+    color: #EDB74D;
+    position: absolute;
+    left: 0;
+    font-size: 10pt;
+  }
+
+  /* --- Callout Boxes --- */
+  .callout {
+    background: #D5B9B2;
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin: 16px 0;
+  }
+
+  .callout p {
+    margin-bottom: 8px;
+  }
+
+  .callout p:last-child {
+    margin-bottom: 0;
+  }
+
+  .callout h3 {
+    margin-top: 0;
+  }
+
+  /* --- Blockquote --- */
+  blockquote {
+    border-left: 4px solid #A26769;
+    padding: 12px 20px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #6D2E46;
+    font-family: 'Playfair Display', serif;
+    font-size: 12pt;
+  }
+
+  /* --- Phase Quick-Ref Table --- */
+  .phase-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+  }
+
+  .phase-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #D5B9B2;
+    vertical-align: top;
+  }
+
+  .phase-table td:first-child {
+    width: 140px;
+    font-weight: 600;
+    color: #6D2E46;
+    white-space: nowrap;
+  }
+
+  /* --- CTA Section --- */
+  .cta {
+    text-align: center;
+    padding: 32px 24px;
+    margin-top: 32px;
+    background: #D5B9B2;
+    border-radius: 12px;
+  }
+
+  .cta h2 {
+    margin-top: 0;
+  }
+
+  .cta p {
+    font-size: 11pt;
+  }
+
+  /* --- Footer --- */
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #D5B9B2;
+    font-size: 9pt;
+    color: #A26769;
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover">
+  <div class="moon-symbols">&#9789; &#10022; &#9790;</div>
+  <h1>Lunar Boundary<br>Setting Guide</h1>
+  <p class="subtitle">How to Use Moon Phases<br>for Stronger Boundaries</p>
+  <div class="star-divider">&#10022;</div>
+  <p class="brand">Enchanting Life Unleashed</p>
+  <p class="tagline">Where Soul Meets Strategy</p>
+</div>
+
+<!-- ==================== WELCOME ==================== -->
+<div class="section">
+  <h1>Welcome, Boundary Builder</h1>
+  <div class="divider">&#9789; &#10022; &#9790;</div>
+
+  <p>You've got the Blueprint. You know where your energy's been leaking. Now it's time to work smarter &mdash; not harder.</p>
+
+  <p>Here's what most boundary guides won't tell you: <strong>timing matters.</strong></p>
+
+  <p>You can have the perfect script, the clearest intention, the most beautifully written boundary &mdash; and still struggle to enforce it if you're trying to plant seeds during harvest season.</p>
+
+  <p>That's where the moon comes in.</p>
+
+  <p>For millennia, humans have worked with lunar cycles to know when to plant, when to harvest, when to rest. Your boundary work is no different. There's a time to set intentions. A time to build the muscle. A time to release what's not working. A time to rest and integrate.</p>
+
+  <p>This guide shows you exactly how to align your boundary practice with the moon's natural rhythms &mdash; so you're not forcing change. You're flowing with it.</p>
+
+  <blockquote>"When you align your boundary work with the moon's cycles, you're not forcing change. You're flowing with it."</blockquote>
+
+  <h2>What's Inside</h2>
+  <ul>
+    <li>How each moon phase supports different types of boundary work</li>
+    <li>Rituals and practices for each phase (5&ndash;15 minutes each &mdash; no 2-hour ceremonies)</li>
+    <li>Boundary-specific guidance for Relational, Professional, Energetic, and Self boundaries</li>
+    <li>Journal prompts and reflection questions for each phase</li>
+    <li>A lunar boundary calendar to know exactly what to focus on and when</li>
+  </ul>
+
+  <h2>How to Use This Guide</h2>
+
+  <p><strong>Start wherever the moon currently is.</strong> You don't need to wait for a New Moon to begin &mdash; that's just perfectionism in a spiritual costume.</p>
+
+  <p>Check the current moon phase. Read that section. Do the practice. Repeat next phase.</p>
+
+  <p>This guide works beautifully alongside your <em>Empowered Boundary Blueprint</em>. Use the Blueprint for the <strong>what</strong> (scripts, techniques, practices). Use this guide for the <strong>when</strong> (timing, rhythm, flow).</p>
+
+  <p>Together, they're a complete system for boundaries that actually stick.</p>
+
+  <blockquote>"Your power doesn't need permission. Neither do your boundaries. And neither does your timing."</blockquote>
+</div>
+
+<!-- ==================== WHY LUNAR TIMING MATTERS ==================== -->
+<div class="section">
+  <h1>Why Lunar Timing Matters</h1>
+  <div class="divider">&#9789; &#10022; &#9790;</div>
+
+  <p>Let's address the skeptic in the room &mdash; because I know she's there. (She lives in my head too.)</p>
+
+  <p><em>"Does timing really matter? Can't I just set a boundary whenever I want?"</em></p>
+
+  <p>Yes, you can set a boundary anytime. And you should. If someone's crossing a line today, you don't need to check the moon calendar first.</p>
+
+  <p>But here's the thing: <strong>sustainable boundary work isn't just about the crisis moments.</strong> It's about building a practice. A rhythm. A way of regularly checking in with yourself and reinforcing your limits before they get tested.</p>
+
+  <p>That's where lunar timing becomes powerful.</p>
+
+  <h2>The Science (For the Skeptics)</h2>
+
+  <p>The moon affects ocean tides. Your body is 60% water. While scientific research on lunar effects on human behavior is mixed, what's undeniable is that humans have used lunar cycles as organizational tools for millennia.</p>
+
+  <p>Think of it this way: even if you don't believe the moon "does" anything to you energetically, using moon phases as checkpoints gives you a <strong>built-in rhythm for consistent practice</strong>. It's a framework. A reminder system. A structure.</p>
+
+  <p>And for boundary work &mdash; which requires consistency to become sustainable &mdash; structure is everything.</p>
+
+  <h2>The Energetic Truth (For the Mystics)</h2>
+
+  <p>If you're here from the Boundary Blueprint, you already understand that boundaries are energetic as much as practical. You know that some people drain you without saying a word. You know that environments carry energy. You know that your inner critic is loud even when no one's around.</p>
+
+  <p>Lunar energy follows a cycle:</p>
+  <ul>
+    <li><strong>New Moon to Full Moon</strong> = Building, expanding, illuminating</li>
+    <li><strong>Full Moon to New Moon</strong> = Releasing, clearing, resting</li>
+  </ul>
+
+  <p>Boundary work maps perfectly onto this cycle:</p>
+  <ul>
+    <li><strong>First half:</strong> Set intentions, take action, build the muscle, refine</li>
+    <li><strong>Second half:</strong> Release guilt, forgive, cut cords, rest</li>
+  </ul>
+
+  <p>Working with the moon isn't about superstition. It's about working with natural rhythms instead of against them.</p>
+
+  <h2>The Practical Application</h2>
+  <ul>
+    <li><strong>New Moon:</strong> Get clear on what boundary you're setting or strengthening this cycle</li>
+    <li><strong>Waxing Moon:</strong> Practice saying no. Try the scripts. Build confidence.</li>
+    <li><strong>Full Moon:</strong> Celebrate wins. Release guilt. Let go of what's blocking you.</li>
+    <li><strong>Waning Moon:</strong> Forgive yourself for backsliding. Cut energetic cords. Rest.</li>
+  </ul>
+
+  <p>Rinse and repeat. Every 29.5 days, you get another chance to strengthen your boundaries. No waiting until January. No "starting Monday." The moon gives you a fresh cycle roughly every month.</p>
+
+  <blockquote>"The moon gives you a fresh start every month. Use it."</blockquote>
+</div>
+
+<!-- ==================== 8 PHASES OVERVIEW ==================== -->
+<div class="section">
+  <h1>The 8 Moon Phases &amp; Boundary Work</h1>
+  <div class="divider">&#9789; &#10022; &#9790;</div>
+
+  <p>Here's your quick reference for how each phase supports your boundary practice:</p>
+
+  <table class="phase-table">
+    <tr><td>&#127761; New Moon</td><td><strong>PLANT</strong> &mdash; Set your boundary intention for this cycle. Get crystal clear on what you're no longer available for.</td></tr>
+    <tr><td>&#127762; Waxing Crescent</td><td><strong>NURTURE</strong> &mdash; Take your first small steps. Try a script. Set one small limit. Build momentum.</td></tr>
+    <tr><td>&#127763; First Quarter</td><td><strong>BUILD</strong> &mdash; Push through resistance. This is when guilt and pushback show up. Choose your boundary over your fear.</td></tr>
+    <tr><td>&#127764; Waxing Gibbous</td><td><strong>REFINE</strong> &mdash; Adjust what's not working. Fine-tune your approach. Trust the process.</td></tr>
+    <tr><td>&#127765; Full Moon</td><td><strong>ILLUMINATE</strong> &mdash; Celebrate your progress. Release guilt, old patterns, and energy that isn't yours. Peak power for letting go.</td></tr>
+    <tr><td>&#127766; Waning Gibbous</td><td><strong>INTEGRATE</strong> &mdash; Harvest your lessons. What worked? What didn't? Practice gratitude for your growth.</td></tr>
+    <tr><td>&#127767; Last Quarter</td><td><strong>RELEASE</strong> &mdash; Forgive yourself and others. Cut energetic cords. Complete unfinished boundary business.</td></tr>
+    <tr><td>&#127768; Waning Crescent</td><td><strong>REST</strong> &mdash; Rest without guilt. Restore your energy. Prepare for the next cycle.</td></tr>
+  </table>
+
+  <blockquote>"Each phase has a purpose. Honor where you are."</blockquote>
+</div>
+
+<!-- ==================== NEW MOON ==================== -->
+<div class="section">
+  <div class="moon-emoji">&#127761;</div>
+  <h1>New Moon: Setting Boundary Intentions</h1>
+  <div class="phase-keyword">P L A N T</div>
+  <div class="divider">&#9789; &#10022; &#9790;</div>
+
+  <h2>The Energy</h2>
+  <p>The sky is dark. The moon is invisible. This is the cosmic blank slate &mdash; pure potential waiting to be shaped by your intention.</p>
+
+  <p>New Moon energy is low and inward. You might feel quieter, more reflective. This isn't the time for massive boundary confrontations. It's the time for massive <em>clarity</em> about what boundaries you need.</p>
+
+  <p>Think of it as the planning phase. You're not building the house yet. You're drawing the blueprints.</p>
+
+  <h2>Your Focus: Boundary Clarity</h2>
+  <p>This is when you get honest about where your energy is leaking and what you're going to do about it over the next 29.5 days.</p>
+
+  <p><strong>Choose ONE boundary focus for this lunar cycle.</strong> Not five. Not "all of them." One.</p>
+
+  <div class="callout">
+    <h3>Journal Prompts</h3>
+    <p>Where did I leak the most energy last month?</p>
+    <p>What situation or person consistently drains me?</p>
+    <p>What do I keep saying yes to that I want to say no to?</p>
+    <p>What promise to myself do I keep breaking?</p>
+  </div>
+
+  <h2>New Moon Boundary Ritual</h2>
+  <p><strong>Time needed:</strong> 15 minutes<br>
+  <strong>You'll need:</strong> A candle, your journal, and the Boundary Blueprint for reference.</p>
+
+  <div class="callout">
+    <h3>The Practice</h3>
+    <p><strong>1.</strong> Light your candle. Take three deep breaths. Arrive in your body.</p>
+    <p><strong>2.</strong> Review your Boundary Blueprint quiz results. Notice which category scored lowest. That's where your attention goes this cycle.</p>
+    <p><strong>3.</strong> In your journal, complete this statement: <em>"This lunar cycle, I am no longer available for..."</em></p>
+    <p><strong>4.</strong> Get specific. Not "being taken advantage of" but "answering work emails after 7pm" or "lending money to my sister" or "absorbing my partner's bad moods."</p>
+    <p><strong>5.</strong> Now write your boundary intention in present tense: <em>"I protect my evenings from work. I keep my energy separate from others' moods. I honor my financial boundaries."</em></p>
+    <p><strong>6.</strong> Read it aloud. Feel it in your body. This is your commitment for the next month.</p>
+    <p><strong>7.</strong> Close with: <em>"This or something better. I trust my boundary and my timing."</em></p>
+  </div>
+
+  <blockquote>"In the darkness, clarity is born."</blockquote>
+</div>
+
+<!-- ==================== WAXING CRESCENT ==================== -->
+<div class="section">
+  <div class="moon-emoji">&#127762;</div>
+  <h1>Waxing Crescent: Taking First Steps</h1>
+  <div class="phase-keyword">N U R T U R E</div>
+  <div class="divider">&#9789; &#10022; &#9790;</div>
+
+  <h2>The Energy</h2>
+  <p>The first sliver of light appears. Your intention from the New Moon is beginning to take form. This is the "sprouting" phase &mdash; seeds pushing through soil.</p>
+
+  <p>You might feel a spark of motivation. A pull toward action. Don't ignore it &mdash; but don't go too big too fast either. Small steps create sacred momentum.</p>
+
+  <h2>Your Focus: Micro-Boundaries</h2>
+  <p>This isn't the time to confront your most difficult relationship or completely overhaul your work boundaries. It's time for practice rounds. Low-stakes boundary setting that builds your confidence.</p>
+
+  <p>Think of it like training. You don't start with a marathon. You start with walking around the block.</p>
+
+  <div class="callout">
+    <h3>Micro-Boundary Examples</h3>
+    <p>Saying "let me think about it" instead of immediately saying yes</p>
+    <p>Letting a call go to voicemail</p>
+    <p>Leaving a gathering 30 minutes earlier than usual</p>
+    <p>Not checking email during lunch</p>
+    <p>Asking for help with one small thing</p>
+  </div>
+
+  <h2>Waxing Crescent Practice</h2>
+  <p><strong>Time needed:</strong> 5 minutes daily</p>
+
+  <div class="callout">
+    <h3>The Practice</h3>
+    <p>Each morning during this phase, set one micro-boundary intention:</p>
+    <p><em>"Today, I will honor my boundary by _______________."</em></p>
+    <p>Make it specific. Make it small. Make it achievable.</p>
+    <p>Each evening, check in:</p>
+    <p>Did I do it? (Celebrate if yes. No judgment if no.)</p>
+    <p>How did it feel?</p>
+    <p>What did I notice?</p>
+  </div>
+
+  <p>This phase is about gathering data and building confidence. Every small "no" or "not right now" is training your nervous system that boundaries are safe.</p>
+
+  <blockquote>"Small steps create sacred momentum."</blockquote>
+</div>
+
+<!-- ==================== FIRST QUARTER ==================== -->
+<div class="section">
+  <div class="moon-emoji">&#127763;</div>
+  <h1>First Quarter: Facing Resistance</h1>
+  <div class="phase-keyword">B U I L D</div>
+  <div class="divider">&#9789; &#10022; &#9790;</div>
+
+  <h2>The Energy</h2>
+  <p>The moon is half-illuminated &mdash; and so are you. This is the challenge phase. Resistance shows up. Doubt creeps in. People push back. Guilt arrives.</p>
+
+  <p>This is completely normal. The universe is testing your commitment.</p>
+
+  <p>First Quarter energy is friction. But friction isn't failure &mdash; it's fuel.</p>
+
+  <h2>Your Focus: Push Through Anyway</h2>
+  <p>This is when boundary work gets real. The initial motivation has worn off. Someone has probably already tested your new boundary. Your inner critic is getting loud.</p>
+
+  <p>The temptation is to abandon the boundary. <em>"Maybe I was being too rigid." "Maybe it's not worth the conflict." "Maybe I should just go back to how things were."</em></p>
+
+  <p><strong>No.</strong></p>
+
+  <p>This is the moment to choose your intention over your fear. This is where boundaries are actually built &mdash; in the moments when it would be easier to cave.</p>
+
+  <h2>First Quarter Battle Plan</h2>
+  <p><strong>Time needed:</strong> 10 minutes</p>
+
+  <div class="callout">
+    <h3>The Practice</h3>
+    <p><strong>1.</strong> Write down every objection your mind is giving you about your boundary. All of them. Get them out of your head and onto paper.</p>
+    <p><strong>2.</strong> For each objection, write a response. (Use the Mindset Work sections in your Blueprint for help.)</p>
+    <p><strong>3.</strong> Hold something grounding &mdash; a crystal, a stone, your own hands. Say aloud: <em>"I am stronger than this resistance. I choose my intention over my fear."</em></p>
+    <p><strong>4.</strong> Identify one specific situation this week where you will hold your boundary despite discomfort. Name it. Prepare for it.</p>
+  </div>
+
+  <h2>Scripts for First Quarter Pushback</h2>
+
+  <div class="callout">
+    <p><strong>When someone is disappointed in your boundary:</strong><br>"I understand this is different from what you expected. My answer is still no."</p>
+    <p><strong>When your inner critic says you're being selfish:</strong><br>"Taking care of myself isn't selfish. It's sustainable."</p>
+    <p><strong>When guilt tries to make you cave:</strong><br>"Guilt is not a sign I'm doing something wrong. It's a sign I'm doing something new."</p>
+  </div>
+
+  <blockquote>"Friction is not failure &mdash; it's fuel."</blockquote>
+</div>
+
+<!-- ==================== WAXING GIBBOUS ==================== -->
+<div class="section">
+  <div class="moon-emoji">&#127764;</div>
+  <h1>Waxing Gibbous: Refining Your Approach</h1>
+  <div class="phase-keyword">R E F I N E</div>
+  <div class="divider">&#9789; &#10022; &#9790;</div>
+
+  <h2>The Energy</h2>
+  <p>The moon is almost full. You can feel the peak approaching. Energy supports editing, adjusting, and fine-tuning &mdash; not overhauling.</p>
+
+  <p>You might feel impatient. Anxious. Ready to be "done." But boundaries aren't a destination. They're a practice. This phase is about trusting the process.</p>
+
+  <h2>Your Focus: Adjust, Don't Abandon</h2>
+  <p>By now, you've had some practice. Some boundaries landed well. Others felt clunky. Some worked in one situation but not another.</p>
+
+  <p>This is the refinement phase. Not throwing out the whole thing &mdash; just making small adjustments.</p>
+
+  <div class="callout">
+    <h3>Questions for Refinement</h3>
+    <p>What's working about my boundary approach?</p>
+    <p>What feels too rigid? Too loose?</p>
+    <p>Where do I need a different script or approach?</p>
+    <p>What's one small tweak that would help?</p>
+  </div>
+
+  <h2>Waxing Gibbous Refinement Practice</h2>
+  <p><strong>Time needed:</strong> 10 minutes</p>
+
+  <div class="callout">
+    <h3>The Practice</h3>
+    <p>Review your New Moon intention. How are you doing? Be honest but kind.</p>
+    <p>In your journal, write:</p>
+    <p><strong>Three things working well</strong> (celebrate these)</p>
+    <p><strong>One thing to adjust</strong> (not overhaul &mdash; adjust)</p>
+    <p><strong>One area where you need to trust more</strong></p>
+    <p>Place your hand on your heart. Say: <em>"I trust divine timing. I refine without obsessing. The magic is already working."</em></p>
+  </div>
+
+  <blockquote>"The magic is already working."</blockquote>
+</div>
+
+<!-- ==================== FULL MOON ==================== -->
+<div class="section">
+  <div class="moon-emoji">&#127765;</div>
+  <h1>Full Moon: Release &amp; Celebration</h1>
+  <div class="phase-keyword">I L L U M I N A T E</div>
+  <div class="divider">&#9789; &#10022; &#9790;</div>
+
+  <h2>The Energy</h2>
+  <p>Peak power. Maximum illumination. Everything is visible &mdash; nothing can hide.</p>
+
+  <p>Emotions run high. Energy runs higher. This is the climax of the lunar cycle &mdash; and the most potent time for release.</p>
+
+  <p>Full Moon energy illuminates both your wins AND what's still blocking you. Use it for both: celebration and release.</p>
+
+  <h2>Your Focus: Celebrate &amp; Let Go</h2>
+  <p>First, <strong>celebrate</strong>. What boundaries did you hold this cycle? What progress did you make? Even if it was messy, imperfect, or small &mdash; honor it.</p>
+
+  <p>Then, <strong>release</strong>. What guilt are you carrying about your boundaries? What old patterns are still gripping you? What energy have you absorbed that isn't yours?</p>
+
+  <p>The Full Moon is your permission slip to let it all go.</p>
+
+  <h2>Full Moon Boundary Release Ritual</h2>
+  <p><strong>Time needed:</strong> 15&ndash;20 minutes<br>
+  <strong>You'll need:</strong> Paper, pen, candle, and a safe way to burn paper (or a bowl of water)</p>
+
+  <div class="callout">
+    <h3>The Practice</h3>
+    <p><strong>1.</strong> Light your candle. If possible, sit where you can see the moon (or visualize it).</p>
+    <p><strong>2.</strong> First, CELEBRATE. In your journal, write at least three boundary wins from this cycle. Did you say no? Hold a limit? Honor your own needs? Write it down. Let yourself feel proud.</p>
+    <p><strong>3.</strong> Now, on a separate piece of paper, write what you're releasing:</p>
+    <p>&mdash; Guilt about setting boundaries<br>
+    &mdash; Other people's disappointment<br>
+    &mdash; Old patterns of people-pleasing<br>
+    &mdash; Energy you absorbed that wasn't yours<br>
+    &mdash; The need for everyone to understand<br>
+    &mdash; Perfectionism about boundary-setting</p>
+    <p><strong>4.</strong> Hold the paper to your heart. Say: <em>"I release what no longer serves me. I make space for what's coming. I am allowed to protect my peace."</em></p>
+    <p><strong>5.</strong> Safely burn the paper, tear it up, or submerge it in water. Feel the release.</p>
+    <p><strong>6.</strong> Close with: <em>"I celebrate my progress. I release my guilt. I step into my power."</em></p>
+  </div>
+
+  <blockquote>"Let it go. Let it glow."</blockquote>
+</div>
+
+<!-- ==================== WANING GIBBOUS ==================== -->
+<div class="section">
+  <div class="moon-emoji">&#127766;</div>
+  <h1>Waning Gibbous: Harvesting Wisdom</h1>
+  <div class="phase-keyword">I N T E G R A T E</div>
+  <div class="divider">&#9789; &#10022; &#9790;</div>
+
+  <h2>The Energy</h2>
+  <p>The peak has passed. Energy turns inward. This is the harvest phase &mdash; time to gather the fruits of your boundary work and integrate what you've learned.</p>
+
+  <p>You might feel reflective, generous, or called to share what you've discovered. This is also called the "Disseminating Moon" &mdash; a time to spread wisdom.</p>
+
+  <h2>Your Focus: Integration</h2>
+  <p>Don't rush past the lessons. This cycle taught you something. Maybe several somethings. Take time to actually integrate them before moving on.</p>
+
+  <div class="callout">
+    <h3>Integration Questions</h3>
+    <p>What did I learn about my boundaries this cycle?</p>
+    <p>What worked better than expected?</p>
+    <p>What was harder than expected?</p>
+    <p>What am I proud of?</p>
+    <p>What would I tell someone just starting this boundary work?</p>
+  </div>
+
+  <h2>Waning Gibbous Integration Practice</h2>
+  <p><strong>Time needed:</strong> 10 minutes</p>
+
+  <div class="callout">
+    <h3>The Practice</h3>
+    <p><strong>1.</strong> Place your hand on your heart. Close your eyes. Take three deep breaths.</p>
+    <p><strong>2.</strong> Say: <em>"I receive the wisdom of this cycle. I am grateful for every lesson &mdash; even the hard ones."</em></p>
+    <p><strong>3.</strong> In your journal, write three lessons from this cycle.</p>
+    <p><strong>4.</strong> Consider: Is there one insight you could share with someone else? (A friend, a journal entry, a social post?) Sharing wisdom solidifies learning.</p>
+  </div>
+
+  <blockquote>"The harvest is in your hands."</blockquote>
+</div>
+
+<!-- ==================== LAST QUARTER ==================== -->
+<div class="section">
+  <div class="moon-emoji">&#127767;</div>
+  <h1>Last Quarter: Forgiveness &amp; Cord Cutting</h1>
+  <div class="phase-keyword">R E L E A S E</div>
+  <div class="divider">&#9789; &#10022; &#9790;</div>
+
+  <h2>The Energy</h2>
+  <p>Half-lit again, but moving toward darkness. This is deep release territory &mdash; time for forgiveness, surrender, and cutting energetic cords.</p>
+
+  <p>Last Quarter energy can feel heavy if you resist it. But lean in, and there's profound freedom on the other side.</p>
+
+  <h2>Your Focus: Forgiveness &amp; Completion</h2>
+  <p>Two types of forgiveness are called for here:</p>
+
+  <p><strong>1.</strong> Forgiving yourself for boundary slips, backslides, and imperfect attempts</p>
+  <p><strong>2.</strong> Forgiving others whose boundary violations brought you to this work in the first place</p>
+
+  <p>Forgiveness isn't about condoning behavior. It's about releasing the energetic hold that resentment has on you. You can forgive AND maintain your boundary. They're not mutually exclusive.</p>
+
+  <p>This is also prime time for cord cutting &mdash; releasing energetic connections that drain you even when the person isn't physically present.</p>
+
+  <h2>Last Quarter Cord Cutting Ritual</h2>
+  <p><strong>Time needed:</strong> 15 minutes<br>
+  <strong>You'll need:</strong> String or ribbon (about 12 inches), scissors, candle</p>
+
+  <div class="callout">
+    <h3>The Practice</h3>
+    <p><strong>1.</strong> Light your candle. Take three centering breaths.</p>
+    <p><strong>2.</strong> Hold the string. Say: <em>"This string represents the unhealthy energetic cords between me and [person/situation/pattern]. The cords that drain me. The ties that bind me to old pain."</em></p>
+    <p><strong>3.</strong> Close your eyes. Visualize the cords. Where do they attach to you? (Heart? Gut? Solar plexus?) Notice how heavy they feel.</p>
+    <p><strong>4.</strong> Say: <em>"I release what is not mine to carry. I return your energy to you. I reclaim my power. I forgive &mdash; for my freedom, not yours."</em></p>
+    <p><strong>5.</strong> Cut the string with intention. Feel the release.</p>
+    <p><strong>6.</strong> Place hands on your heart: <em>"I am whole. I am free. I am complete without these cords."</em></p>
+    <p><strong>7.</strong> Dispose of the string pieces. Let the candle burn a few more minutes.</p>
+  </div>
+
+  <p><strong>Note:</strong> You may need to repeat this ritual with the same person or situation multiple times. Cords can reform. That's okay. Keep cutting them until they stay cut.</p>
+
+  <blockquote>"I release resentment. I choose freedom."</blockquote>
+</div>
+
+<!-- ==================== WANING CRESCENT ==================== -->
+<div class="section">
+  <div class="moon-emoji">&#127768;</div>
+  <h1>Waning Crescent: Sacred Rest</h1>
+  <div class="phase-keyword">R E S T</div>
+  <div class="divider">&#9789; &#10022; &#9790;</div>
+
+  <h2>The Energy</h2>
+  <p>The final sliver of light before darkness. This is the void &mdash; the quiet before rebirth. Energy is at its lowest point.</p>
+
+  <p>Your body, mind, and spirit are asking for rest. Don't fight it.</p>
+
+  <p>The Waning Crescent is the most spiritual phase &mdash; a time for reflection, dreams, and deep inner knowing. In the dark, your magic regenerates.</p>
+
+  <h2>Your Focus: Rest Without Guilt</h2>
+  <p>This is the self-boundary phase. Can you actually rest? Can you honor your own needs for stillness, sleep, and restoration?</p>
+
+  <p>For those of us with leaky self-boundaries, this phase is the hardest. We're used to pushing. Producing. Proving. Rest feels uncomfortable. Unearned. Indulgent.</p>
+
+  <p><strong>It's not.</strong></p>
+
+  <p>Rest is the foundation for everything else. You cannot pour from an empty cup &mdash; and you cannot set strong boundaries if you're running on fumes.</p>
+
+  <h2>Waning Crescent Rest Practice</h2>
+  <p><strong>Time needed:</strong> As much as you can give yourself</p>
+
+  <div class="callout">
+    <h3>The Practice</h3>
+    <p>This phase has one primary instruction: <strong>REST.</strong></p>
+    <p>What does rest look like for you right now?</p>
+    <p>&mdash; Going to bed earlier</p>
+    <p>&mdash; Canceling something unnecessary</p>
+    <p>&mdash; Taking a bath instead of a quick shower</p>
+    <p>&mdash; Saying no to one more thing</p>
+    <p>&mdash; Sitting in darkness or candlelight</p>
+    <p>&mdash; Doing nothing productive</p>
+    <p>Before bed during this phase, place both hands on your heart and whisper:</p>
+    <p><em>"I rest without guilt. In stillness, I am reborn. In the darkness, my next cycle is already forming."</em></p>
+  </div>
+
+  <p>Let yourself dream. Pay attention to what comes through. Your intuition is loudest when you're quiet enough to hear it.</p>
+
+  <blockquote>"In the darkness, seeds germinate."</blockquote>
+</div>
+
+<!-- ==================== BOUNDARY-SPECIFIC MOON WORK ==================== -->
+<div class="section">
+  <h1>Boundary-Specific Moon Work</h1>
+  <div class="divider">&#9789; &#10022; &#9790;</div>
+
+  <p>Each boundary type has its own optimal focus during the lunar cycle. Use this guide to customize your practice based on your lowest-scoring category from the Blueprint assessment.</p>
+
+  <h2>Relational Boundaries &amp; The Moon</h2>
+  <div class="callout">
+    <p><strong>New Moon:</strong> Set intention around ONE relationship that drains you</p>
+    <p><strong>Waxing Moon:</strong> Practice scripts with low-stakes people first</p>
+    <p><strong>Full Moon:</strong> Release guilt about disappointing others</p>
+    <p><strong>Waning Moon:</strong> Cut cords with people who violate your boundaries (the cord, not the relationship)</p>
+  </div>
+
+  <h2>Professional Boundaries &amp; The Moon</h2>
+  <div class="callout">
+    <p><strong>New Moon:</strong> Decide what work boundary needs attention this month</p>
+    <p><strong>Waxing Moon:</strong> Implement work shutdown ritual. Practice not checking email.</p>
+    <p><strong>Full Moon:</strong> Release the belief that your worth = your productivity</p>
+    <p><strong>Waning Moon:</strong> Forgive yourself for over-working. Cut cords with hustle culture.</p>
+  </div>
+
+  <h2>Energetic Boundaries &amp; The Moon</h2>
+  <div class="callout">
+    <p><strong>New Moon:</strong> Set intention around energetic protection</p>
+    <p><strong>Waxing Moon:</strong> Practice bubble shield daily. Notice what drains you.</p>
+    <p><strong>Full Moon:</strong> Release absorbed energy. Charge your protective crystals.</p>
+    <p><strong>Waning Moon:</strong> Deep energetic cord cutting. Clear your space.</p>
+  </div>
+
+  <h2>Self Boundaries &amp; The Moon</h2>
+  <div class="callout">
+    <p><strong>New Moon:</strong> Choose one non-negotiable promise to yourself</p>
+    <p><strong>Waxing Moon:</strong> Keep the promise daily. Build self-trust.</p>
+    <p><strong>Full Moon:</strong> Release inner critic. Celebrate what you've done right.</p>
+    <p><strong>Waning Moon:</strong> Rest. This IS self-boundary work.</p>
+  </div>
+</div>
+
+<!-- ==================== CLOSING ==================== -->
+<div class="section">
+  <h1>You Made It</h1>
+  <div class="divider">&#9789; &#10022; &#9790;</div>
+
+  <p>Look at you &mdash; actually integrating lunar wisdom with practical boundary work. This is the kind of modern mysticism that actually moves the needle.</p>
+
+  <p>Here's what I want you to remember:</p>
+
+  <p><strong>You don't have to wait for the "perfect" moon phase to set a boundary.</strong> If someone's crossing a line right now, handle it right now.</p>
+
+  <p>But for building sustainable boundary practices &mdash; the kind that become second nature instead of constant battles &mdash; working with the moon gives you structure. Rhythm. Regular check-ins with yourself.</p>
+
+  <p>Every 29.5 days, you get another chance. Another cycle to practice. Another opportunity to strengthen your limits and honor your needs.</p>
+
+  <p>That's the magic of lunar living: built-in fresh starts.</p>
+
+  <h2>What's Next</h2>
+
+  <p>Use this guide alongside your <em>Empowered Boundary Blueprint</em>. The Blueprint gives you the <strong>what</strong> &mdash; the scripts, rituals, and practices. This guide gives you the <strong>when</strong> &mdash; the timing and rhythm.</p>
+
+  <p>Together, they're a complete system for boundaries that actually stick.</p>
+
+  <p>Consider getting the <strong>Lunar Boundary Setting Planner</strong> (the companion to this guide) for worksheets and tracking pages for each phase.</p>
+
+  <p>And remember &mdash; the <strong>Moon Cycle Life Planner</strong> can help you expand this practice beyond boundaries into every area of your life.</p>
+
+  <blockquote>"Your power doesn't need permission. Neither do your boundaries. And neither does your timing."</blockquote>
+
+  <div class="cta">
+    <h2>Continue Your Journey</h2>
+    <div class="star-divider">&#10022; &#10022; &#10022;</div>
+    <p>Pair this guide with the <strong>Lunar Boundary Planner 2026</strong> for a full year of moon-phase tracking, boundary worksheets, and ritual pages.</p>
+    <p style="margin-top: 16px;"><strong>Enchanting Life Unleashed</strong><br><em>Where Soul Meets Strategy</em></p>
+    <p style="margin-top: 12px; font-size: 10pt; color: #6D2E46;">EnchantingLifeUnleashed.com &nbsp;|&nbsp; @enchantinglifeunleashed</p>
+  </div>
+
+  <div class="footer">
+    <p>&#9789; &#10022; &#9790;</p>
+    <p>ENCHANTING LIFE UNLEASHED &nbsp;|&nbsp; Where Soul Meets Strategy</p>
+    <p>&copy; Enchanting Life Unleashed. All rights reserved. For personal use only.</p>
+  </div>
+</div>
+
+</body>
+</html>
