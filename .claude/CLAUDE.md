@@ -211,11 +211,12 @@ This is a self-improving loop. Every session makes the next one faster.
 5. **Webflow remaining pages** — Blog, /boundary-blueprint, /moon-magic need building (after /planner done)
 6. **Connect tech stack** — Stripe → Webflow checkout, Kit email sequences, Namecheap DNS → Webflow
 7. **Moon Planner 2026** — ✅ FINAL PDF updated (163 pages, Session 13). Custom SVG moon icons + worksheet redesign (wider lines, Boundaries I'm Setting section). Saved to `Content/Products/Moon Magic/ELU_Moon_Planner_2026_FINAL.pdf`. Still needs: long-week overflow spot-check before publishing.
-8. **Lunar Boundaries Funnel** — 🔄 IN PROGRESS (Session 14). PDFs generated, HTML fixed. Needs: Google Drive upload + URLs, Webflow /lunar-boundaries + /thank-you pages, Stripe $17, Zapier, Kit delivery email. See Session 14 log.
-9. **ELU Digital Product Builder** — Streamlit app (Code/scripts/app.py), needs Stripe export + AI brand voice rewrite
+8. **Lunar Boundaries Funnel** — 🔄 IN PROGRESS (Session 15). Google Drive URLs confirmed. Webflow /lunar-boundaries + /thank-you pages pending (Designer connection needed). Stripe $17, Zapier, Kit still pending. See Session 15 log.
+9. **Webflow Skills installed** — 10 official Webflow skills now in `~/.claude/skills/` (site-audit, link-checker, safe-publish, accessibility-audit, asset-audit, custom-code-management, bulk-cms-update, cms-collection-setup, cms-best-practices, flowkit-naming)
+10. **ELU Digital Product Builder** — Streamlit app (Code/scripts/app.py), needs Stripe export + AI brand voice rewrite
 
 ---
-*Last updated: 2026-03-23 (Session 14) — update whenever new products launch or priorities shift*
+*Last updated: 2026-03-24 (Session 15) — update whenever new products launch or priorities shift*
 
 ---
 
@@ -646,3 +647,29 @@ This is a self-improving loop. Every session makes the next one faster.
 2. Build Webflow `/lunar-boundaries` + `/thank-you` pages (design ref: `Content/Products/Lunar Boundaries/ELU_Planner_Landing_Page.html`)
 3. Update `/boundary-blueprint` upsell button → `/lunar-boundaries`
 4. Create Stripe product at $17, set up Zapier + Kit delivery email
+
+---
+
+### 2026-03-24 (Session 15) — Webflow skills installed + Google Drive URLs confirmed
+
+**Completed:**
+- Confirmed Google Drive direct download URLs for all 3 Lunar Boundaries PDFs:
+  - Planner: `https://drive.google.com/uc?export=download&id=1T9dODFzMvzVXveiDZQdCZ8ZCSW3RmVpR`
+  - Blueprint (freebie): `https://drive.google.com/uc?export=download&id=1nbRptHwflbOYCc0yKa1hviUayM9NZfhu`
+  - Setting Guide (bonus): `https://drive.google.com/uc?export=download&id=10-UzlxgTTQFVQ0DUcSDE8bYYmrtMxecq`
+- Cloned `webflow/webflow-skills` repo to `~/webflow-skills/`
+- Installed all 10 official Webflow skills into `~/.claude/skills/`: site-audit, link-checker, safe-publish, accessibility-audit, asset-audit, custom-code-management, bulk-cms-update, cms-collection-setup, cms-best-practices, flowkit-naming
+- Note: user renamed files in Lunar Boundaries folder to clean names (no underscores/ELU prefix)
+
+**In Progress:**
+- Webflow /lunar-boundaries + /thank-you page build waiting on Designer connection (subagent dispatched but needs active Designer tab)
+- /boundary-blueprint upsell button update pending same
+
+**What Worked:**
+- `git clone` as fallback when `gh` CLI not installed
+
+**Next Session:**
+1. Open Webflow Designer (one tab, foreground), then resume subagent for /lunar-boundaries + /thank-you + boundary-blueprint upsell button
+2. Create Stripe product at $17
+3. Set up Zapier (Stripe → Kit tag `purchased-lunar-planner`) + Kit delivery email with 2 download URLs
+4. Update Kit freebie sequence with new Blueprint PDF URL
