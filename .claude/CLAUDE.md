@@ -70,7 +70,7 @@ The Designer tab must be the **active, foreground tab** in the browser. Once cli
 | Product | Type | Status | Notes |
 |---------|------|--------|-------|
 | **Lunar Boundary Setting Planner** | PDF Planner (8.5×11) | Active | Q1 (Jan–Mar) + Q2 (Apr–Jun) built; full year in progress |
-| **Empowered Boundary Blueprint** | Workbook/Guide | Active | Complete package + Part 1 standalone |
+| **Empowered Boundary Blueprint** | Workbook/Guide | Active | 3 archetype versions built (Open Door, Cracked Window, Sacred Boundary Keeper) — HTML files in /mnt/Ai/, need PDF conversion + KIT automation |
 | **Moon Magic Quick Start Guide** | Freebie/Intro | Active | Entry-point product / lead magnet |
 | **12 Full Moon Rituals 2026** | Guide | Active | Moon Magic folder |
 | **Wolf Moon Ritual** | Freebie | Active | Lead magnet |
@@ -207,22 +207,58 @@ This is a self-improving loop. Every session makes the next one faster.
 ## Active Priorities (update this section as projects evolve)
 
 1. **Webflow Home page** — ✅ Built + ✅ Design upgraded (Session 7). Needs: Body bg fix (manual), real photo in About placeholder, email form wired to Kit
-2. **Webflow Shop page** — ✅ Built + ✅ Design upgraded (Session 7). Needs: Body bg fix (manual), Stripe links wired to CTAs, delete old orphan elements, Kit form on email capture
-3. **Webflow About page** — ✅ Built + ✅ Design upgraded (Session 7). Needs: Body bg fix (manual), real brand photo, Kit form wiring, delete orphan elements
-4. **Webflow /planner page** — 🔄 IN PROGRESS. All sections built (hero, what's inside, social proof, CTA, footer). Needs: Stripe link on CTA buttons, delete duplicate empty hero section `938fe636`, rename slug to `/planner`, set Body bg to Warm Cream. See Session 6 log.
-5. **Webflow remaining pages** — Blog, /boundary-blueprint, /moon-magic need building (after /planner done)
-6. **Connect tech stack** — Stripe → Webflow checkout, Kit email sequences, Namecheap DNS → Webflow
-7. **Moon Planner 2026** — ✅ FINAL PDF updated (163 pages, Session 13). Custom SVG moon icons + worksheet redesign (wider lines, Boundaries I'm Setting section). Saved to `Content/Products/Moon Magic/ELU_Moon_Planner_2026_FINAL.pdf`. Still needs: long-week overflow spot-check before publishing.
-8. **Lunar Boundaries Funnel** — 🔄 IN PROGRESS (Session 15). Google Drive URLs confirmed. Webflow /lunar-boundaries + /thank-you pages pending (Designer connection needed). Stripe $17, Zapier, Kit still pending. See Session 15 log.
-9. **Webflow Skills installed** — 10 official Webflow skills now in `~/.claude/skills/` (site-audit, link-checker, safe-publish, accessibility-audit, asset-audit, custom-code-management, bulk-cms-update, cms-collection-setup, cms-best-practices, flowkit-naming)
-10. **ELU Digital Product Builder** — Streamlit app (Code/scripts/app.py), needs Stripe export + AI brand voice rewrite
+2. **Webflow Shop page** — ✅ Prices updated ($17/$17/$7), glass cards active, layout fixed (Session 16). Needs: Stripe links wired to CTAs, Body bg fix (manual)
+3. **Webflow About page** — ✅ Start Here buttons linked to product pages (Session 16). Needs: real brand photo, Body bg fix (manual)
+4. **Webflow /planner page** — 🔄 IN PROGRESS. All sections built. Needs: Stripe links on 4 CTA buttons, delete duplicate hero `938fe636` (manual Designer), rename slug to `/planner`, set Body bg to Warm Cream. See Session 6 log.
+5. **Webflow Blog page** — ✅ Built. Needs: 6 "Read More →" buttons linked (need blog post URLs from Rickie)
+6. **Webflow /boundary-blueprint** — ✅ Built. Upsell price updated to $17. Needs: upsell CTA → /lunar-boundaries
+7. **Webflow /moon-magic** — ✅ Built.
+8. **Publish site** — Rate-limited in Session 16, all changes unpublished. Open Designer → publish manually.
+9. **Connect tech stack** — Stripe $17 product, Zapier (Stripe → Kit tag `purchased-lunar-planner`), Kit delivery email, Kit freebie Blueprint URL update — all manual tasks for Rickie
+14. **Boundary Blueprint Quiz Automation** — 🔄 IN PROGRESS. 3 archetype HTML files built (Open Door, Cracked Window, Sacred Boundary Keeper), saved to /mnt/Ai/. Next: convert to PDF, host files, build KIT Visual Automation (3 branches on bb_archetype field), write 3 delivery emails, confirm Webflow→KIT connection. Full details: `.claude/memory/projects/boundary-blueprint-quiz-automation.md`
+10. **Webflow /lunar-boundaries + /thank-you pages** — Pending build. Design ref: `Content/Products/Lunar Boundaries/Planner Landing Page.html`. See Session 15 log.
+11. **Moon Planner 2026** — ✅ FINAL PDF (163 pages, Session 13). Still needs: long-week overflow spot-check before publishing.
+12. **Webflow Skills installed** — 10 official Webflow skills in `~/.claude/skills/`
+13. **ELU Digital Product Builder** — Streamlit app (Code/scripts/app.py), needs Stripe export + AI brand voice rewrite
 
 ---
-*Last updated: 2026-03-24 (Session 15) — update whenever new products launch or priorities shift*
+*Last updated: 2026-04-06 (Session 17) — update whenever new products launch or priorities shift*
 
 ---
 
 ## Session Log
+
+---
+
+### 2026-04-06 — Boundary Blueprint Quiz audit + 3 archetype PDFs built
+
+**Completed:**
+- Full audit of KIT + Webflow quiz setup — identified that custom fields exist in KIT (bb_archetype, bb_primary_boundary_area, bb_result_key, bb_self_score, bb_relational_score, bb_energetic_score, bb_source, bb_timestamp) but NO automation built yet
+- Clarified quiz structure: 3 archetypes (Open Door, Cracked Window, Sacred Boundary Keeper) × 4 boundary areas (Relational, Professional, Energetic, Self)
+- Decided delivery strategy: Option A+C — 3 archetype-specific PDFs delivered via a personalized KIT email that calls out their primary boundary area using custom fields
+- Built all 3 archetype versions of the Empowered Boundary Blueprint HTML files — fully customized cover, archetype intro page, Chapter 1 origin story, Chapter 2 energy leaks, Chapter 3 scripts, Chapter 6 case studies, Chapter 8 closing, altar cards
+- Files: boundary-blueprint-open-door.html, boundary-blueprint-cracked-window.html, boundary-blueprint-sacred-keeper.html — all saved to /mnt/Ai/
+
+**In Progress:**
+- KIT Visual Automation not yet built — 3 branches triggering on bb_archetype field value
+- PDFs not yet converted (HTML files need Chrome print → Save as PDF with Background Graphics on)
+- Delivery emails not yet written (3 needed, one per archetype)
+- Webflow → KIT connection method not confirmed (unknown if native, Zapier, Make, or custom code)
+
+**What Worked:**
+- Reading the full original HTML before building the 3 versions — allowed precise customization without losing original tone/structure
+- Deciding strategy (A+C) before building — saved time and confusion
+- Keeping the shared content (Chapters 4, 5, 7) consistent across all 3 versions while customizing the identity-specific chapters
+
+**What Didn't:**
+- KIT MCP tools not appearing in Claude's available tool list — may need Rickie to reconnect/re-authenticate KIT MCP
+
+**Next Session:**
+1. Convert 3 HTML files to PDF (Chrome → Print → Save as PDF, enable Background Graphics)
+2. Host PDFs (Google Drive or Webflow assets) + get download links
+3. Build KIT Visual Automation: trigger on `boundary-blueprint-quiz` tag → 3 branches on `bb_archetype` → send delivery email per archetype
+4. Write 3 delivery emails (personalized with bb_archetype + bb_primary_boundary_area fields)
+5. Confirm how Webflow quiz form connects to KIT
 
 ---
 
@@ -682,3 +718,42 @@ This is a self-improving loop. Every session makes the next one faster.
 3. Create Stripe product at $17, set up Zapier (Stripe → Kit tag `purchased-lunar-planner`)
 4. Write Kit delivery email (planner PDF URL + guide PDF URL)
 5. Update Kit freebie sequence Blueprint PDF URL to new Google Drive link
+
+---
+
+### 2026-03-24 (Session 16) — Site-wide layout fixes, script restoration, new nav + scroll animations
+
+**Completed:**
+- Restored all 14 site scripts after `delete_all_site_scripts` had cleared the applied list — re-registered all at v2.0.0 to force re-application (registrations persist permanently; only applied list gets cleared)
+- Added 2 new scripts: `ELUStickyNav` (nav darkens to near-black after 70px scroll) + `ELUScrollFade` (IntersectionObserver scroll-fade for all product/glass/testimonial/value cards)
+- Fixed grid layout squish across all pages — root cause was missing `width: 100%` on grid containers: applied to `values-grid`, `shop-values-grid`, `about-grid`, `shop-freebie-grid`, `glass-product-grid`
+- Fixed unequal card heights on About "Start Here" section: `align-items: stretch` on grid + `height: 100%` + `justify-content: space-between` on product-card
+- Fixed "Stay in the Magic" email section: background changed to `#1E0A16` (was resolving to wrong color from CSS variable); `email-form-row` max-width 480px + flex-wrap + align-items center
+- Updated all Shop glass card prices: Lunar Boundary Planner `$37→$17`, Moon Cycle Life Planner `$27→$17`, 12 Full Moon Rituals `$27→$7`
+- Updated Boundary Blueprint upsell price: `$37→$17`
+- Hid old shop-card product grid (element `ae5eebf2`) via new `display-none` utility style — glass cards are now the only product display
+- Linked About "Start Here" buttons: Planner (`6340cca0`) → `/planner`, Boundary Blueprint (`6ae46d93`) → `/boundary-blueprint`, Moon Magic (`3fabe737`) → `/moon-magic`
+- Full cross-page audit (Home, Planner, Blog, Boundary Blueprint, Moon Magic) — same width fixes applied to all affected grids
+
+**In Progress:**
+- Site not yet published — rate limiting hit during session; publish manually from Designer
+- /lunar-boundaries + /thank-you pages still pending build
+- Planner page: 4 CTA buttons still unlinked (need Stripe/Gumroad checkout URLs from Rickie)
+- Blog page: 6 "Read More →" buttons unlinked (need blog post URLs from Rickie)
+- Planner page: duplicate hero section `938fe636` still needs manual delete in Designer
+
+**What Worked:**
+- Re-registering scripts at v2.0.0 auto-applied them — no need to separately call apply_script
+- `width: 100%` on grid container fixes left-squish in all cases regardless of `grid-template-columns`
+- `align-items: stretch` + `height: 100% / justify-content: space-between` = equal card heights with pinned CTA buttons
+
+**What Didn't:**
+- `delete_all_site_scripts` only clears the applied list, NOT registrations — re-registering at same version returns 400 duplicate error; always bump version
+- Rate limiting (429) hits when making too many API calls in quick succession — space out calls or publish manually
+
+**Next Session:**
+1. Publish site from Designer (all Session 16 changes pending publish)
+2. Build /lunar-boundaries + /thank-you pages (ONE Designer tab open, foreground)
+3. Wire /boundary-blueprint upsell CTA → /lunar-boundaries
+4. Provide Stripe checkout URLs for Planner CTA buttons (4 buttons on /planner)
+5. Provide blog post URLs for Blog "Read More" buttons (6 buttons)
