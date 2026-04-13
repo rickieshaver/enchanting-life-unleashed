@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Collection — Enchanting Life Unleashed</title>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&family=Plus+Jakarta+Sans:wght@200..800&family=Allura&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#521830",
+            "primary-container": "#6d2e46",
+            "secondary": "#864f51",
+            "surface": "#fcf9f4",
+            "surface-container-low": "#f6f3ee",
+            "surface-container": "#f0ede9",
+            "surface-container-high": "#eae8e3",
+            "surface-container-highest": "#e5e2dd",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#1c1c19",
+            "on-surface-variant": "#524347",
+            "on-primary": "#ffffff",
+            "tertiary-fixed": "#ffdea7",
+            "tertiary-fixed-dim": "#f5be53",
+            "outline-variant": "#d6c1c6",
+          },
+          borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "2xl": "0px", "full": "9999px" },
+          fontFamily: {
+            "headline": ["Newsreader", "serif"],
+            "body": ["Manrope", "sans-serif"],
+            "label": ["Plus Jakarta Sans", "sans-serif"],
+            "script": ["Allura", "cursive"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .editorial-line { width: 80px; height: 2px; background-color: #EDB74D; }
+    .bg-velvet { background: linear-gradient(135deg, #521830 0%, #6D2E46 100%); }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  </style>
+</head>
+<body class="font-body antialiased bg-[#fcf9f4]">
+
+  <!-- NAV -->
+  <nav class="w-full bg-[#fcf9f4] border-b border-[#EDB74D]/20 sticky top-0 z-50">
+    <div class="flex justify-between items-center max-w-7xl mx-auto px-12 py-6">
+      <a href="home.html" class="font-headline text-2xl font-bold italic text-[#521830]">Enchanting Life Unleashed</a>
+      <div class="hidden md:flex items-center gap-10">
+        <a href="home.html" class="font-headline text-sm uppercase tracking-widest text-[#864f51] hover:text-[#521830] transition-colors duration-200">Home</a>
+        <a href="shop.html" class="font-headline text-sm uppercase tracking-widest text-[#521830] border-b border-[#EDB74D] pb-0.5 transition-colors duration-200">Shop</a>
+        <a href="#" class="font-headline text-sm uppercase tracking-widest text-[#864f51] hover:text-[#521830] transition-colors duration-200">About</a>
+        <a href="#" class="font-headline text-sm uppercase tracking-widest text-[#864f51] hover:text-[#521830] transition-colors duration-200">Freebies</a>
+        <a href="#" class="font-headline text-sm uppercase tracking-widest text-[#864f51] hover:text-[#521830] transition-colors duration-200">Blog</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hidden md:inline-block bg-[#521830] text-[#EDB74D] px-8 py-4 font-label text-xs uppercase tracking-widest font-bold hover:bg-[#6d2e46] transition-colors duration-200">Take the Quiz</a>
+        <button id="mobile-menu-btn" class="md:hidden text-[#521830] p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden md:hidden bg-[#fcf9f4] border-b border-[#EDB74D]/20 px-8 py-6">
+    <div class="flex flex-col gap-6">
+      <a href="home.html" class="font-headline text-sm uppercase tracking-widest text-[#864f51] hover:text-[#521830]">Home</a>
+      <a href="shop.html" class="font-headline text-sm uppercase tracking-widest text-[#521830] font-bold">Shop</a>
+      <a href="#" class="font-headline text-sm uppercase tracking-widest text-[#864f51] hover:text-[#521830]">About</a>
+      <a href="#" class="font-headline text-sm uppercase tracking-widest text-[#864f51] hover:text-[#521830]">Freebies</a>
+      <a href="#" class="font-headline text-sm uppercase tracking-widest text-[#864f51] hover:text-[#521830]">Blog</a>
+      <a href="#" class="bg-[#521830] text-[#EDB74D] px-8 py-4 font-label text-xs uppercase tracking-widest font-bold text-center">Take the Quiz</a>
+    </div>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <section class="max-w-7xl mx-auto px-12 pt-24 pb-12">
+    <div class="flex flex-col md:flex-row items-baseline gap-8">
+      <h1 class="font-headline text-7xl font-bold tracking-tight text-[#521830] leading-none">The Collection</h1>
+      <div class="hidden md:block w-32 h-[2px] bg-[#EDB74D]"></div>
+      <p class="font-script text-3xl text-[#864f51]">Sacred systems for modern mystics</p>
+    </div>
+  </section>
+
+  <!-- FILTER TABS -->
+  <section class="max-w-7xl mx-auto px-12 mb-16">
+    <div class="flex flex-wrap gap-x-12 gap-y-4 border-b border-[#d6c1c6] pb-6">
+      <button class="font-label text-sm uppercase tracking-[0.2rem] text-[#521830] font-bold border-b-2 border-[#EDB74D] pb-1">All</button>
+      <button class="font-label text-sm uppercase tracking-[0.2rem] text-[#864f51] hover:text-[#521830] transition-colors">Planners</button>
+      <button class="font-label text-sm uppercase tracking-[0.2rem] text-[#864f51] hover:text-[#521830] transition-colors">Workbooks</button>
+      <button class="font-label text-sm uppercase tracking-[0.2rem] text-[#864f51] hover:text-[#521830] transition-colors">Freebies</button>
+    </div>
+  </section>
+
+  <!-- PRODUCT GRID -->
+  <section class="max-w-7xl mx-auto px-12 pb-32">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+
+      <!-- Card 1: Lunar Boundary Planner -->
+      <div class="flex flex-col group h-full">
+        <div class="relative overflow-hidden aspect-[4/5] bg-[#f6f3ee]">
+          <span class="absolute top-4 left-4 bg-white px-4 py-1 font-label text-xs uppercase tracking-widest text-[#521830] z-10">Planners</span>
+          <img
+            src="../Assets/Images-Watercolor/freepik__elegant-flat-lay-of-an-open-planner-showing-moon-p__89268.jpeg"
+            alt="Lunar Boundary Planner"
+            class="w-full h-full object-cover grayscale contrast-[1.15] brightness-90 transition-transform duration-700 group-hover:scale-[1.05]"
+          />
+        </div>
+        <div class="mt-8 flex flex-col flex-grow">
+          <h2 class="font-headline text-3xl font-bold text-[#521830] mb-3 leading-tight">Lunar Boundary Planner</h2>
+          <p class="font-body text-sm text-[#864f51] leading-relaxed mb-6 flex-grow">A 12-month moon-aligned planner to set, hold, and honor your boundaries — without guilt or apology.</p>
+          <div class="flex items-center justify-between border-t border-[#d6c1c6]/30 pt-6">
+            <span class="font-headline text-2xl font-bold text-[#521830]">$17</span>
+            <a
+              href="https://enchantinglifeunleashed.kit.com/products/lunar-boundary-mastery-planner"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-[#521830] text-[#EDB74D] px-8 py-4 font-label text-xs uppercase tracking-widest font-bold hover:bg-[#6d2e46] transition-colors duration-200"
+            >Get It</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Moon Cycle Life Planner -->
+      <div class="flex flex-col group h-full">
+        <div class="relative overflow-hidden aspect-[4/5] bg-[#f6f3ee]">
+          <span class="absolute top-4 left-4 bg-white px-4 py-1 font-label text-xs uppercase tracking-widest text-[#521830] z-10">Planners</span>
+          <img
+            src="../Assets/Images-Watercolor/freepik__overhead-view-of-an-elegant-monthly-calendar-or-pl__89259.jpeg"
+            alt="Moon Cycle Life Planner"
+            class="w-full h-full object-cover grayscale contrast-[1.15] brightness-90 transition-transform duration-700 group-hover:scale-[1.05]"
+          />
+        </div>
+        <div class="mt-8 flex flex-col flex-grow">
+          <h2 class="font-headline text-3xl font-bold text-[#521830] mb-3 leading-tight">Moon Cycle Life Planner</h2>
+          <p class="font-body text-sm text-[#864f51] leading-relaxed mb-6 flex-grow">163 pages synced to the 2026 lunar calendar. Weekly pages, moon rituals, and intention-setting spreads.</p>
+          <div class="flex items-center justify-between border-t border-[#d6c1c6]/30 pt-6">
+            <span class="font-headline text-2xl font-bold text-[#521830]">$17</span>
+            <a
+              href="https://enchantinglifeunleashed.kit.com/products/moon-cycle-life-planner"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-[#521830] text-[#EDB74D] px-8 py-4 font-label text-xs uppercase tracking-widest font-bold hover:bg-[#6d2e46] transition-colors duration-200"
+            >Get It</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Empowered Boundary Blueprint -->
+      <div class="flex flex-col group h-full">
+        <div class="relative overflow-hidden aspect-[4/5] bg-[#f6f3ee]">
+          <span class="absolute top-4 left-4 bg-white px-4 py-1 font-label text-xs uppercase tracking-widest text-[#521830] z-10">Workbooks</span>
+          <img
+            src="../Assets/Images-Watercolor/freepik__abstract-watercolor-illustration-of-a-single-door-__27571.jpeg"
+            alt="Empowered Boundary Blueprint"
+            class="w-full h-full object-cover grayscale contrast-[1.15] brightness-90 transition-transform duration-700 group-hover:scale-[1.05]"
+          />
+        </div>
+        <div class="mt-8 flex flex-col flex-grow">
+          <h2 class="font-headline text-3xl font-bold text-[#521830] mb-3 leading-tight">Empowered Boundary Blueprint</h2>
+          <p class="font-body text-sm text-[#864f51] leading-relaxed mb-6 flex-grow">Your archetype-specific guide to building boundaries that hold. Personalized to how your boundaries actually break down.</p>
+          <div class="flex items-center justify-between border-t border-[#d6c1c6]/30 pt-6">
+            <span class="font-headline text-2xl font-bold text-[#864f51]">Coming Soon</span>
+            <button
+              disabled
+              class="bg-[#f0ede9] text-[#864f51] font-label text-xs uppercase tracking-widest px-8 py-4 cursor-not-allowed opacity-60"
+            >Soon</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Moon Magic Quick Start Guide -->
+      <div class="flex flex-col group h-full">
+        <div class="relative overflow-hidden aspect-[4/5] bg-[#f6f3ee]">
+          <span class="absolute top-4 left-4 bg-white px-4 py-1 font-label text-xs uppercase tracking-widest text-[#521830] z-10">Freebies</span>
+          <img
+            src="../Assets/Images-Watercolor/freepik__elegant-watercolor-illustration-of-a-crescent-moon__27566.jpeg"
+            alt="Moon Magic Quick Start Guide"
+            class="w-full h-full object-cover grayscale contrast-[1.15] brightness-90 transition-transform duration-700 group-hover:scale-[1.05]"
+          />
+        </div>
+        <div class="mt-8 flex flex-col flex-grow">
+          <h2 class="font-headline text-3xl font-bold text-[#521830] mb-3 leading-tight">Moon Magic Quick Start Guide</h2>
+          <p class="font-body text-sm text-[#864f51] leading-relaxed mb-6 flex-grow">Your introduction to lunar living — 8 moon phases, rituals, and the magic of working with the cycle.</p>
+          <div class="flex items-center justify-between border-t border-[#d6c1c6]/30 pt-6">
+            <span class="font-headline text-2xl font-bold text-[#521830]">Free</span>
+            <a
+              href="freebies.html"
+              class="bg-[#521830] text-[#EDB74D] px-8 py-4 font-label text-xs uppercase tracking-widest font-bold hover:bg-[#6d2e46] transition-colors duration-200"
+            >Download</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#f6f3ee] border-t border-[#EDB74D]/20 py-16">
+    <div class="max-w-7xl mx-auto px-12 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div>
+        <p class="font-headline text-xl italic text-[#521830] mb-4">Enchanting Life Unleashed</p>
+        <p class="font-body text-sm text-[#864f51] leading-relaxed max-w-xs">Where soul meets strategy. Sacred systems for modern mystics.</p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <span class="font-label text-xs font-bold text-[#521830] uppercase mb-2 tracking-widest">Navigate</span>
+        <a href="shop.html" class="font-body text-sm text-[#864f51] hover:text-[#521830] transition-colors">Shop</a>
+        <a href="#" class="font-body text-sm text-[#864f51] hover:text-[#521830] transition-colors">About</a>
+        <a href="#" class="font-body text-sm text-[#864f51] hover:text-[#521830] transition-colors">Blog</a>
+        <a href="#" class="font-body text-sm text-[#864f51] hover:text-[#521830] transition-colors">Freebies</a>
+        <a href="#" class="font-body text-sm text-[#864f51] hover:text-[#521830] transition-colors">Contact</a>
+      </div>
+      <div class="md:text-right">
+        <p class="font-body text-sm text-[#864f51]">© 2026 Enchanting Life Unleashed.<br>All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
