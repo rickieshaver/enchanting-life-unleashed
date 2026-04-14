@@ -1,0 +1,75 @@
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #fcf9f4;
+    color: #1c1c19;
+  }
+}
+
+@layer utilities {
+  .editorial-line {
+    width: 80px;
+    height: 2px;
+    background-color: #EDB74D;
+    flex-shrink: 0;
+  }
+
+  .bg-velvet {
+    background: linear-gradient(135deg, #521830 0%, #6D2E46 100%);
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background-color: #521830;
+    color: #EDB74D;
+    font-family: var(--font-jakarta), sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 1.25rem 2.5rem;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background-color: #6d2e46;
+  }
+
+  .btn-ghost {
+    display: inline-block;
+    border: 1px solid rgba(237, 183, 77, 0.3);
+    color: #fcf9f4;
+    font-family: var(--font-jakarta), sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 1.25rem 2.5rem;
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+
+  .btn-ghost:hover {
+    border-color: #EDB74D;
+  }
+
+  .eyebrow {
+    font-family: var(--font-jakarta), sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #521830;
+  }
+}
