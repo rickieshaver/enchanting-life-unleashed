@@ -212,13 +212,13 @@ This is a self-improving loop. Every session makes the next one faster.
 
 > **⚠️ MAJOR PIVOT (Session 22):** Abandoned Webflow. ELU is now a Next.js 14 + Tailwind CSS site deployed on Vercel. GitHub repo: https://github.com/rickieshaver/enchanting-life-unleashed. Webflow priorities below are ARCHIVED — focus is now on Next.js stack.
 
-1. **Next.js site — LIVE on Vercel** — ✅ All 9 pages built + pushed to GitHub main. Deploy to Vercel IN PROGRESS (see Session 22 log). **Next: finish domain connection.**
-2. **Stripe checkout** — Buy buttons on `/lunar-boundary-planner` ($37) and `/moon-cycle-life-planner` ($47) still link to `#`. Need Stripe checkout URLs wired. Plan 2.
+1. **Next.js site — copy + quiz LIVE on Vercel** — ✅ All 9 pages built, full sitewide copy rewrite deployed (Session 24). **Next: domain connection (Vercel → Namecheap DNS).**
+2. **Stripe checkout** — Buy buttons on `/lunar-boundary-planner` and `/moon-cycle-life-planner` still link to `#`. Prices now correctly show $17 sitewide. Need Stripe checkout URLs wired. Plan 2.
 3. **Sanity CMS** — Blog posts currently static placeholders. Plan 3.
 4. **Freebies download URLs** — Resource card buttons on `/freebies` still `href="#"`. Need real Google Drive download URLs.
 5. **Contact form handler** — Currently `mailto:` fallback. Needs proper form handler (Resend, Formspree, or Vercel serverless fn).
 6. **Boundary Blueprint PDF conversion** — 3 HTML blueprint files updated (new domain names, sharpened sections). Next: convert to PDF, host on Google Drive, build KIT automation with 3 archetype branches.
-7. **Kit custom field rename** — `bb_relational_score`, `bb_professional_score`, `bb_energetic_score`, `bb_self_score` → new names in Kit dashboard to match quiz code (see Session 23 log).
+7. **Kit custom field rename** — `bb_relational_score`, `bb_professional_score`, `bb_energetic_score`, `bb_self_score` → new names in Kit dashboard to match quiz code (see Session 23 log). ⚠️ Quiz is live — do this before any traffic hits the quiz.
 8. **Moon Planner 2026** — ✅ FINAL PDF (163 pages). Still needs: long-week overflow spot-check before publishing.
 9. **Sacred Boundary System PDF** — ✅ Premium product HTML complete. Convert to PDF (Chrome print, Background graphics on).
 
@@ -239,11 +239,54 @@ This is a self-improving loop. Every session makes the next one faster.
 - Kit form wiring in Webflow — Kit forms are now in Next.js pages directly
 
 ---
-*Last updated: 2026-04-15 (Session 23) — update whenever new products launch or priorities shift*
+*Last updated: 2026-04-16 (Session 24) — update whenever new products launch or priorities shift*
 
 ---
 
 ## Session Log
+
+---
+
+### 2026-04-16 (Session 24) — Sitewide copy rewrite + price fix, all deployed to Vercel
+
+**Completed:**
+
+*Quiz deploy (Session 23 backlog):*
+- Committed and pushed QuizClient.tsx + quiz-data.ts (new domain names: Spellbreaker/Time Keeper/Sacred Vessel/Resource Guardian)
+- Price updates from Session 23: LBP $37→$17, MCLP $47→$17 on individual product pages
+
+*Sitewide copy rewrite — all 6 pages updated and deployed:*
+- **Homepage:** New hero headline ("You Don't Need More Healing. You Need Better Boundaries.") + subheadline + CTA → quiz. Intro section ("This isn't another high vibe corner..."). New PROBLEM section injected between bento and products (new layout block, same grid system). Solution bento cards rewritten (Where Your Energy Goes / Who Gets Access / What Stays and What Doesn't). Product intro → "Start Here" framing.
+- **About:** Opening ("I'm not here to inspire you. / I'm here to help you stop abandoning yourself."), middle (healing work → awareness without structure changes nothing → pullquote), closing CTA ("If you're ready to stop leaking your life away—Start with the quiz.")
+- **Shop:** Header → "This Isn't Content. It's Infrastructure for Your Life." Product descriptions replaced with structured copy block (This is for you if / Inside you'll / This isn't a journal. It's a system.) — same for all 4 products. `description` field removed from data array, copy hardcoded in template.
+- **Blog:** Header → "This Isn't Content. It's Calibration." Subheading → filters not invites. Intro block → pattern problem framing. Per-post quiz CTA added to every post card.
+- **Contact:** Header → "Not Everything Deserves Access." Subheading → intentional outreach. Main copy → open inbox reframe + qualifying criteria + free coaching callout. Form intro + response expectation added below submit.
+- **Quiz intro:** Diagnostic structure — "This takes 2 minutes." + 4 leak areas as list + "And which system you actually need."
+
+*Price consistency fix:*
+- Caught and fixed stale $37/$47 on shop data array + homepage product teaser — all prices now $17 sitewide
+
+*All changes pushed to GitHub main → Vercel auto-deployed*
+
+**In Progress:**
+- Kit custom field names — still not updated in Kit dashboard. Quiz is live on Vercel. ⚠️ Do before any quiz traffic.
+- Domain connection — Vercel project `elu-site` deployed but domain not yet connected (Namecheap DNS pending)
+- Boundary Blueprint PDFs + Kit automation — unchanged from Session 23
+- Stripe checkout URLs — buy buttons still `href="#"` on both planner pages
+
+**What Worked:**
+- Direct TSX copy updates — fast, no layout risk, clean diffs
+- Catching price inconsistency during end-of-session review — shop data array and homepage teaser had stale prices; fixed before logging
+- Batching all copy changes into one commit per push — clean git history
+
+**What Didn't:**
+- Price inconsistency slipped through — LBP/MCLP product pages were updated to $17 in Session 23 commit but shop array + homepage teaser weren't. Lesson: when updating a price anywhere, grep for all occurrences before committing.
+
+**Next Session:**
+1. ⚠️ Update Kit custom field names in Kit dashboard (urgent — quiz is live)
+2. Connect domain in Vercel → update DNS at Namecheap (A `@` → `76.76.21.21`, CNAME `www` → `cname.vercel-dns.com`)
+3. Convert 3 Blueprint HTML files to PDF (Chrome → Print → Background graphics on)
+4. Build Kit automation — 3 branches on `bb_archetype` field → deliver archetype-specific blueprint
 
 ---
 

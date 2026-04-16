@@ -12,7 +12,7 @@ const products = [
   {
     tag: 'Planner',
     title: 'Lunar Boundary Planner',
-    price: '$37',
+    price: '$17',
     href: '/lunar-boundary-planner',
     cta: 'View Details',
     image: '/images/planner-cover.jpeg',
@@ -21,7 +21,7 @@ const products = [
   {
     tag: 'Planner',
     title: 'Moon Cycle Life Planner',
-    price: '$47',
+    price: '$17',
     href: '/moon-cycle-life-planner',
     cta: 'View Details',
     image: '/images/moon-cover.jpeg',

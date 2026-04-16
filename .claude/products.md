@@ -20,27 +20,45 @@
 - **Google Drive download URL:** `https://drive.google.com/uc?export=download&id=1T9dODFzMvzVXveiDZQdCZ8ZCSW3RmVpR`
 - **Includes:** Full-year planner PDF + Lunar Boundary Setting Guide (bonus)
 - **Funnel:** `/boundary-blueprint` quiz → email gate → Blueprint freebie → upsell to this planner
-- **Delivery:** Stripe $17 → Zapier → Kit tag `purchased-lunar-planner` → Kit email with download links
-- **Webflow page:** `/lunar-boundaries` — pending build
+- **Delivery:** Kit checkout → `https://enchantinglifeunleashed.kit.com/products/lunar-boundary-mastery-planner`
+- **Next.js page:** `/lunar-boundary-planner` — ✅ live (Next.js App Router, Grounded Oracle design)
 
 ---
 
-### 2. Empowered Boundary Blueprint
-- **Type:** Guide / workbook (PDF) — **FREEBIE** (quiz lead magnet)
-- **Audience:** Women who just took the boundary quiz and want to understand their boundary patterns
-- **Status:** ✅ Redesigned to ELU brand standard — delivered via Kit after quiz email gate
+### 2. Empowered Boundary Blueprint (3 archetype versions)
+- **Type:** Guide / workbook (PDF) — **FREEBIE** (quiz lead magnet, archetype-specific)
+- **Audience:** Women who just took the boundary quiz — each version is tailored to their archetype result
+- **Status:** 🔄 HTML files updated (Session 23) — PDF conversion + Kit delivery pending
 - **Price:** Free (lead magnet)
-- **Files (current names):**
-  - `Content/Products/Lunar Boundaries/Empowered Boundary Blueprint.html` — branded source HTML
-  - `Content/Products/Lunar Boundaries/The Empowered Boundary Blueprint.pdf` — **FINAL PDF (delivered as freebie)**
-  - `Content/Products/Lunar Boundaries/Empowered_Boundary_Blueprint_COMPLETE_PACKAGE.docx` — source content
-- **Google Drive download URL:** `https://drive.google.com/uc?export=download&id=1nbRptHwflbOYCc0yKa1hviUayM9NZfhu`
-- **Delivery:** Kit freebie sequence (triggered by quiz email gate, form `8924567`)
-- **Notes:** Replaces old 18MB unbranded PDF. Kit sequence URL needs updating to new Google Drive link.
+- **Files (3 archetype versions, all updated with new domain names):**
+  - `Content/Products/Lunar Boundaries/boundary-blueprint-open-door.html`
+  - `Content/Products/Lunar Boundaries/boundary-blueprint-cracked-window.html`
+  - `Content/Products/Lunar Boundaries/boundary-blueprint-sacred-keeper.html`
+- **Google Drive download URL (old single version):** `https://drive.google.com/uc?export=download&id=1nbRptHwflbOYCc0yKa1hviUayM9NZfhu`
+- **Delivery:** Kit freebie sequence → 3 branches on `bb_archetype` field → archetype-specific PDF
+- **Session 23 changes:** New domain names (Spellbreaker/Time Keeper/Sacred Vessel/Resource Guardian), "Sacred Keeper" archetype state name, sharpened Why This Hasn't Changed Yet + Where You're Going sections, CTA now bridges to The Sacred Boundary System
+- **Next:** Convert 3 HTML files to PDF → host on Google Drive → update Kit automation with 3 archetype branches
 
 ---
 
-### 3. Lunar Boundary Setting Guide
+### 3. The Sacred Boundary System ⭐ NEW
+- **Type:** Premium planner/workbook hybrid (PDF, 8.5×11, self-contained HTML)
+- **Audience:** Women who've taken the quiz + received their blueprint — this is the execution layer
+- **Status:** 🔄 HTML complete (Session 22–23) — PDF conversion pending
+- **Price:** $17 (one-time)
+- **Positioning:** The system the blueprint feeds into. "The Blueprint tells you what's happening. This is where you change it."
+- **Files:**
+  - `Content/Products/Lunar Boundaries/Sacred Boundary System.html` — **FINAL source HTML (print-ready)**
+- **URL slug:** `enchantinglifeunleashed.com/sacred-boundary-system`
+- **Structure:** 8 repeatable lunar cycles × 6 stages (Diagnosis → New Moon Intention → Waxing → Full Moon → Waning → Progression). 4 domain reference pages (Spellbreaker/Time Keeper/Sacred Vessel/Resource Guardian). Archetype-specific prompts for all 3 states on every page.
+- **Domain naming:** Spellbreaker 🗣️ / Time Keeper ⏱️ / Sacred Vessel 🫙 / Resource Guardian 🛡️
+- **Archetype states:** Open Door → Cracked Window → Sacred Keeper → Fully Settled
+- **Session 23 precision upgrades:** Cover tightened, 2 Pattern Recognition bullets upgraded, truth lines added throughout, Cycle 1 prompts sharpened, closing page overhauled ("You Don't Need Motivation Anymore. You have a system.")
+- **Next:** Chrome → PDF (Background graphics on) → Google Drive host → wire to Stripe
+
+---
+
+### 4. Lunar Boundary Setting Guide
 - **Type:** Guide (PDF) — **BONUS** bundled with planner purchase
 - **Audience:** Planner buyers — explains how to use moon phases for boundary timing
 - **Status:** ✅ Built and hosted — included free with planner purchase
@@ -81,7 +99,10 @@
 
 ### 7. Moon Cycle Life Planner 2026
 - **Type:** Digital planner (PDF, 8.5×11, 163 pages, full year)
+- **Price:** $17 (one-time)
 - **Status:** ✅ FINAL — needs long-week overflow spot-check before publishing
+- **Next.js page:** `/moon-cycle-life-planner` — ✅ live (Next.js App Router, Grounded Oracle design)
+- **Kit checkout URL:** `https://enchantinglifeunleashed.kit.com/products/moon-cycle-life-planner`
 - **Files:**
   - `Content/Products/Moon Magic/ELU_Moon_Planner_2026_FINAL.pdf` — **FINAL PDF (163 pages)**
   - `Code/scripts/generate_planner.py` — generator script (source of truth — edit this only)
@@ -126,18 +147,21 @@
 
 ```
 ── LUNAR BOUNDARIES FUNNEL ──────────────────────────────────
-QUIZ (/boundary-blueprint)
-  └── FREEBIE: Empowered Boundary Blueprint (email gate)
-        ↓
-ENTRY PRODUCT ($17)
-  └── 2026 Lunar Boundary Mastery Planner
-        + BONUS: Lunar Boundary Setting Guide (free with purchase)
+QUIZ (/boundary-archetype-quiz)
+  └── Step 1: Boundary Archetype Quiz (12 Qs → archetype + primary domain)
+        ↓ email gate
+  └── Step 2: Empowered Boundary Blueprint (FREEBIE — archetype-specific PDF)
+        "This is your pattern. This is where it shows up."
+        ↓ CTA in blueprint
+  └── Step 3: The Sacred Boundary System ($17)
+        "This is where you change it — 8 cycles, daily practice."
+        + BONUS: Lunar Boundary Setting Guide (included)
 
 ── MOON MAGIC FUNNEL ────────────────────────────────────────
 FREEBIE (email capture)
   └── Wolf Moon Ritual / Moon Magic Quick Start Guide
         ↓
-ENTRY PRODUCT (~$17–27)
+ENTRY PRODUCT ($17)
   └── Moon Cycle Life Planner 2026 / 12 Full Moon Rituals
 
 ── FUTURE ───────────────────────────────────────────────────
@@ -154,6 +178,6 @@ Course / Coaching / Community
 | Zapier | Stripe → Kit automation | Pending — trigger: Stripe payment → Kit tag `purchased-lunar-planner` |
 | Kit (ConvertKit) | Email list + delivery | Active — quiz form `8924567`; freebie sequence needs Blueprint URL update |
 | Google Drive | PDF file hosting | Active — 3 Lunar Boundaries PDFs hosted, direct download URLs in products above |
-| Webflow | Sales + content hub | Active — site ID `69ab2b4bdb77a8f8f1df4fb6`; /lunar-boundaries page pending build |
+| Vercel / Next.js | Sales + content hub | Active — GitHub: `rickieshaver/enchanting-life-unleashed`; all 9 pages live: Home, Shop, LBP, MCLP, About, Freebies, Contact, Blog, Quiz. Auto-deploys on push to `main`. Domain not yet connected. |
 | Instagram | Primary social | @enchantinglifeunleashed |
 | TikTok | Discovery | @enchantinglifeunleashed |

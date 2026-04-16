@@ -181,7 +181,7 @@ export default function HomePage() {
               system for the woman building an intentional life.
             </p>
             <div className="flex items-center justify-between">
-              <span className="font-label text-lg font-bold text-primary">$37</span>
+              <span className="font-label text-lg font-bold text-primary">$17</span>
               <Link href="/lunar-boundary-planner" className="btn-primary">
                 View Details
               </Link>
@@ -208,7 +208,7 @@ export default function HomePage() {
               goals, and your life with the rhythm of the moon.
             </p>
             <div className="flex items-center justify-between">
-              <span className="font-label text-lg font-bold text-primary">$47</span>
+              <span className="font-label text-lg font-bold text-primary">$17</span>
               <Link href="/moon-cycle-life-planner" className="btn-primary">
                 View Details
               </Link>
