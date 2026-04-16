@@ -33,7 +33,7 @@ export default function LunarBoundaryPlannerPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-5 items-start">
                 <a href="#buy" className="btn-primary">
-                  Get Instant Access — $37
+                  Get Instant Access — $17
                 </a>
                 <span className="font-label text-sm text-primary border-b-2 border-gold pb-1 self-end tracking-wide">
                   Digital Download &middot; Instant Access
@@ -236,13 +236,13 @@ export default function LunarBoundaryPlannerPage() {
               <p className="font-label text-xs uppercase tracking-[0.2em] text-secondary">
                 One-Time Purchase
               </p>
-              <p className="font-headline text-7xl md:text-8xl font-light text-primary">$37</p>
+              <p className="font-headline text-7xl md:text-8xl font-light text-primary">$17</p>
               <p className="font-body text-sm text-secondary">
                 Full planner &middot; 12 months &middot; Instant access
               </p>
             </div>
             <a href="#" className="btn-primary w-full block text-center">
-              Buy Now — $37
+              Buy Now — $17
             </a>
             <p className="font-body text-xs text-secondary tracking-wide">
               Instant digital download. PDF format.

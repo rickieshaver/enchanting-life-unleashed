@@ -210,25 +210,286 @@ This is a self-improving loop. Every session makes the next one faster.
 
 ## Active Priorities (update this section as projects evolve)
 
-1. **Webflow full redesign** — ✅ COMPLETE (Session 18). All 10 pages built, design system live, site published. See session log below.
-2. **Manual Webflow steps remaining:**
-   - Add 3 redirects in Dashboard (Site Settings → Redirects): `/moon-magic`→`/freebies`, `/boundary-blueprint`→`/boundary-archetype-quiz`, `/planner`→`/moon-cycle-life-planner`
-   - Italicize "YOU" in About page H1 (select in Designer → Cmd+I)
-   - Apply `site-defaults` class to Body element in Designer (Manrope 16px, #1c1c19, #fcf9f4 bg)
-   - Add product images to `/lunar-boundary-planner` and `/moon-cycle-life-planner` image placeholder divs
-3. **Wire Stripe CTAs** — both planner pages have `#` placeholder hrefs on all `btn-primary` CTAs. Needs Stripe/Gumroad checkout URLs from Rickie.
-4. **Kit form wiring** — `/boundary-archetype-quiz` uses Kit form ID `8924567`, `/freebies` uses `8935231`. Verify emails trigger correctly after quiz + freebie signups.
-5. **Boundary Blueprint Quiz Automation** — 🔄 IN PROGRESS. 3 archetype HTML files built. Next: convert to PDF, host, build KIT automation (3 branches on bb_archetype field). Details: `.claude/memory/projects/boundary-blueprint-quiz-automation.md`
-6. **Moon Planner 2026** — ✅ FINAL PDF (163 pages). Still needs: long-week overflow spot-check before publishing.
-7. **ELU Digital Product Builder** — ✅ Streamlit app updated with Grounded Oracle as default style preset. Still needs: Stripe export + AI brand voice rewrite.
-8. **GitHub repo** — ✅ Created + PR open. URL: https://github.com/rickieshaver/enchanting-life-unleashed/pull/1
+> **⚠️ MAJOR PIVOT (Session 22):** Abandoned Webflow. ELU is now a Next.js 14 + Tailwind CSS site deployed on Vercel. GitHub repo: https://github.com/rickieshaver/enchanting-life-unleashed. Webflow priorities below are ARCHIVED — focus is now on Next.js stack.
+
+1. **Next.js site — LIVE on Vercel** — ✅ All 9 pages built + pushed to GitHub main. Deploy to Vercel IN PROGRESS (see Session 22 log). **Next: finish domain connection.**
+2. **Stripe checkout** — Buy buttons on `/lunar-boundary-planner` ($37) and `/moon-cycle-life-planner` ($47) still link to `#`. Need Stripe checkout URLs wired. Plan 2.
+3. **Sanity CMS** — Blog posts currently static placeholders. Plan 3.
+4. **Freebies download URLs** — Resource card buttons on `/freebies` still `href="#"`. Need real Google Drive download URLs.
+5. **Contact form handler** — Currently `mailto:` fallback. Needs proper form handler (Resend, Formspree, or Vercel serverless fn).
+6. **Boundary Blueprint PDF conversion** — 3 HTML blueprint files updated (new domain names, sharpened sections). Next: convert to PDF, host on Google Drive, build KIT automation with 3 archetype branches.
+7. **Kit custom field rename** — `bb_relational_score`, `bb_professional_score`, `bb_energetic_score`, `bb_self_score` → new names in Kit dashboard to match quiz code (see Session 23 log).
+8. **Moon Planner 2026** — ✅ FINAL PDF (163 pages). Still needs: long-week overflow spot-check before publishing.
+9. **Sacred Boundary System PDF** — ✅ Premium product HTML complete. Convert to PDF (Chrome print, Background graphics on).
+
+### Domain System (locked — use everywhere)
+| New Name | Domain | Emoji |
+|----------|--------|-------|
+| Spellbreaker | Voice, communication, truth | 🗣️ |
+| Time Keeper | Time, availability, work scope | ⏱️ |
+| Sacred Vessel | Energy, emotional field | 🫙 |
+| Resource Guardian | Money, capacity, self-regard | 🛡️ |
+
+### Archetype States (locked)
+- Open Door → Cracked Window → Sacred Keeper → Fully Settled
+
+### ARCHIVED — Webflow (replaced by Next.js)
+- Webflow Phase 1 + 2 redesigns — complete but site is being abandoned
+- Product images in Webflow — no longer relevant
+- Kit form wiring in Webflow — Kit forms are now in Next.js pages directly
 
 ---
-*Last updated: 2026-04-11 (Session 18) — update whenever new products launch or priorities shift*
+*Last updated: 2026-04-15 (Session 23) — update whenever new products launch or priorities shift*
 
 ---
 
 ## Session Log
+
+---
+
+### 2026-04-15 (Session 23) — Sacred Boundary System finalized, blueprints aligned, quiz fully rebuilt
+
+**Completed:**
+
+*Boundary Blueprint files (all 3):*
+- Replaced old domain names throughout: Relational→Spellbreaker, Professional→Time Keeper, Energetic→Sacred Vessel, Self→Resource Guardian
+- Fixed double-"The" bug (`The The Sacred Boundary System`) in all 3 files
+- Replaced "The Lunar Boundary Setting Guide" references → The Sacred Boundary System
+- Rewrote "Where You Are → Where You're Going" sections — behavioral specificity, clearer stage progression language per archetype
+- Rewrote "Why This Hasn't Changed Yet" sections — stronger call-out of repeated failure, explicit "lack of system" framing, punch line: "Most people don't fail because they don't know what to say. They fail in the moment after."
+- Rewrote CTAs — Sacred Boundary System positioned as non-optional execution layer; removed Moon Cycle Life Planner 2026 upsell from blueprints; updated URL to `sacred-boundary-system`; removed Moon Cycle product card
+- Light sharpening pass on all 3 files — removed soft phrasing, tightened callouts
+
+*Sacred Boundary System HTML (precision upgrade pass):*
+- Cover: tightened descriptor line — "system" not "practice," "fires automatically" not "is automatic"
+- Pattern Recognition (Page 2): upgraded 2 bullets to behavioral/confronting; tightened closing callout 15%
+- How This Works (Page 3): added truth line — "The pattern doesn't break when you understand it. It breaks when you interrupt it."
+- Starting Point + Cycle 1 Diagnosis: sharpened prompt labels to behavioral ("Name the Actual Cost" not "What's Actually Leaking")
+- Cycle 1 New Moon: added truth line — "You already knew this. You just weren't acting on it. That changes now."
+- Cycle 1 Full Moon: removed soft "Boundaries are not punishment" framing; replaced with direct accountability language
+- Cycle 1 Waning: removed redundancy with truth line above; added distinct point about inter-cycle solidification
+- Cycle 1 Progression: updated standard prompt to identity language — "a rule you are already living, not one you're trying to live"
+- Archetype Quick Reference: added mechanism language — "patterns change when you give the new one more reps than the old one"
+- Closing page: major upgrade — headline → "You Don't Need Motivation Anymore. You have a system." / closing callout → "Comfort is where this pattern survives. You chose to interrupt it instead."
+
+*Boundary Archetype Quiz (Next.js — full rebuild):*
+- `quiz-data.ts` — full rewrite:
+  - ArchetypeKey: `sacred-boundary-keeper` → `sacred-keeper`
+  - AreaKey: replaced all 4 domain names with new system (`spellbreaker`, `time-keeper`, `sacred-vessel`, `resource-guardian`)
+  - All 12 questions rewritten — behavioral scenarios, real actions, no feelings-based/vague options
+  - Each question maps to 1 domain + 1 boundary behavior pattern (automatic yes / crack under pressure / hold but guilt-audit)
+  - Archetype descriptions and taglines sharpened to match system language
+  - Added `areaDescriptions` — `what` + `where` per domain for result page
+- `QuizClient.tsx` — targeted updates:
+  - Kit field names updated: `bb_relational_score` → `bb_spellbreaker_score`, `bb_professional_score` → `bb_time_keeper_score`, `bb_energetic_score` → `bb_sacred_vessel_score`, `bb_self_score` → `bb_resource_guardian_score`
+  - Result hero: new format — "You are a Cracked Window / **in your Time Keeper.**"
+  - Result description: "What You Have" + "Where It Breaks" cards (replaced Superpower/Challenge)
+  - Primary domain section: shows domain definition + where it specifically shows up for this user
+  - Blueprint bridge: names archetype + domain; explicit bridge to Sacred Boundary System
+  - Upsell: now references The Sacred Boundary System (not Lunar Boundary Planner); personalizes with archetype + domain
+- TypeScript: 0 errors after rebuild
+
+**In Progress:**
+- Kit custom field names — need to be renamed in Kit dashboard to match new code field names (bb_spellbreaker_score, bb_time_keeper_score, bb_sacred_vessel_score, bb_resource_guardian_score). Old fields will stop receiving data once quiz deploys.
+- Kit automation (3 archetype branches) — not yet built
+- Blueprint PDFs — HTML files updated; still need Chrome → PDF conversion and Google Drive hosting
+- Vercel deploy — quiz changes not yet pushed/deployed
+
+**What Worked:**
+- Surgical micro-edit approach for the Sacred Boundary System HTML — no restructuring, just precision upgrades. Pattern of: read the exact line, tighten ~15%, add truth line at inflection points.
+- Writing the quiz questions by domain first, then archetype behavior within each — produces cleaner mapping than writing by archetype first
+- `calculateResult` scoring: Open Door=2, Cracked Window=1, Sacred Keeper=0 per area — finds the highest-leak domain cleanly
+
+**What Didn't:**
+- `replace_all` on domain names requires care — "Self" appears as a common word, must target labeled instances only (learned in previous session, avoided this time)
+
+**Next Session:**
+1. Push quiz changes to GitHub → Vercel auto-deploys
+2. Update Kit custom field names in Kit dashboard (required before quiz is live)
+3. Build Kit automation — 3 branches on `bb_archetype` field → deliver archetype-specific blueprint PDF
+4. Convert 3 blueprint HTML files to PDF (Chrome → Print → Save as PDF, Background graphics on)
+5. Host PDFs on Google Drive, update Kit delivery email URLs
+
+---
+
+### 2026-04-14 (Session 22) — MAJOR PIVOT: Abandoned Webflow, built full Next.js site, deploying to Vercel
+
+**Completed:**
+- Decided to abandon Webflow entirely — Designer MCP foreground requirement was too disruptive
+- Chose stack: **Next.js 14 App Router + TypeScript + Tailwind CSS v3 + Vercel + GitHub**
+- Wrote full implementation plan: `docs/superpowers/plans/2026-04-14-nextjs-site-foundation.md`
+- Scaffolded Next.js 14 in repo root (NOT src/ dir — had to manually fix tsconfig path alias `./src/*` → `./*`)
+- Downgraded Tailwind v4 → v3 (create-next-app@16.2.3 installs v4 by default; rewrote postcss.config.mjs)
+- Configured `tailwind.config.ts` with full Grounded Oracle design tokens (colors, fonts, 0px border-radius)
+- Built `app/globals.css` — Tailwind directives + `editorial-line`, `bg-velvet`, `btn-primary`, `btn-ghost`, `eyebrow` utilities
+- Built `app/layout.tsx` — 4 Google Fonts (Newsreader, Manrope, Plus_Jakarta_Sans, Allura) via next/font/google, Nav + Footer, full OG metadata
+- Built `components/Nav.tsx` — mobile hamburger, active route highlight, "Take the Quiz" CTA
+- Built `components/Footer.tsx` — 3-col grid, burgundy bg, 7 social links, gold email
+- Built all 9 pages: Home, Shop, LBP ($37), MCLP ($47), About, Freebies, Contact, Blog, Quiz
+- Copied 5 product images to `public/images/` from `Assets/Images-Watercolor/`
+- Fixed: cross-page QA — footer bg, mobile nav aria-label, home active nav state
+- Merged `feat/webflow-redesign-grounded-oracle` → `main`, pushed to GitHub
+- GitHub: https://github.com/rickieshaver/enchanting-life-unleashed (4 commits on main)
+- Installed Vercel Claude Code plugin: `npx plugins add vercel/vercel-plugin` — **requires restart to load**
+- Started Vercel deployment: project named `elu-site` (original name was taken), Next.js auto-detected, root dir `./`
+
+**In Progress:**
+- **Vercel deploy** — initiated but Claude Code needs restart to load Vercel plugin. Deployment may already be building. Check vercel.com dashboard after restart.
+- **Domain connection** — after deploy succeeds: Settings → Domains → add `enchantinglifeunleashed.com`, then update DNS at Namecheap: A `@` → `76.76.21.21`, CNAME `www` → `cname.vercel-dns.com`
+- **Env var** — add `NEXT_PUBLIC_SITE_URL=https://enchantinglifeunleashed.com` in Vercel → Settings → Environment Variables
+
+**Tech Stack (locked in):**
+- Framework: Next.js 14 App Router, TypeScript
+- Styling: Tailwind CSS v3.4.19, postcss v8, autoprefixer
+- Fonts: next/font/google (Newsreader, Manrope, Plus_Jakarta_Sans, Allura)
+- Hosting: Vercel (auto-deploy on push to main)
+- Version control: GitHub — `rickieshaver/enchanting-life-unleashed`
+- CMS: Sanity (Plan 3 — not yet implemented)
+- Payments: Stripe (Plan 2 — CTAs currently `href="#"`)
+- Email: Kit/ConvertKit — form IDs: newsletter `8935231`, quiz `8924567`
+- Domain: enchantinglifeunleashed.com (registered at Namecheap)
+
+**Key file locations:**
+- Pages: `app/` directory (Next.js App Router)
+- Components: `components/Nav.tsx`, `components/Footer.tsx`
+- Styles: `app/globals.css`, `tailwind.config.ts`
+- Images: `public/images/` (hero-portrait.jpeg, planner-cover.jpeg, moon-cover.jpeg, freebies-cover.jpeg, about-hero.jpeg)
+- Config: `next.config.ts`, `tsconfig.json`, `postcss.config.mjs`, `package.json`
+- Plan: `docs/superpowers/plans/2026-04-14-nextjs-site-foundation.md`
+
+**What Worked:**
+- Subagent-driven development for all 9 pages — clean, fast, no context pollution
+- Tailwind v3 downgrade caught early in Task 2 — prevented widespread CSS breakage
+- Copying images to `public/images/` before building pages — no placeholder gaps
+
+**What Didn't:**
+- `create-next-app@16.2.3` ignores `--src-dir=no` flag — always creates `src/` directory; must manually restructure
+- Tailwind v4 installs by default in newer Next.js — always explicitly install `tailwindcss@3`
+
+**Next Session:**
+1. Check Vercel dashboard — confirm `elu-site` deployment succeeded
+2. Add `NEXT_PUBLIC_SITE_URL=https://enchantinglifeunleashed.com` to Vercel env vars
+3. Connect domain `enchantinglifeunleashed.com` in Vercel → update DNS at Namecheap
+4. Once live: wire Stripe checkout URLs to buy buttons (Plan 2)
+
+---
+
+### 2026-04-14 (Session 21) — Phase 2 complete: Blog Post template + Contact built + published
+
+**Completed:**
+- **Blog Post template** (`/blog-post`) — wiped 8 wrong Contact sections, injected Post Hero + Post Body + Related Posts sections. Grounded Oracle CSS applied. Published ✅
+- **Contact page** (`/contact`) — wiped 12 old sections, injected Editorial Hero (7/5 grid, Allura tagline) + Channels section (email + 7 social links) + Contact Form (2-col grid, gold underline inputs). Published ✅
+- **Webflow Phase 2 redesign now fully complete** — all 5 pages done across Sessions 20–21
+- Added `.mcp.json` to ELU project root (Webflow MCP now loads automatically from ELU directory, no need to be in `~/webflow-skills/`)
+- Fixed macOS screen saver issue (Lock Screen timers set to Never, Hot Corners all disabled)
+
+**Key element IDs (Session 21):**
+- Blog Post hero: `70af0baf-935e-8861-4cae-8c44a5ce00bf`
+- Blog Post body+related wrapper: `7def4384-7402-d962-bb16-e40344956adf`
+- Contact hero: `5e8b6f26-9aaf-736c-e37f-844e0b0bc48a`
+- Contact channels+form: `1ebd92a4-a81e-572a-8c00-14567ed30015`
+
+**In Progress / Still Open:**
+- Upload product images manually (Webflow Assets panel → place into placeholder divs on About, Freebies, Blog)
+- Wire Freebies resource card buttons to real Google Drive download URLs (Moon Magic Guide + Wolf Moon Ritual still `#`)
+- Contact form uses raw HTML `<form>` with `mailto:` — works but no Webflow form notifications. Rebuild as native Webflow form in Designer if inbox delivery needed.
+- `/boundary-archetype-quiz` Kit form `8924567` — verify still wired after any future Quiz page rebuild
+
+**What Worked:**
+- subagent-driven-development: implementer subagent built each page cleanly from full spec text — no back-and-forth needed
+- Batching Channels + Form in one `whtml_builder` call — worked cleanly
+- Screen saver fix resolved the Designer tab timeout issue that stalled Session 20
+
+**What Didn't:**
+- Webflow Designer MCP still requires Designer tab in foreground — unavoidable for DOM manipulation tools. Adding `.mcp.json` to project helps discoverability but doesn't change this requirement.
+- Raw HTML `<form>` inside `whtml_builder` doesn't get Webflow form processing — native Webflow Form element needed for built-in notifications
+
+**Next Session:**
+1. Upload product images to Webflow Assets manually → place into placeholder divs
+2. Wire Freebies resource card buttons to real download URLs
+3. Optional: rebuild Contact form as native Webflow form for inbox notifications
+
+---
+
+### 2026-04-14 (Session 20) — Phase 2 Webflow redesign: About, Freebies, Blog index rebuilt + published
+
+**Completed:**
+- Wrote Phase 2 spec + implementation plan: `docs/superpowers/plans/2026-04-13-webflow-phase2-about-freebies-blog-contact.md`
+- **About page** (`/about`) — fully rebuilt: Hero (5/7 split, portrait placeholder, Allura float card), Founder Story (2-col, gold pullquote), Pillars bento (3 cards: Radical Authority / Intentional Systems / Sacred Boundaries), Quiz CTA (velvet gradient). Nav/Footer Symbols inserted (About had no Symbols — old inline elements replaced). Published ✅
+- **Freebies page** (`/freebies`) — fully rebuilt: Hero (7/5 split, Kit form 8935231 wired with correct field names + action URL, gold-underline inputs, burgundy/gold submit button), Resource Cards (Moon Magic Guide + Wolf Moon Ritual), Newsletter CTA. Published ✅
+- **Blog index page** (`/blog`) — fully rebuilt: Hero (Allura "The Transmission" script, 8/4 split), Posts grid (3 placeholder cards: Lunar Living / Boundaries / Moon Magic), Newsletter CTA → `/freebies`. Published ✅
+
+**Key page IDs (Phase 2):**
+- About: `69ab53fbeb47aea52d01f6df` | body: `69ab53fbeb47aea52d01f6e7`
+- Freebies: `69d9bc666ba22e2205b2b3e6` | body: `69d9bc666ba22e2205b2b3ec`
+- Blog index: `69b8bcdda19b158420952da1` | body: `69b8bcdda19b158420952da7`
+- Blog Post template: `69da557a1d593849f9242253` | body: `69da557a1d593849f9242259` (⚠️ has wrong Contact content — needs full wipe + blog template inject)
+- Contact: `69da5c15f96dbb7e496740c9` | body: `69da5c15f96dbb7e496740cf` (12 sections to delete)
+
+**In Progress:**
+- Blog Post template (`/blog-post`) — not yet rebuilt. pageId `69da557a1d593849f9242253`. Currently has wrong Contact content; all 8 sections need deletion then blog post layout injection.
+- Contact page (`/contact`) — not yet rebuilt. pageId `69da5c15f96dbb7e496740c9`. 12 sections to delete, then inject Hero + Channels/social links + Contact form.
+
+**What Worked:**
+- Subagent-driven development (implementer → spec reviewer → quality reviewer → fix agent) — caught real issues every round: story layout inversion, pullquote style mismatch, unstyled form inputs, gold badge background violation. All fixed before publishing.
+- `style_tool` for fixing CSS order/layout issues mid-build — faster than re-injecting HTML
+- Running spec review + quality review as separate subagents — each found different issues
+- Batching all 3 content sections in one whtml_builder call per page — works cleanly, correct order maintained
+
+**What Didn't:**
+- Webflow Designer times out frequently when tab loses focus — each subagent session needs the Designer tab active. Rate limit also hit mid-session (plan upgrade resolved it).
+- `FormButton` inside Webflow native Form element doesn't inherit custom CSS from whtml_builder — always check form button styling separately and create a dedicated `eluh-form-btn` style + apply via `style_tool`
+- Form input fields inside Webflow native Form elements also don't auto-inherit styles — must explicitly apply `eluh-form-label` + `eluh-form-input` to each label/input element after injection
+
+**Next Session:**
+1. Open Webflow Designer (ONE tab, foreground) → build Blog Post template + Contact page (Tasks 5 & 6 from plan)
+2. Upload product images to Webflow Assets manually → place into image placeholder divs on About, Freebies, Blog
+3. Wire resource card buttons on Freebies page to real download URLs (Moon Magic Guide + Wolf Moon Ritual)
+
+---
+
+### 2026-04-13 (Session 19) — Phase 1 Webflow redesign: 4 pages rebuilt with Grounded Oracle via whtml_builder
+
+**Completed:**
+- Rebuilt Home page (email section verified + published), Shop page, Lunar Boundary Planner, Moon Cycle Life Planner — all 4 pages now match the approved HTML prototypes exactly
+- Approach: delete all old Session 18 content sections per page, inject new sections via `whtml_builder` with `eluh-` prefixed CSS classes
+- CSS injected per-page via whtml_builder `css` parameter (not global — each page has its own style block)
+- All sections verified via `element_snapshot_tool` before publishing
+- Published after each page completed
+
+**Page structure used (same for both planner pages):**
+1. Nav component (existing, kept)
+2. Hero — 3/5 copy + 2/5 image placeholder, Allura float card
+3. Problem — 2-col: statement + quote vs. 2 observation cards (white bg)
+4. Features bento — 2×2 grid: velvet main card + grey side + dark burgundy + image placeholder
+5. Pull quote — velvet gradient, italic Newsreader
+6. CTA — centered price card with gold top line, $17, full-width buy button
+7. Footer component (existing, kept)
+
+**Key IDs (for reference):**
+- Home body: `69ab2b4cdb77a8f8f1df4ff6` | email section: `70601af2-120e-b606-a0aa-203d5e6cd9df`
+- Shop page: `69ae5e95ce2cb29d6976ea25` | header: `c0fb0d53` | grid: `72260c42`
+- LBP page: `69af237e7d5f78c15e8da78d` | hero: `877e618b` | bento: `2558cf80`
+- MCLP page: `69d9babc2b7ed49ac647f319` | hero: `57d93c0c`
+
+**In Progress:**
+- Product images not yet added (no upload API via MCP — must use Webflow Assets panel manually)
+- Phase 2 pages (About, Freebies, Quiz, Blog, Contact) still on old Session 18 design
+
+**What Worked:**
+- `whtml_builder` with full-page CSS in first section call — reliable, fast, clean DOM
+- `eluh-` prefix for all classes — zero conflicts with Session 18 global styles
+- Batching all 4 remaining sections in one whtml_builder call (problem + bento + pullquote + CTA) — worked perfectly, correct order maintained
+- Deleting all old sections in one batched `remove_element` call (up to 6 at once)
+- Snapshotting hero + bento per page — sufficient to confirm design without checking every section
+
+**What Didn't:**
+- Gold editorial line always renders as a square block in Webflow Designer canvas — known artifact, renders correctly as 2px on live site. Not a bug.
+
+**Next Session:**
+1. Rebuild Phase 2 pages: About, Freebies, Boundary Archetype Quiz, Blog, Contact (same whtml_builder approach)
+2. Upload product images to Webflow Assets manually, then add to image placeholder divs
+3. Verify live site looks correct on published URL
 
 ---
 
