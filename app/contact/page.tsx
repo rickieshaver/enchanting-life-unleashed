@@ -25,15 +25,15 @@ export default function ContactPage() {
           <div className="md:col-span-7">
             <div className="editorial-line mb-6" />
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-headline italic text-primary leading-tight tracking-tighter">
-              Inquiries of <br />
-              <span className="pl-12 md:pl-24 text-secondary">Intent.</span>
+              Not Everything<br />
+              <span className="pl-12 md:pl-24 text-secondary">Deserves Access.</span>
             </h1>
           </div>
           <div className="md:col-span-5 pb-4">
             <div className="flex items-start gap-4">
               <div className="w-px h-24 bg-gold/40" />
               <p className="font-script text-3xl text-secondary -mt-2">
-                Where Soul Meets Strategy
+                If you&apos;re reaching out, make it intentional.
               </p>
             </div>
           </div>
@@ -50,9 +50,23 @@ export default function ContactPage() {
                 Direct Channels
               </h2>
               <p className="text-3xl font-headline text-primary leading-relaxed">
-                Your message is an inquiry of intent. We respond with the same precision we apply to
-                our systems.
+                This isn&apos;t an &ldquo;open inbox&rdquo; situation.
               </p>
+              <div className="font-body text-base text-secondary leading-relaxed flex flex-col gap-4">
+                <div>
+                  <p className="mb-2">If you&apos;re:</p>
+                  <ul className="flex flex-col gap-1 pl-3">
+                    <li>— A potential collaboration</li>
+                    <li>— A business inquiry</li>
+                    <li>— Or you actually need support with something specific</li>
+                  </ul>
+                </div>
+                <p>You&apos;re in the right place.</p>
+                <p>
+                  If you&apos;re looking for free coaching in disguise—<br />
+                  This isn&apos;t that.
+                </p>
+              </div>
             </div>
 
             {/* Email */}
@@ -149,8 +163,12 @@ export default function ContactPage() {
                 <button type="submit" className="btn-primary w-full text-center">
                   Submit
                 </button>
-                <p className="mt-6 text-[10px] text-center text-on-surface-variant/60 uppercase tracking-widest leading-relaxed">
-                  We respond within 48 business hours.
+                <p className="mt-4 font-body text-sm text-center text-secondary leading-relaxed">
+                  Be clear. Be direct. I&apos;ll do the same.
+                </p>
+                <p className="mt-2 text-[10px] text-center text-on-surface-variant/60 uppercase tracking-widest leading-relaxed">
+                  If it&apos;s aligned, you&apos;ll hear back.<br />
+                  If it&apos;s not, you won&apos;t—and that&apos;s intentional.
                 </p>
               </div>
             </form>

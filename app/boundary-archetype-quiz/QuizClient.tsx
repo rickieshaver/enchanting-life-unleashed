@@ -99,15 +99,22 @@ export default function QuizClient() {
       <div className="min-h-screen bg-[#FFFCF7] flex flex-col items-center justify-center px-8 py-24">
         <div className="max-w-2xl mx-auto text-center flex flex-col items-center gap-8">
           <p className="font-label text-xs uppercase tracking-widest text-[#EDB74D] font-bold">
-            12 questions &middot; 5 minutes &middot; Real answers
+            2 minutes &middot; 12 questions &middot; Real answers
           </p>
           <h1 className="font-headline text-5xl md:text-6xl font-bold text-[#6D2E46] leading-tight">
             What&apos;s Your Boundary Archetype?
           </h1>
-          <p className="font-body text-lg text-[#A26769] leading-relaxed">
-            Find out whether you&apos;re an Open Door, Cracked Window, or Sacred Keeper —
-            and exactly which domain your pattern is costing you the most.
-          </p>
+          <div className="font-body text-lg text-[#A26769] leading-relaxed flex flex-col gap-4 text-left w-full">
+            <p>This takes 2 minutes.</p>
+            <p>At the end, you&apos;ll know exactly where your life is leaking:</p>
+            <ul className="flex flex-col gap-1 pl-4">
+              <li>— Your energy</li>
+              <li>— Your time</li>
+              <li>— Your communication</li>
+              <li>— Your resources</li>
+            </ul>
+            <p>And which system you actually need.</p>
+          </div>
           <button
             onClick={() => setStage('questions')}
             className="btn-primary px-12 py-4 text-base mt-4"
@@ -115,7 +122,7 @@ export default function QuizClient() {
             Take the Quiz
           </button>
           <p className="font-body text-xs text-[#A26769]/60">
-            Your results + personalized Empowered Boundary Blueprint delivered to your inbox. Free.
+            Your results + personalized blueprint delivered to your inbox. Free.
           </p>
         </div>
       </div>

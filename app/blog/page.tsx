@@ -41,13 +41,13 @@ export default function BlogPage() {
             <h2 className="font-script text-4xl text-secondary mb-4">The Transmission</h2>
             <div className="w-24 h-[2px] bg-gold mb-8" />
             <h1 className="font-headline text-5xl md:text-7xl font-bold text-primary leading-tight tracking-tighter italic">
-              Insights for the Grounded Mystic
+              This Isn&apos;t Content.<br />It&apos;s Calibration.
             </h1>
           </div>
           <div className="md:col-span-4 flex items-end">
             <p className="font-body text-lg text-secondary leading-relaxed">
-              Systems, rituals, and sovereignty — transmissions from the intersection of soul and
-              strategy.
+              If you&apos;re looking for inspiration, this isn&apos;t it.<br />
+              If you&apos;re ready to see where you&apos;re leaking—and fix it—start anywhere.
             </p>
           </div>
         </div>
@@ -57,9 +57,9 @@ export default function BlogPage() {
       <section className="max-w-7xl mx-auto px-8 md:px-12 py-20">
         <div className="flex justify-between items-end mb-16">
           <div className="border-l-2 border-gold pl-6">
-            <h3 className="font-headline text-3xl italic text-primary">Recent Intelligence</h3>
+            <h3 className="font-headline text-3xl italic text-primary">Most people don&apos;t have a motivation problem.</h3>
             <p className="font-label text-xs uppercase tracking-widest text-secondary mt-2">
-              Systems, Rituals, &amp; Sovereignty
+              They have a pattern problem. These are the patterns.
             </p>
           </div>
         </div>
@@ -82,6 +82,20 @@ export default function BlogPage() {
                 <span className="font-label text-[10px] uppercase tracking-widest text-secondary">
                   {post.readTime}
                 </span>
+                <div className="mt-6 pt-6 border-t border-on-surface-variant/10">
+                  <p className="font-body text-sm text-secondary leading-relaxed mb-3">
+                    If this hit a little too close—
+                  </p>
+                  <Link
+                    href="/boundary-archetype-quiz"
+                    className="font-label text-xs uppercase tracking-widest text-primary font-bold hover:text-secondary transition-colors"
+                  >
+                    Take the quiz &rarr;
+                  </Link>
+                  <p className="font-body text-xs text-on-surface-variant/60 mt-2">
+                    It&apos;ll show you exactly where this is happening in your life.
+                  </p>
+                </div>
               </div>
             </article>
           ))}

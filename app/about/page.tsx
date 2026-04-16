@@ -20,12 +20,10 @@ export default function AboutPage() {
               <span className="eyebrow font-bold">Founder&apos;s Statement</span>
             </div>
             <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl leading-[0.9] text-primary tracking-tighter">
-              Boundaries are doors with locks{' '}
-              <span className="italic font-light">YOU</span> control.
+              I&apos;m not here to inspire you.
             </h1>
             <p className="mt-12 font-body text-xl text-secondary max-w-sm leading-relaxed">
-              Redefining the architecture of a spiritual life through the lens of authority,
-              precision, and unapologetic self-governance.
+              I&apos;m here to help you stop abandoning yourself.
             </p>
           </div>
           <div className="md:col-span-7 relative">
@@ -53,30 +51,24 @@ export default function AboutPage() {
           <div className="order-2 md:order-1">
             <div className="flex flex-col gap-12">
               <h2 className="font-headline text-4xl text-primary leading-tight">
-                Why magic needs systems.
+                Awareness without structure changes nothing.
               </h2>
               <div className="flex flex-col gap-8 text-secondary text-lg leading-relaxed font-light">
                 <p>
-                  For years, I watched the world of &ldquo;self-growth&rdquo; dissolve into a cloud
-                  of vague intentions and ungrounded rituals. It lacked the one thing that truly
-                  transforms a life: <strong>Structure.</strong>
+                  I&apos;ve done the healing work.<br />
+                  The journaling.<br />
+                  The shadow work.<br />
+                  The &ldquo;why do I keep ending up here&rdquo; loops.
                 </p>
                 <p>
-                  I realized that without a system, magic is just a wish. Without boundaries, energy
-                  is just a leak. Enchanting Life Unleashed was born from the necessity of bridging
-                  the ethereal with the industrial.
+                  And what I realized?<br />
+                  Awareness without structure changes nothing.
                 </p>
                 <div className="pl-8 border-l-2 border-gold">
                   <p className="font-headline italic text-primary text-2xl">
-                    &ldquo;Power isn&apos;t found in the flow; it&apos;s found in the banks that
-                    direct the river.&rdquo;
+                    You don&apos;t need more insight. You need systems that hold you when your emotions don&apos;t.
                   </p>
                 </div>
-                <p>
-                  I don&apos;t offer fluff. I offer blueprints. We aren&apos;t here to escape
-                  reality; we are here to master it using the very tools most are afraid to touch:
-                  discipline, authority, and radical intentionality.
-                </p>
               </div>
             </div>
           </div>
@@ -144,9 +136,9 @@ export default function AboutPage() {
           <div className="bg-velvet p-12 md:p-20 text-center relative overflow-hidden">
             <div className="relative z-10 max-w-3xl mx-auto">
               <h2 className="font-headline text-4xl md:text-5xl text-white mb-12">
-                Your evolution is not an accident.{' '}
+                If you&apos;re ready to stop leaking your life away—
                 <br />
-                <span className="italic font-light">It is a strategy.</span>
+                <span className="italic font-light">Start with the quiz.</span>
               </h2>
               <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
                 <Link href="/boundary-archetype-quiz" className="btn-primary">

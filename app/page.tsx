@@ -18,12 +18,14 @@ export default function HomePage() {
           <div className="col-span-12 md:col-span-7 flex flex-col gap-8">
             <div className="editorial-line" />
             <h1 className="font-headline text-5xl md:text-7xl xl:text-8xl font-bold leading-none text-primary">
-              Your power doesn&apos;t<br />need permission.<br />
-              <em>It needs a plan.</em>
+              You Don&apos;t Need More Healing. You Need Better Boundaries.
             </h1>
+            <p className="font-body text-lg text-on-surface-variant leading-relaxed max-w-xl">
+              Where modern mystics stop leaking energy, money, and time—and start building lives that actually hold them.
+            </p>
             <div className="flex items-center gap-6 mt-4 flex-wrap">
-              <Link href="/shop" className="btn-primary">
-                Start Here
+              <Link href="/boundary-archetype-quiz" className="btn-primary">
+                Take the Boundary Quiz
               </Link>
               <span className="font-script text-3xl text-secondary leading-none">
                 Where Soul Meets Strategy
@@ -58,56 +60,83 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start mb-16">
             <div>
               <h2 className="font-headline text-5xl font-bold text-primary leading-tight">
-                Soul meets<br />strategy.
+                This isn&apos;t another &ldquo;high vibe&rdquo; corner of the internet.<br />
+                <br />
+                This is where you figure out exactly where your life is leaking—and fix it.
               </h2>
             </div>
             <div className="flex flex-col gap-6">
               <p className="font-body text-base text-on-surface-variant leading-relaxed">
-                You&apos;re spiritually aware and seriously ambitious. You don&apos;t want to choose
-                between the woo and the work — and you shouldn&apos;t have to. Enchanting Life
-                Unleashed is where modern mystics build real systems rooted in intention and guided
-                by intuition.
+                No fluff. No bypassing. No pretending boundaries are &ldquo;just say no.&rdquo;<br />
+                <br />
+                We build structure.<br />
+                We build self-trust.<br />
+                We build lives that actually hold you.
               </p>
               <div className="editorial-line" />
-              <p className="eyebrow font-bold">Sacred systems for the modern mystic</p>
+              <p className="eyebrow font-bold">Boundaries aren&apos;t walls. They&apos;re systems.</p>
             </div>
           </div>
 
           {/* Bento cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Radical Authority */}
+            {/* Where your energy goes */}
             <div className="bg-velvet p-10 flex flex-col gap-4 min-h-[240px]">
               <p className="font-label text-xs uppercase tracking-[0.2em] text-gold/80 font-bold">
                 01
               </p>
-              <h3 className="font-headline text-2xl text-white">Radical Authority</h3>
+              <h3 className="font-headline text-2xl text-white">Where Your Energy Goes</h3>
               <p className="font-body text-sm text-white/70 leading-relaxed">
-                Stop seeking permission from external sources. You are the architect, the judge, and
-                the jury of your own experience.
+                You get to decide what receives your time, attention, and capacity—and what doesn&apos;t. That&apos;s not selfish. That&apos;s a system.
               </p>
             </div>
-            {/* Intentional Systems */}
+            {/* Who gets access */}
             <div className="bg-surface-mid p-10 flex flex-col gap-4 min-h-[240px]">
               <p className="font-label text-xs uppercase tracking-[0.2em] text-secondary font-bold">
                 02
               </p>
-              <h3 className="font-headline text-2xl text-primary">Intentional Systems</h3>
+              <h3 className="font-headline text-2xl text-primary">Who Gets Access to You</h3>
               <p className="font-body text-sm text-on-surface-variant leading-relaxed">
-                Vague goals lead to vague results. We use systems to isolate intent and execute with
-                surgical accuracy.
+                Not everyone gets the same version of you. Boundaries define the terms of access—at work, in relationships, everywhere.
               </p>
             </div>
-            {/* Sacred Boundaries */}
+            {/* What stays and what doesn't */}
             <div className="bg-surface-mid p-10 flex flex-col gap-4 min-h-[240px]">
               <p className="font-label text-xs uppercase tracking-[0.2em] text-secondary font-bold">
                 03
               </p>
-              <h3 className="font-headline text-2xl text-primary">Sacred Boundaries</h3>
+              <h3 className="font-headline text-2xl text-primary">What Stays and What Doesn&apos;t</h3>
               <p className="font-body text-sm text-on-surface-variant leading-relaxed">
-                Boundaries aren&apos;t walls. They&apos;re the architecture of your most aligned
-                life. Set them with intention. Hold them without guilt.
+                Once the system is in place, the decision is already made. You stop deliberating and start living on your terms.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROBLEM SECTION */}
+      <section className="max-w-7xl mx-auto px-8 md:px-12 py-20">
+        <div className="grid grid-cols-12 gap-8 md:gap-12 items-start">
+          <div className="col-span-12 md:col-span-7 flex flex-col gap-4">
+            <div className="editorial-line" />
+            <p className="font-body text-lg text-on-surface-variant leading-relaxed">
+              You&apos;ve done the healing.<br />
+              You&apos;ve read the books.<br />
+              You&apos;ve journaled your way through every phase of your life.<br />
+              <br />
+              And somehow&hellip;<br />
+              <br />
+              You&apos;re still overextended.<br />
+              Still drained.<br />
+              Still saying yes when you mean no.
+            </p>
+          </div>
+          <div className="col-span-12 md:col-span-5 flex flex-col justify-end gap-4 md:pt-8">
+            <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary leading-tight">
+              That&apos;s not a mindset problem.<br />
+              <br />
+              That&apos;s a boundary problem.
+            </h2>
           </div>
         </div>
       </section>
@@ -117,7 +146,11 @@ export default function HomePage() {
         <div className="flex items-baseline justify-between mb-12">
           <div>
             <div className="editorial-line mb-4" />
-            <h2 className="font-headline text-4xl font-bold text-primary">The Collection</h2>
+            <h2 className="font-headline text-4xl font-bold text-primary">Start Here</h2>
+            <p className="font-body text-base text-on-surface-variant leading-relaxed max-w-xl mt-4">
+              The Boundary System that shows you exactly where your life is leaking—and how to fix it.<br />
+              No guessing. No overwhelm. Just clarity and implementation.
+            </p>
           </div>
           <Link
             href="/shop"

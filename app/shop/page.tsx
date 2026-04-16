@@ -12,8 +12,6 @@ const products = [
   {
     tag: 'Planner',
     title: 'Lunar Boundary Planner',
-    description:
-      'A 12-month moon-aligned planner to set, hold, and honor your boundaries — without guilt or apology.',
     price: '$37',
     href: '/lunar-boundary-planner',
     cta: 'View Details',
@@ -23,8 +21,6 @@ const products = [
   {
     tag: 'Planner',
     title: 'Moon Cycle Life Planner',
-    description:
-      '163 pages synced to the 2026 lunar calendar. Weekly pages, moon rituals, and intention-setting spreads.',
     price: '$47',
     href: '/moon-cycle-life-planner',
     cta: 'View Details',
@@ -34,8 +30,6 @@ const products = [
   {
     tag: 'Freebie',
     title: 'Moon Magic Quick Start Guide',
-    description:
-      'Your introduction to lunar living — 8 moon phases, rituals, and the magic of working with the cycle.',
     price: 'Free',
     href: '/freebies',
     cta: 'Download',
@@ -45,8 +39,6 @@ const products = [
   {
     tag: 'Quiz',
     title: 'Boundary Archetype Quiz',
-    description:
-      'Discover your boundary archetype and finally understand why you keep over-giving, burning out, or shrinking back.',
     price: 'Free',
     href: '/boundary-archetype-quiz',
     cta: 'Take the Quiz',
@@ -64,12 +56,10 @@ export default function ShopPage() {
           <div className="flex flex-col md:flex-row items-baseline gap-8">
             <div className="editorial-line mb-4 md:mb-0" />
             <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tight text-primary leading-none">
-              Tools for the grounded mystic.
+              This Isn&apos;t Content.<br />
+              <span className="italic font-light">It&apos;s Infrastructure for Your Life.</span>
             </h1>
           </div>
-          <p className="font-body text-xl text-secondary tracking-wide mt-6 max-w-lg">
-            Sacred systems designed to align your energy with your ambition.
-          </p>
         </div>
       </section>
 
@@ -94,9 +84,27 @@ export default function ShopPage() {
                 <h2 className="font-headline text-3xl font-bold text-primary mb-3 leading-tight">
                   {product.title}
                 </h2>
-                <p className="font-body text-sm text-secondary leading-relaxed mb-6 flex-grow">
-                  {product.description}
-                </p>
+                <div className="font-body text-sm text-secondary leading-relaxed mb-6 flex-grow flex flex-col gap-4">
+                  <div>
+                    <p className="font-label text-xs uppercase tracking-widest text-primary font-bold mb-2">This is for you if:</p>
+                    <ul className="flex flex-col gap-1 pl-3">
+                      <li>— You&apos;re tired of overgiving</li>
+                      <li>— You&apos;re done second-guessing yourself</li>
+                      <li>— You want actual change—not more awareness</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-label text-xs uppercase tracking-widest text-primary font-bold mb-2">Inside, you&apos;ll:</p>
+                    <ul className="flex flex-col gap-1 pl-3">
+                      <li>— Identify exactly where you&apos;re leaking</li>
+                      <li>— Build boundaries that actually hold</li>
+                      <li>— Create systems you can maintain long-term</li>
+                    </ul>
+                  </div>
+                  <p className="font-body text-sm text-primary italic mt-2">
+                    This isn&apos;t a journal. It&apos;s a system.
+                  </p>
+                </div>
                 <div className="flex items-center justify-between border-t border-on-surface-variant/10 pt-6">
                   <span className="font-headline text-2xl font-bold text-primary">
                     {product.price}
