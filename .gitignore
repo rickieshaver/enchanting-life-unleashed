@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# python venvs / tooling / agent scratch
+.venv/
+.superpowers/
+Plugins/
+.mcp.json
+launch.json
