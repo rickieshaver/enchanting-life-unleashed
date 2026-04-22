@@ -43,19 +43,37 @@ export async function POST(req: Request) {
 
   const { firstName, email, archetype, primaryArea, resultKey, scores } = body
 
+  const debug: Record<string, unknown> = {
+    resendKeyPresent: Boolean(process.env.RESEND_API_KEY),
+    inngestKeyPresent: Boolean(process.env.INNGEST_EVENT_KEY),
+  }
+
   // 1. Create / update contact in Resend with properties
   try {
     await resend.contacts.create({
       email,
       firstName,
       unsubscribed: false,
+      properties: {
+        archetype,
+        primary_boundary_area: primaryArea,
+        result_key: resultKey,
+        spellbreaker_score: scores.area.spellbreaker,
+        time_keeper_score: scores.area['time-keeper'],
+        sacred_vessel_score: scores.area['sacred-vessel'],
+        resource_guardian_score: scores.area['resource-guardian'],
+        source: 'boundary-archetype-quiz',
+      },
     })
+    debug.resendStep = 'ok'
   } catch (err) {
-    // Resend returns a 409-style error if contact already exists — safe to ignore.
     const msg = err instanceof Error ? err.message : String(err)
-    if (!msg.toLowerCase().includes('already exist')) {
+    debug.resendStep = 'error'
+    debug.resendError = msg
+    // Resend returns an error if contact already exists — that's fine.
+    if (!msg.toLowerCase().includes('already exist') && !msg.toLowerCase().includes('already been')) {
       console.error('[quiz-submit] resend.contacts.create failed', err)
-      // Don't block the drip on contact-create failure — contact may already exist.
+      return NextResponse.json({ ok: false, error: `resend: ${msg}`, debug }, { status: 500 })
     }
   }
 
@@ -65,13 +83,14 @@ export async function POST(req: Request) {
       name: 'quiz.submitted',
       data: { firstName, email, archetype, primaryArea, resultKey, scores },
     })
+    debug.inngestStep = 'ok'
   } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err)
+    debug.inngestStep = 'error'
+    debug.inngestError = msg
     console.error('[quiz-submit] inngest.send failed', err)
-    return NextResponse.json(
-      { ok: false, error: 'could not enqueue drip' },
-      { status: 500 }
-    )
+    return NextResponse.json({ ok: false, error: `inngest: ${msg}`, debug }, { status: 500 })
   }
 
-  return NextResponse.json({ ok: true })
+  return NextResponse.json({ ok: true, debug })
 }
