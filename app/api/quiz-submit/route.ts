@@ -81,82 +81,96 @@ export async function POST(req: Request) {
   }
 
   // 2. Fire the 6-email drip — Day 0 immediate, rest scheduled via Resend.
+  // Sends are sequential to stay under Resend's per-second rate limit.
   const now = Date.now()
   const at = (days: number) => new Date(now + days * DAY_MS).toISOString()
 
-  const sends = [
-    sendEmail({
-      to: email,
-      template: 'blueprint-delivery',
-      subject: `Your Empowered Boundary Blueprint, ${firstName}.`,
-      firstName,
-      archetype,
-      primaryArea,
-    }),
-    sendEmail({
-      to: email,
-      template: 'pressure-moment',
-      subject: 'The moment after the no.',
-      firstName,
-      scheduledAt: at(2),
-    }),
-    sendEmail({
-      to: email,
-      template: 'insight-vs-behavior',
-      subject: "You don't have a knowledge problem.",
-      firstName,
-      scheduledAt: at(5),
-    }),
-    sendEmail({
-      to: email,
-      template: 'sbs-intro',
-      subject: 'This is where the pattern actually changes.',
-      firstName,
-      archetype,
-      scheduledAt: at(8),
-    }),
-    sendEmail({
-      to: email,
-      template: 'sbs-pitch',
-      subject: 'What $17 gets you.',
-      firstName,
-      archetype,
-      scheduledAt: at(11),
-    }),
-    sendEmail({
-      to: email,
-      template: 'soft-close',
-      subject: 'One more thing.',
-      firstName,
-      scheduledAt: at(14),
-    }),
+  const dripSteps = [
+    {
+      label: 'day-0',
+      props: {
+        to: email,
+        template: 'blueprint-delivery' as const,
+        subject: `Your Empowered Boundary Blueprint, ${firstName}.`,
+        firstName,
+        archetype,
+        primaryArea,
+      },
+    },
+    {
+      label: 'day-2',
+      props: {
+        to: email,
+        template: 'pressure-moment' as const,
+        subject: 'The moment after the no.',
+        firstName,
+        scheduledAt: at(2),
+      },
+    },
+    {
+      label: 'day-5',
+      props: {
+        to: email,
+        template: 'insight-vs-behavior' as const,
+        subject: "You don't have a knowledge problem.",
+        firstName,
+        scheduledAt: at(5),
+      },
+    },
+    {
+      label: 'day-8',
+      props: {
+        to: email,
+        template: 'sbs-intro' as const,
+        subject: 'This is where the pattern actually changes.',
+        firstName,
+        archetype,
+        scheduledAt: at(8),
+      },
+    },
+    {
+      label: 'day-11',
+      props: {
+        to: email,
+        template: 'sbs-pitch' as const,
+        subject: 'What $17 gets you.',
+        firstName,
+        archetype,
+        scheduledAt: at(11),
+      },
+    },
+    {
+      label: 'day-14',
+      props: {
+        to: email,
+        template: 'soft-close' as const,
+        subject: 'One more thing.',
+        firstName,
+        scheduledAt: at(14),
+      },
+    },
   ]
 
-  const results = await Promise.allSettled(sends)
-  const labels = ['day-0', 'day-2', 'day-5', 'day-8', 'day-11', 'day-14']
-
-  const failures = results
-    .map((r, i) => ({ r, label: labels[i] }))
-    .filter(({ r }) => r.status === 'rejected')
-    .map(({ r, label }) => {
-      const reason = (r as PromiseRejectedResult).reason
-      return { step: label, error: reason instanceof Error ? reason.message : String(reason) }
-    })
-
-  if (failures.length > 0) {
-    console.error('[quiz-submit] drip sends partially failed', failures)
-    debug.emailStep = failures.length === results.length ? 'all-failed' : 'partial'
-    debug.failures = failures
-  } else {
-    debug.emailStep = 'ok'
+  const failures: Array<{ step: string; error: string }> = []
+  for (const [i, step] of dripSteps.entries()) {
+    try {
+      await sendEmail(step.props)
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err)
+      failures.push({ step: step.label, error: msg })
+      // Day 0 is the user-facing send — if it fails, surface a 500 immediately.
+      if (i === 0) {
+        console.error('[quiz-submit] day-0 send failed', err)
+        debug.emailStep = 'day-0-failed'
+        debug.failures = failures
+        return NextResponse.json({ ok: false, error: `email: ${msg}`, debug }, { status: 500 })
+      }
+      console.error(`[quiz-submit] ${step.label} scheduling failed`, err)
+    }
   }
 
-  // Day 0 send is the user-facing one — if it failed, surface a 500 so the UI can retry.
-  if (results[0].status === 'rejected') {
-    const reason = (results[0] as PromiseRejectedResult).reason
-    const msg = reason instanceof Error ? reason.message : String(reason)
-    return NextResponse.json({ ok: false, error: `email: ${msg}`, debug }, { status: 500 })
-  }
+  debug.emailStep = failures.length === 0 ? 'ok' : 'partial'
+  if (failures.length > 0) debug.failures = failures
 
   return NextResponse.json({ ok: true, debug })
 }
