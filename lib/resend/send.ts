@@ -5,7 +5,7 @@ import { FROM, resend } from './client'
 type ArchetypeKey = 'open-door' | 'cracked-window' | 'sacred-keeper'
 type AreaKey = 'spellbreaker' | 'time-keeper' | 'sacred-vessel' | 'resource-guardian'
 
-// Lazy-import templates so Inngest cold starts stay light.
+// Lazy-import templates to keep cold starts light.
 const TEMPLATES = {
   'blueprint-delivery': () => import('@/app/emails/blueprint-delivery'),
   'pressure-moment': () => import('@/app/emails/pressure-moment'),
@@ -24,6 +24,7 @@ export type SendProps = {
   firstName: string
   archetype?: ArchetypeKey
   primaryArea?: AreaKey
+  scheduledAt?: string
 }
 
 export async function sendEmail({
@@ -33,6 +34,7 @@ export async function sendEmail({
   firstName,
   archetype,
   primaryArea,
+  scheduledAt,
 }: SendProps) {
   const mod = await TEMPLATES[template]()
   const Component = mod.default as ComponentType<Record<string, unknown>>
@@ -47,6 +49,7 @@ export async function sendEmail({
     subject,
     html,
     text,
+    ...(scheduledAt ? { scheduledAt } : {}),
   })
 
   if (error) {
