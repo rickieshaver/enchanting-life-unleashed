@@ -282,6 +282,9 @@ export default function QuizClient() {
       'sacred-keeper': 'Sacred Keeper',
     }
 
+    const archetypeDisplay = archetypeDisplayNames[result.archetype]
+    const indefiniteArticle = /^[aeiou]/i.test(archetypeDisplay) ? 'an' : 'a'
+
     return (
       <div className="bg-[#FFFCF7]">
         {/* Result hero */}
@@ -291,7 +294,7 @@ export default function QuizClient() {
               Your Result
             </p>
             <h1 className="font-headline text-4xl md:text-6xl font-bold text-white leading-tight">
-              You are a {archetypeDisplayNames[result.archetype]}<br />
+              You are {indefiniteArticle} {archetypeDisplay}<br />
               <span className="text-[#EDB74D]">in your {areaLabel}.</span>
             </h1>
             <div className="w-12 h-px bg-[#EDB74D] mt-2" />
