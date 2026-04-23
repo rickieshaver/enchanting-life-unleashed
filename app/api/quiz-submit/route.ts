@@ -152,7 +152,12 @@ export async function POST(req: Request) {
   ]
 
   const failures: Array<{ step: string; error: string }> = []
+  const sleep = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms))
+  // Resend limit is 5 req/sec on this account. Pace sends ~3/sec to stay well under.
+  const INTER_SEND_DELAY_MS = 350
+
   for (const [i, step] of dripSteps.entries()) {
+    if (i > 0) await sleep(INTER_SEND_DELAY_MS)
     try {
       await sendEmail(step.props)
     } catch (err) {
