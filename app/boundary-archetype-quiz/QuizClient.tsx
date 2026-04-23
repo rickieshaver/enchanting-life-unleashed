@@ -14,37 +14,30 @@ import {
 
 type Stage = 'intro' | 'questions' | 'email-gate' | 'submitting' | 'results'
 
-const KIT_FORM_ID = '8924567'
-
-async function submitToKit(
+async function submitQuiz(
   firstName: string,
   email: string,
   result: QuizResult
 ): Promise<void> {
-  const archetypeKey = result.archetype
-  const primaryArea = result.primaryArea
-  const resultKey = `${archetypeKey}--${primaryArea}`
+  const resultKey = `${result.archetype}--${result.primaryArea}`
 
-  const params = new URLSearchParams({
-    email_address: email,
-    'fields[first_name]': firstName,
-    'fields[bb_archetype]': archetypeKey,
-    'fields[bb_primary_boundary_area]': primaryArea,
-    'fields[bb_result_key]': resultKey,
-    'fields[bb_source]': 'boundary-archetype-quiz',
-    'fields[bb_timestamp]': new Date().toISOString(),
-    'fields[bb_spellbreaker_score]': String(result.scores.area.spellbreaker),
-    'fields[bb_time_keeper_score]': String(result.scores.area['time-keeper']),
-    'fields[bb_sacred_vessel_score]': String(result.scores.area['sacred-vessel']),
-    'fields[bb_resource_guardian_score]': String(result.scores.area['resource-guardian']),
-  })
-
-  await fetch(`https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`, {
+  const res = await fetch('/api/quiz-submit', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: params.toString(),
-    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      firstName,
+      email,
+      archetype: result.archetype,
+      primaryArea: result.primaryArea,
+      resultKey,
+      scores: result.scores,
+    }),
   })
+
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}))
+    throw new Error(body.error || `quiz-submit failed (${res.status})`)
+  }
 }
 
 export default function QuizClient() {
@@ -86,9 +79,12 @@ export default function QuizClient() {
     setResult(quizResult)
 
     try {
-      await submitToKit(firstName.trim(), email.trim(), quizResult)
-    } catch {
-      // no-cors fetch always throws — result still goes through
+      await submitQuiz(firstName.trim(), email.trim(), quizResult)
+    } catch (err) {
+      console.error('[quiz] submit failed', err)
+      setError('Something went wrong sending your results. Please try again.')
+      setStage('email-gate')
+      return
     }
 
     setStage('results')
@@ -286,6 +282,9 @@ export default function QuizClient() {
       'sacred-keeper': 'Sacred Keeper',
     }
 
+    const archetypeDisplay = archetypeDisplayNames[result.archetype]
+    const indefiniteArticle = /^[aeiou]/i.test(archetypeDisplay) ? 'an' : 'a'
+
     return (
       <div className="bg-[#FFFCF7]">
         {/* Result hero */}
@@ -295,7 +294,7 @@ export default function QuizClient() {
               Your Result
             </p>
             <h1 className="font-headline text-4xl md:text-6xl font-bold text-white leading-tight">
-              You are a {archetypeDisplayNames[result.archetype]}<br />
+              You are {indefiniteArticle} {archetypeDisplay}<br />
               <span className="text-[#EDB74D]">in your {areaLabel}.</span>
             </h1>
             <div className="w-12 h-px bg-[#EDB74D] mt-2" />
