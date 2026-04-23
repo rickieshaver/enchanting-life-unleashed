@@ -13,6 +13,11 @@ const TEMPLATES = {
   'sbs-intro': () => import('@/app/emails/sbs-intro'),
   'sbs-pitch': () => import('@/app/emails/sbs-pitch'),
   'soft-close': () => import('@/app/emails/soft-close'),
+  'newsletter-welcome': () => import('@/app/emails/newsletter/welcome'),
+  'newsletter-insight': () => import('@/app/emails/newsletter/insight'),
+  'newsletter-quiz-nudge': () => import('@/app/emails/newsletter/quiz-nudge'),
+  'newsletter-lunar-rhythm': () => import('@/app/emails/newsletter/lunar-rhythm'),
+  'newsletter-brand-story': () => import('@/app/emails/newsletter/brand-story'),
 } as const
 
 export type TemplateKey = keyof typeof TEMPLATES
