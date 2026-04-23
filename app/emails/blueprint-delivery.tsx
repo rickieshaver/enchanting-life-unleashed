@@ -28,6 +28,7 @@ export default function BlueprintDelivery({
   const areaLabel = AREA_LABEL[primaryArea]
   const tagline = ARCHETYPE_TAGLINE[archetype]
   const blueprintUrl = `https://enchantinglifeunleashed.com/downloads/boundary-blueprint-${archetype}.pdf`
+  const deepDiveUrl = `https://enchantinglifeunleashed.com/downloads/domain-deep-dive-${primaryArea}.pdf`
 
   return (
     <BaseEmail preview={`Your Empowered Boundary Blueprint, ${firstName}.`}>
@@ -39,36 +40,55 @@ export default function BlueprintDelivery({
         <strong>{areaLabel}</strong> domain. You&apos;ve known that — in language or not — for a
         long time.
       </Paragraph>
-      <Paragraph>The Blueprint doesn&apos;t reveal anything new.</Paragraph>
-      <Paragraph>It makes it impossible to keep pretending.</Paragraph>
+      <Paragraph>So I&apos;m sending you two files, not one.</Paragraph>
 
-      <CTA href={blueprintUrl} label="Download your Blueprint" />
-
-      <Paragraph>Inside:</Paragraph>
       <Text
         style={{
           fontSize: '15px',
-          lineHeight: 1.8,
+          lineHeight: 1.7,
           color: COLORS.burgundy,
-          margin: '0 0 20px',
+          margin: '0 0 14px',
         }}
       >
-        — Where the pattern is actually showing up (in three domains, not just the one)
+        <strong>1. Your Blueprint</strong> — the full read on your archetype. How The{' '}
+        {archetypeLabel} pattern shows up, what it costs, the exact scripts and warning signs, your
+        one-line standard.
         <br />
-        — The exact scripts for the moments that break you
         <br />
-        — The warning signs that fire <em>before</em> you cave
-        <br />
-        — Your one-line standard — the rule you hold, even when it&apos;s loud
+        <strong>2. Your {areaLabel} Deep Dive</strong> — the companion piece. A focused read on
+        the one domain that leaked hardest in your results, and the seven-day first move to start
+        interrupting it today.
       </Text>
 
+      <CTA href={blueprintUrl} label="Download your Blueprint" />
+
+      <Text
+        style={{
+          fontSize: '14px',
+          lineHeight: 1.6,
+          color: COLORS.dustyRose,
+          fontStyle: 'italic',
+          margin: '0 0 14px',
+          textAlign: 'center' as const,
+        }}
+      >
+        and —
+      </Text>
+
+      <CTA href={deepDiveUrl} label={`Download your ${areaLabel} Deep Dive`} />
+
       <Paragraph>
-        Read it once. Print it if you&apos;re the printing kind. Then put it down and walk away
-        from it for a few hours.
+        Read the Blueprint first. Then the Deep Dive. They&apos;re meant to be read in that order —
+        the archetype first, then the domain where the pattern is currently loudest.
       </Paragraph>
 
       <Paragraph>
-        I&apos;ll follow up in two days with what the Blueprint doesn&apos;t tell you.
+        Print them if you&apos;re the printing kind. Then put them down and walk away for a few
+        hours.
+      </Paragraph>
+
+      <Paragraph>
+        I&apos;ll follow up in two days with what neither PDF tells you.
       </Paragraph>
 
       <Signature />
