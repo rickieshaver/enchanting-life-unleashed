@@ -248,10 +248,11 @@ export default function HomePage() {
             inbox. No fluff. Just the good stuff.
           </p>
           <form
-            action="https://app.kit.com/forms/8935231/subscriptions"
+            action="/api/newsletter-subscribe"
             method="post"
             className="flex flex-col sm:flex-row gap-4 w-full max-w-md"
           >
+            <input type="hidden" name="source" value="homepage-newsletter" />
             <input
               type="email"
               name="email_address"

@@ -66,13 +66,14 @@ export default function FreebiesPage() {
             </li>
           </ul>
 
-          {/* Kit Form */}
+          {/* Newsletter Signup — Sovereignty Blueprint entry */}
           <div className="w-full max-w-md pt-8">
             <form
-              action="https://app.kit.com/forms/8935231/subscriptions"
+              action="/api/newsletter-subscribe"
               method="post"
               className="flex flex-col gap-6"
             >
+              <input type="hidden" name="source" value="freebies-blueprint" />
               <div className="flex flex-col gap-2">
                 <label className="font-label text-xs uppercase tracking-widest text-primary font-bold">
                   Email Address
@@ -167,10 +168,11 @@ export default function FreebiesPage() {
             inbox.
           </p>
           <form
-            action="https://app.kit.com/forms/8935231/subscriptions"
+            action="/api/newsletter-subscribe"
             method="post"
             className="flex flex-col sm:flex-row gap-4 w-full max-w-md"
           >
+            <input type="hidden" name="source" value="freebies-newsletter" />
             <input
               type="email"
               name="email_address"
