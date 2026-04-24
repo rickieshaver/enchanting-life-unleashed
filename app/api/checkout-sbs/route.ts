@@ -5,8 +5,13 @@ import { SBS } from '@/lib/stripe/config'
 export const runtime = 'nodejs'
 
 function resolveOrigin(req: Request): string {
-  const envUrl = process.env.NEXT_PUBLIC_SITE_URL
-  if (envUrl && envUrl.startsWith('http')) return envUrl.replace(/\/$/, '')
+  // On Preview/dev deploys, use the actual request origin so success/cancel URLs
+  // stay on the same deployment. Only Production falls back to the canonical
+  // site URL — which is safe because main branch always has /purchase-complete.
+  if (process.env.VERCEL_ENV === 'production') {
+    const envUrl = process.env.NEXT_PUBLIC_SITE_URL
+    if (envUrl && envUrl.startsWith('http')) return envUrl.replace(/\/$/, '')
+  }
   const url = new URL(req.url)
   return `${url.protocol}//${url.host}`
 }
