@@ -46,3 +46,4 @@ next-env.d.ts
 Plugins/
 .mcp.json
 launch.json
+.env*.local

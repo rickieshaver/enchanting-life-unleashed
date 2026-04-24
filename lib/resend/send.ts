@@ -13,6 +13,7 @@ const TEMPLATES = {
   'sbs-intro': () => import('@/app/emails/sbs-intro'),
   'sbs-pitch': () => import('@/app/emails/sbs-pitch'),
   'soft-close': () => import('@/app/emails/soft-close'),
+  'sbs-receipt': () => import('@/app/emails/sbs-receipt'),
   'newsletter-welcome': () => import('@/app/emails/newsletter/welcome'),
   'newsletter-insight': () => import('@/app/emails/newsletter/insight'),
   'newsletter-quiz-nudge': () => import('@/app/emails/newsletter/quiz-nudge'),
@@ -30,6 +31,8 @@ export type SendProps = {
   archetype?: ArchetypeKey
   primaryArea?: AreaKey
   scheduledAt?: string
+  amountPaidUsd?: string
+  downloadUrl?: string
 }
 
 export async function sendEmail({
@@ -40,11 +43,19 @@ export async function sendEmail({
   archetype,
   primaryArea,
   scheduledAt,
+  amountPaidUsd,
+  downloadUrl,
 }: SendProps) {
   const mod = await TEMPLATES[template]()
   const Component = mod.default as ComponentType<Record<string, unknown>>
 
-  const element = createElement(Component, { firstName, archetype, primaryArea })
+  const element = createElement(Component, {
+    firstName,
+    archetype,
+    primaryArea,
+    amountPaidUsd,
+    downloadUrl,
+  })
   const html = await render(element)
   const text = await render(element, { plainText: true })
 
