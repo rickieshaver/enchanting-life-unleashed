@@ -12,6 +12,8 @@ export const meta: PostMeta = {
   readTime: '8 min read',
   publishedAt: '2026-04-24',
   routesTo: 'quiz',
+  image: '/images/blog/saying-yes-when-you-mean-no.jpeg',
+  imageAlt: 'Ren in profile, paused mid-thought — the moment before the automatic yes',
 }
 
 export function Body() {

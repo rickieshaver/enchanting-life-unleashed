@@ -56,8 +56,8 @@ export default function BlogPage() {
               >
                 <div className="aspect-[4/5] relative overflow-hidden bg-surface-mid">
                   <Image
-                    src="/images/about-hero.jpeg"
-                    alt="Ren — Enchanting Life Unleashed"
+                    src={post.meta.image ?? '/images/about-hero.jpeg'}
+                    alt={post.meta.imageAlt ?? post.meta.title}
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"

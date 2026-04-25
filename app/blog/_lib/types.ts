@@ -9,6 +9,8 @@ export type PostMeta = {
   readTime: string
   publishedAt: string
   routesTo: 'quiz' | 'sbs'
+  image?: string
+  imageAlt?: string
   ogTitle?: string
 }
 
