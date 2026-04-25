@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { allPosts } from './_lib/posts'
 
@@ -53,17 +54,17 @@ export default function BlogPage() {
                 href={`/blog/${post.meta.slug}`}
                 className="group flex flex-col border border-primary/10 hover:border-primary/30 transition-colors"
               >
-                <div className="aspect-[4/5] relative overflow-hidden bg-surface-mid flex items-end p-8">
-                  <div className="absolute top-8 left-8">
-                    <div className="editorial-line" />
-                  </div>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-                    <span className="font-script text-7xl text-secondary/30 leading-none block">
-                      {post.meta.tag.toLowerCase()}
-                    </span>
-                  </div>
-                  <div className="relative z-10">
-                    <span className="font-label text-[10px] uppercase tracking-[0.3em] text-gold">
+                <div className="aspect-[4/5] relative overflow-hidden bg-surface-mid">
+                  <Image
+                    src="/images/about-hero.jpeg"
+                    alt="Ren — Enchanting Life Unleashed"
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-transparent" />
+                  <div className="absolute top-6 left-6">
+                    <span className="font-label text-[10px] uppercase tracking-[0.3em] text-gold bg-primary/90 px-3 py-2">
                       {post.meta.tag}
                     </span>
                   </div>
