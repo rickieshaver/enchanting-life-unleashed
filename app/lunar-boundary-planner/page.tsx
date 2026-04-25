@@ -32,9 +32,11 @@ export default function LunarBoundaryPlannerPage() {
                 so your energy stays protected all year long.
               </p>
               <div className="flex flex-col sm:flex-row gap-5 items-start">
-                <a href="#buy" className="btn-primary">
-                  Get Instant Access — $17
-                </a>
+                <form action="/api/checkout-sbs" method="post">
+                  <button type="submit" className="btn-primary">
+                    Get Instant Access — $17
+                  </button>
+                </form>
                 <span className="font-label text-sm text-primary border-b-2 border-gold pb-1 self-end tracking-wide">
                   Digital Download &middot; Instant Access
                 </span>
@@ -241,9 +243,11 @@ export default function LunarBoundaryPlannerPage() {
                 Full planner &middot; 12 months &middot; Instant access
               </p>
             </div>
-            <a href="#" className="btn-primary w-full block text-center">
-              Buy Now — $17
-            </a>
+            <form action="/api/checkout-sbs" method="post" className="w-full">
+              <button type="submit" className="btn-primary w-full block text-center">
+                Buy Now — $17
+              </button>
+            </form>
             <p className="font-body text-xs text-secondary tracking-wide">
               Instant digital download. PDF format.
             </p>
