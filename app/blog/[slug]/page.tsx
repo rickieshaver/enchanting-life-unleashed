@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation'
 import { allPosts, getPost, getRelatedPosts } from '@/app/blog/_lib/posts'
 import { PostHero } from '@/app/blog/_components/PostHero'
 import { PostBody } from '@/app/blog/_components/PostBody'
-import { CTACard } from '@/app/blog/_components/CTACard'
 import { RelatedPosts } from '@/app/blog/_components/RelatedPosts'
 
 type Params = Promise<{ slug: string }>
@@ -65,7 +64,6 @@ export default async function BlogPostPage({ params }: { params: Params }) {
       <PostHero meta={post.meta} />
       <PostBody>
         <post.Body />
-        <CTACard variant={post.meta.routesTo} />
       </PostBody>
       <RelatedPosts posts={getRelatedPosts(post.meta.slug)} />
     </>

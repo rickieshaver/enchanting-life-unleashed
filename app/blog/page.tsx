@@ -51,23 +51,39 @@ export default function BlogPage() {
               <Link
                 key={post.meta.slug}
                 href={`/blog/${post.meta.slug}`}
-                className="group flex flex-col"
+                className="group flex flex-col border border-primary/10 hover:border-primary/30 transition-colors"
               >
-                <div className="aspect-[4/5] overflow-hidden mb-8 bg-surface-low" />
-                <div className="flex flex-col flex-grow">
-                  <span className="font-label text-[10px] uppercase tracking-[0.3em] text-gold mb-4">
-                    {post.meta.tag}
-                  </span>
+                <div className="aspect-[4/5] relative overflow-hidden bg-surface-mid flex items-end p-8">
+                  <div className="absolute top-8 left-8">
+                    <div className="editorial-line" />
+                  </div>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+                    <span className="font-script text-7xl text-secondary/30 leading-none block">
+                      {post.meta.tag.toLowerCase()}
+                    </span>
+                  </div>
+                  <div className="relative z-10">
+                    <span className="font-label text-[10px] uppercase tracking-[0.3em] text-gold">
+                      {post.meta.tag}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex flex-col flex-grow p-8">
                   <h4 className="font-headline text-2xl font-bold text-primary mb-4 leading-snug group-hover:text-secondary transition-colors">
                     {post.meta.title}
                   </h4>
                   <p className="text-on-surface-variant text-sm leading-relaxed mb-6 flex-grow">
                     {post.meta.excerpt}
                   </p>
-                  <div className="w-12 h-[1px] bg-gold/40 mb-6" />
-                  <span className="font-label text-[10px] uppercase tracking-widest text-secondary">
-                    {post.meta.readTime}
-                  </span>
+                  <div className="w-12 h-[1px] bg-gold/40 mb-4" />
+                  <div className="flex items-center justify-between">
+                    <span className="font-label text-[10px] uppercase tracking-widest text-secondary">
+                      {post.meta.readTime}
+                    </span>
+                    <span className="font-label text-[10px] uppercase tracking-widest text-primary group-hover:text-gold transition-colors">
+                      Read &rarr;
+                    </span>
+                  </div>
                 </div>
               </Link>
             ))}

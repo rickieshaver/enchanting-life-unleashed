@@ -115,14 +115,14 @@
   .post-body em {
     font-style: italic;
   }
-  .post-body a {
+  .post-body a:not(.btn-primary):not(.btn-ghost) {
     color: #521830;
     text-decoration: underline;
     text-decoration-color: #EDB74D;
     text-underline-offset: 4px;
     text-decoration-thickness: 2px;
   }
-  .post-body a:hover {
+  .post-body a:not(.btn-primary):not(.btn-ghost):hover {
     color: #864f51;
   }
   .post-body ul {
