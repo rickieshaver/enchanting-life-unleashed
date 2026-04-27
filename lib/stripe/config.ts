@@ -25,3 +25,16 @@ export const STARTER_KIT = {
   trackerPdfPath: '/downloads/lunar-alignment-starter-kit-tracker.pdf',
   name: 'The Lunar Alignment Starter Kit',
 } as const
+
+// Stripe product + price IDs for Lunar Alignment Planner ($27, Step 03).
+// Created via scripts/stripe-create-planner.mjs on 2026-04-27.
+// NOTE: These IDs are sandbox/test-mode. When flipping to live mode,
+// re-run the script against live keys and update these constants.
+export const PLANNER = {
+  productId: 'prod_UPmFKjrZFfOqtI',
+  priceId: 'price_1TQwgxQdsuKUn5hCvPdd5ikg',
+  priceUsd: 27,
+  slug: 'lunar-alignment-planner',
+  pdfPath: '/downloads/lunar-alignment-planner.pdf',
+  name: 'The Lunar Alignment Planner',
+} as const
