@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import type Stripe from 'stripe'
 import { getStripe } from '@/lib/stripe/client'
-import { SBS } from '@/lib/stripe/config'
+import { SBS, STARTER_KIT } from '@/lib/stripe/config'
 import { resend } from '@/lib/resend/client'
 import { sendEmail } from '@/lib/resend/send'
 
@@ -15,36 +15,37 @@ function siteOrigin(): string {
   return 'https://enchantinglifeunleashed.com'
 }
 
-async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
-  if (session.metadata?.product_slug !== SBS.slug) {
-    console.log('[stripe-webhook] ignoring session for unknown product slug', session.metadata)
-    return
-  }
+type CheckoutMeta = {
+  email: string
+  firstName: string
+  amountPaidUsd: string
+  sessionId: string
+}
 
+function extractCheckoutMeta(session: Stripe.Checkout.Session): CheckoutMeta | null {
   const email = session.customer_details?.email
   if (!email) {
     console.warn('[stripe-webhook] session completed without customer email', session.id)
-    return
+    return null
   }
-
   const fullName = session.customer_details?.name ?? ''
   const firstName = fullName.split(' ')[0] || 'Friend'
   const amountTotal = session.amount_total ?? 0
   const amountPaidUsd = (amountTotal / 100).toFixed(2)
-  const downloadUrl = `${siteOrigin()}${SBS.pdfPath}`
+  return { email, firstName, amountPaidUsd, sessionId: session.id }
+}
 
-  // 1. Create/update Resend contact tagged as SBS purchaser.
+async function tagResendContact(
+  email: string,
+  firstName: string,
+  properties: Record<string, string>,
+) {
   try {
     await resend.contacts.create({
       email,
       firstName,
       unsubscribed: false,
-      properties: {
-        source: 'sbs-purchase',
-        sbs_purchase_date: new Date().toISOString(),
-        sbs_amount_usd: amountPaidUsd,
-        stripe_session_id: session.id,
-      },
+      properties,
     })
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err)
@@ -55,8 +56,19 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       console.error('[stripe-webhook] resend.contacts.create failed', err)
     }
   }
+}
 
-  // 2. Send the receipt email with the download link.
+async function handleSbsCompleted(meta: CheckoutMeta) {
+  const { email, firstName, amountPaidUsd, sessionId } = meta
+  const downloadUrl = `${siteOrigin()}${SBS.pdfPath}`
+
+  await tagResendContact(email, firstName, {
+    source: 'sbs-purchase',
+    sbs_purchase_date: new Date().toISOString(),
+    sbs_amount_usd: amountPaidUsd,
+    stripe_session_id: sessionId,
+  })
+
   try {
     await sendEmail({
       to: email,
@@ -67,9 +79,55 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       downloadUrl,
     })
   } catch (err) {
-    console.error('[stripe-webhook] receipt send failed', err)
+    console.error('[stripe-webhook] sbs receipt send failed', err)
     throw err
   }
+}
+
+async function handleStarterKitCompleted(meta: CheckoutMeta) {
+  const { email, firstName, amountPaidUsd, sessionId } = meta
+  // Customer-facing link goes back to the access page, not directly to PDFs —
+  // that way the customer can re-download anytime by re-opening the email.
+  const accessUrl = `${siteOrigin()}/lunar-alignment-starter-kit/access?session_id=${encodeURIComponent(sessionId)}`
+
+  await tagResendContact(email, firstName, {
+    source: 'starter-kit-purchase',
+    starter_kit_purchase_date: new Date().toISOString(),
+    starter_kit_amount_usd: amountPaidUsd,
+    stripe_session_id: sessionId,
+  })
+
+  try {
+    await sendEmail({
+      to: email,
+      template: 'starter-kit-receipt',
+      subject: 'Your Lunar Alignment Starter Kit is ready.',
+      firstName,
+      amountPaidUsd,
+      downloadUrl: accessUrl,
+    })
+  } catch (err) {
+    console.error('[stripe-webhook] starter-kit receipt send failed', err)
+    throw err
+  }
+}
+
+async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
+  const slug = session.metadata?.product_slug
+
+  const meta = extractCheckoutMeta(session)
+  if (!meta) return
+
+  if (slug === SBS.slug) {
+    await handleSbsCompleted(meta)
+    return
+  }
+  if (slug === STARTER_KIT.slug) {
+    await handleStarterKitCompleted(meta)
+    return
+  }
+
+  console.log('[stripe-webhook] ignoring session for unknown product slug', session.metadata)
 }
 
 export async function POST(req: Request) {
