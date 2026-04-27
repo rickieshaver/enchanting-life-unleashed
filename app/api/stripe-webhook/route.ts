@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import type Stripe from 'stripe'
 import { getStripe } from '@/lib/stripe/client'
-import { SBS, STARTER_KIT } from '@/lib/stripe/config'
+import { SBS, STARTER_KIT, PLANNER } from '@/lib/stripe/config'
 import { resend } from '@/lib/resend/client'
 import { sendEmail } from '@/lib/resend/send'
 
@@ -112,6 +112,34 @@ async function handleStarterKitCompleted(meta: CheckoutMeta) {
   }
 }
 
+async function handlePlannerCompleted(meta: CheckoutMeta) {
+  const { email, firstName, amountPaidUsd, sessionId } = meta
+  // Customer-facing link goes back to the access page, not directly to PDF —
+  // that way the customer can re-download anytime by re-opening the email.
+  const accessUrl = `${siteOrigin()}/lunar-alignment-planner/access?session_id=${encodeURIComponent(sessionId)}`
+
+  await tagResendContact(email, firstName, {
+    source: 'planner-purchase',
+    planner_purchase_date: new Date().toISOString(),
+    planner_amount_usd: amountPaidUsd,
+    stripe_session_id: sessionId,
+  })
+
+  try {
+    await sendEmail({
+      to: email,
+      template: 'planner-receipt',
+      subject: 'Your Lunar Alignment Planner is ready.',
+      firstName,
+      amountPaidUsd,
+      downloadUrl: accessUrl,
+    })
+  } catch (err) {
+    console.error('[stripe-webhook] planner receipt send failed', err)
+    throw err
+  }
+}
+
 async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   const slug = session.metadata?.product_slug
 
@@ -124,6 +152,10 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   }
   if (slug === STARTER_KIT.slug) {
     await handleStarterKitCompleted(meta)
+    return
+  }
+  if (slug === PLANNER.slug) {
+    await handlePlannerCompleted(meta)
     return
   }
 
