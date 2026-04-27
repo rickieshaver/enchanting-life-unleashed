@@ -14,6 +14,7 @@ const TEMPLATES = {
   'sbs-pitch': () => import('@/app/emails/sbs-pitch'),
   'soft-close': () => import('@/app/emails/soft-close'),
   'sbs-receipt': () => import('@/app/emails/sbs-receipt'),
+  'starter-kit-receipt': () => import('@/app/emails/starter-kit-receipt'),
   'newsletter-welcome': () => import('@/app/emails/newsletter/welcome'),
   'newsletter-insight': () => import('@/app/emails/newsletter/insight'),
   'newsletter-quiz-nudge': () => import('@/app/emails/newsletter/quiz-nudge'),
