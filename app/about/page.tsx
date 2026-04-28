@@ -28,7 +28,7 @@ export default function AboutPage() {
           </div>
           <div className="md:col-span-7 relative">
             <Image
-              src="/images/about-hero.jpeg"
+              src="/images/hero-portrait.jpeg"
               alt="Founder Portrait"
               width={800}
               height={1000}
@@ -74,7 +74,7 @@ export default function AboutPage() {
           </div>
           <div className="order-1 md:order-2 flex flex-col items-end">
             <Image
-              src="/images/about-hero.jpeg"
+              src="/images/boundary-quiz-hero.jpeg"
               alt="Office Detail"
               width={500}
               height={500}

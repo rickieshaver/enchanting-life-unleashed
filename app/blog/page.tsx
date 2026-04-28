@@ -56,7 +56,7 @@ export default function BlogPage() {
               >
                 <div className="aspect-[4/5] relative overflow-hidden bg-surface-mid">
                   <Image
-                    src={post.meta.image ?? '/images/about-hero.jpeg'}
+                    src={post.meta.image ?? '/images/boundary-quiz-hero.jpeg'}
                     alt={post.meta.imageAlt ?? post.meta.title}
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"

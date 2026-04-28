@@ -120,7 +120,7 @@ const products: Product[] = [
     price: 'Free',
     href: '/boundary-archetype-quiz',
     cta: 'Take the Quiz',
-    image: '/images/about-hero.jpeg',
+    image: '/images/boundary-quiz-hero.jpeg',
     alt: 'The Boundary Archetype Quiz',
     copy: {
       forYouIf: [
