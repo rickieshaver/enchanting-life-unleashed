@@ -53,7 +53,7 @@ export default async function LunarAlignmentQuickStartGuidePage({
                   <p className="font-body text-sm text-on-surface-variant leading-relaxed">
                     The download link is in your inbox. If it&apos;s not there in a minute, check
                     promotions or spam — and add{' '}
-                    <strong>hello@enchantinglifeunleashed.com</strong> to your contacts so the next
+                    <strong>connect@enchantinglifeunleashed.com</strong> to your contacts so the next
                     one lands clean.
                   </p>
                   <p className="font-body text-sm text-primary">
@@ -96,7 +96,7 @@ export default async function LunarAlignmentQuickStartGuidePage({
                   {errored && (
                     <p className="font-body text-xs text-secondary mt-1">
                       Something didn&apos;t go through. Try again, or email{' '}
-                      hello@enchantinglifeunleashed.com.
+                      connect@enchantinglifeunleashed.com.
                     </p>
                   )}
                   <p className="font-body text-[10px] uppercase tracking-wider text-on-surface-variant/60 mt-1 text-center">
