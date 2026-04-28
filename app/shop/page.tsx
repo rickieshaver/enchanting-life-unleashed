@@ -54,7 +54,7 @@ const products: Product[] = [
     price: '$7',
     href: '/lunar-alignment-starter-kit',
     cta: 'Get Instant Access',
-    image: '/images/lunar-alignment-starter-kit-cover.jpeg',
+    image: '/images/lunar-alignment-starter-kit-gold.png',
     alt: 'The Lunar Alignment Starter Kit cover',
     copy: {
       forYouIf: [
@@ -76,7 +76,7 @@ const products: Product[] = [
     price: '$27',
     href: '/lunar-alignment-planner',
     cta: 'Get Instant Access',
-    image: '/images/lunar-alignment-planner-cover.jpeg',
+    image: '/images/lunar-alignment-planner-gold.png',
     alt: 'The Lunar Alignment Planner cover',
     copy: {
       forYouIf: [

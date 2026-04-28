@@ -164,13 +164,13 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Starter Kit */}
           <div className="group">
-            <div className="overflow-hidden mb-6">
+            <div className="aspect-square overflow-hidden mb-6">
               <Image
-                src="/images/lunar-alignment-starter-kit-cover.jpeg"
+                src="/images/lunar-alignment-starter-kit-gold.png"
                 alt="The Lunar Alignment Starter Kit"
-                width={600}
-                height={400}
-                className="w-full h-64 object-cover"
+                width={800}
+                height={800}
+                className="w-full h-full object-cover"
               />
             </div>
             <p className="eyebrow mb-2 font-bold">Workbook &middot; Step Two</p>
@@ -191,13 +191,13 @@ export default function HomePage() {
 
           {/* Planner */}
           <div className="group">
-            <div className="overflow-hidden mb-6">
+            <div className="aspect-square overflow-hidden mb-6">
               <Image
-                src="/images/lunar-alignment-planner-cover.jpeg"
+                src="/images/lunar-alignment-planner-gold.png"
                 alt="The Lunar Alignment Planner"
-                width={600}
-                height={400}
-                className="w-full h-64 object-cover"
+                width={800}
+                height={800}
+                className="w-full h-full object-cover"
               />
             </div>
             <p className="eyebrow mb-2 font-bold">Planner &middot; Step Three</p>
