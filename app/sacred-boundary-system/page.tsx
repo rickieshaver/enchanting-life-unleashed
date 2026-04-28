@@ -23,13 +23,13 @@ export default function LunarBoundaryPlannerPage() {
                 </p>
               </div>
               <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-light text-primary leading-[0.95]">
-                Lunar Boundary<br />
-                <span className="italic font-normal">Planner</span>
+                Sacred Boundary<br />
+                <span className="italic font-normal">System</span>
               </h1>
               <p className="font-body text-lg text-on-surface-variant leading-relaxed max-w-lg">
-                A moon-aligned planner designed to help you set, hold, and honor your boundaries —
-                without the guilt. Twelve months of intentional structure built around the lunar cycle
-                so your energy stays protected all year long.
+                A lunar-aligned workbook designed to help you set, hold, and honor your boundaries —
+                without the guilt. Eight phases of intentional structure built around the cycle so your
+                energy stays protected, cycle after cycle.
               </p>
               <div className="flex flex-col sm:flex-row gap-5 items-start">
                 <form action="/api/checkout-sbs" method="post">
@@ -227,7 +227,7 @@ export default function LunarBoundaryPlannerPage() {
             Your boundaries<br />start here.
           </h2>
           <p className="font-body text-base text-on-surface-variant leading-relaxed">
-            Stop managing the aftermath of saying yes when you meant no. The Lunar Boundary Planner
+            Stop managing the aftermath of saying yes when you meant no. The Sacred Boundary System
             gives you a gentle, repeatable structure to finally get clear — and stay that way.
           </p>
 
