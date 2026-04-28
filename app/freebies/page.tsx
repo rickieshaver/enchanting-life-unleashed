@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Freebies — Enchanting Life Unleashed',
@@ -125,6 +126,50 @@ export default function FreebiesPage() {
             <span className="font-label text-[10px] uppercase tracking-widest font-extrabold">
               Step One
             </span>
+          </div>
+        </div>
+      </section>
+
+      {/* QUIZ SECTION */}
+      <section className="bg-surface-low py-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Image Column */}
+          <div className="lg:col-span-6 relative order-2 lg:order-1">
+            <div className="relative aspect-[3/2] overflow-hidden">
+              <Image
+                src="/images/boundary-quiz-hero.jpeg"
+                alt="The Boundary Archetype Quiz"
+                width={900}
+                height={600}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Content Column */}
+          <div className="lg:col-span-6 flex flex-col items-start gap-6 order-1 lg:order-2">
+            <div className="flex items-center gap-4">
+              <div className="w-[2px] h-[60px] bg-gold" />
+              <span className="font-script text-3xl text-secondary">
+                Five minutes. Real answers.
+              </span>
+            </div>
+            <h2 className="font-headline text-4xl md:text-6xl text-primary leading-[0.95] tracking-tighter">
+              The Boundary Archetype{' '}
+              <span className="italic font-light">Quiz.</span>
+            </h2>
+            <p className="font-body text-lg text-on-surface-variant leading-relaxed max-w-xl">
+              Identify exactly where your boundaries are leaking. Open Door, Cracked Window, or
+              Sacred Keeper &mdash; find out which archetype you live in, and what to do about it.
+            </p>
+            <ul className="flex flex-col gap-3 pt-2">
+              <li className="font-body text-secondary">&mdash; Five minutes, no signup wall</li>
+              <li className="font-body text-secondary">&mdash; A personalized archetype + your Boundary Blueprint PDF</li>
+              <li className="font-body text-secondary">&mdash; A real diagnostic, not a personality fortune cookie</li>
+            </ul>
+            <Link href="/boundary-archetype-quiz" className="btn-primary mt-2">
+              Take the Quiz
+            </Link>
           </div>
         </div>
       </section>

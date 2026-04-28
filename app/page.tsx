@@ -164,13 +164,13 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Starter Kit */}
           <div className="group">
-            <div className="aspect-square overflow-hidden mb-6">
+            <div className="aspect-square overflow-hidden mb-6 bg-surface-low flex items-center justify-center">
               <Image
                 src="/images/lunar-alignment-starter-kit-gold.png"
                 alt="The Lunar Alignment Starter Kit"
                 width={800}
                 height={800}
-                className="w-full h-full object-cover"
+                className="w-[78%] h-[78%] object-contain"
               />
             </div>
             <p className="eyebrow mb-2 font-bold">Workbook &middot; Step Two</p>
