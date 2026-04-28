@@ -51,7 +51,7 @@ export default async function PurchaseCompletePage({
             we&apos;ll sort it.
           </p>
           <div className="flex items-center gap-6 mt-4 flex-wrap">
-            <Link href="/lunar-boundary-planner" className="btn-primary">
+            <Link href="/sacred-boundary-system" className="btn-primary">
               Back to the Sacred Boundary System
             </Link>
           </div>

@@ -66,7 +66,7 @@ export default function SbsIntro({ firstName = 'Friend', archetype = 'open-door'
       <Paragraph>It&apos;s $17. Instant download. You can start this cycle.</Paragraph>
 
       <CTA
-        href="https://enchantinglifeunleashed.com/lunar-boundary-planner"
+        href="https://enchantinglifeunleashed.com/sacred-boundary-system"
         label="Get The Sacred Boundary System"
       />
 

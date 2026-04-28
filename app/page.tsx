@@ -148,8 +148,9 @@ export default function HomePage() {
             <div className="editorial-line mb-4" />
             <h2 className="font-headline text-4xl font-bold text-primary">Start Here</h2>
             <p className="font-body text-base text-on-surface-variant leading-relaxed max-w-xl mt-4">
-              The Boundary System that shows you exactly where your life is leaking—and how to fix it.<br />
-              No guessing. No overwhelm. Just clarity and implementation.
+              The Lunar Alignment System: cycle-based practice for women who&apos;d rather run a
+              real cycle than read about cycle-based living for another year.<br />
+              No fluff. No bypassing. Just the framework and what to do with it.
             </p>
           </div>
           <Link
@@ -161,55 +162,55 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* LBP */}
+          {/* Starter Kit */}
           <div className="group">
             <div className="overflow-hidden mb-6">
               <Image
-                src="/images/planner-cover.jpeg"
-                alt="Lunar Boundary Planner"
+                src="/images/lunar-alignment-starter-kit-cover.jpeg"
+                alt="The Lunar Alignment Starter Kit"
                 width={600}
                 height={400}
                 className="w-full h-64 object-cover"
               />
             </div>
-            <p className="eyebrow mb-2 font-bold">Planner</p>
+            <p className="eyebrow mb-2 font-bold">Workbook &middot; Step Two</p>
             <h3 className="font-headline text-2xl font-bold text-primary mb-3 leading-tight">
-              Lunar Boundary Planner
+              Lunar Alignment Starter Kit
             </h3>
             <p className="font-body text-sm text-on-surface-variant leading-relaxed mb-6">
-              Track your lunar cycle and set boundaries that actually hold. A moon-synced planning
-              system for the woman building an intentional life.
+              First-cycle practice. A 28-day workbook + reusable tracker. Built to use, not to
+              admire.
             </p>
             <div className="flex items-center justify-between">
-              <span className="font-label text-lg font-bold text-primary">$17</span>
-              <Link href="/lunar-boundary-planner" className="btn-primary">
+              <span className="font-label text-lg font-bold text-primary">$7</span>
+              <Link href="/lunar-alignment-starter-kit" className="btn-primary">
                 View Details
               </Link>
             </div>
           </div>
 
-          {/* MCLP */}
+          {/* Planner */}
           <div className="group">
             <div className="overflow-hidden mb-6">
               <Image
-                src="/images/moon-cover.jpeg"
-                alt="Moon Cycle Life Planner"
+                src="/images/lunar-alignment-planner-cover.jpeg"
+                alt="The Lunar Alignment Planner"
                 width={600}
                 height={400}
                 className="w-full h-64 object-cover"
               />
             </div>
-            <p className="eyebrow mb-2 font-bold">Planner</p>
+            <p className="eyebrow mb-2 font-bold">Planner &middot; Step Three</p>
             <h3 className="font-headline text-2xl font-bold text-primary mb-3 leading-tight">
-              Moon Cycle Life Planner
+              Lunar Alignment Planner
             </h3>
             <p className="font-body text-sm text-on-surface-variant leading-relaxed mb-6">
-              A full-year planning system built around your moon cycle. Align your energy, your
-              goals, and your life with the rhythm of the moon.
+              Twelve cycles. One year. Annual theme + intentions, quarterly reviews, year-end
+              reflection.
             </p>
             <div className="flex items-center justify-between">
-              <span className="font-label text-lg font-bold text-primary">$17</span>
-              <Link href="/moon-cycle-life-planner" className="btn-primary">
+              <span className="font-label text-lg font-bold text-primary">$27</span>
+              <Link href="/lunar-alignment-planner" className="btn-primary">
                 View Details
               </Link>
             </div>

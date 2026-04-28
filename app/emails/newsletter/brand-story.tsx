@@ -32,9 +32,11 @@ export default function NewsletterBrandStory() {
       </Paragraph>
 
       <Paragraph>
-        <strong>Layer 3 — Ongoing.</strong> This newsletter + future products. The next one coming
-        is the Moon Magic Planner — a full-year lunar system for people who want to run their whole
-        life on the cycle, not just the boundary layer. Launching soon.
+        <strong>Layer 3 — Ongoing.</strong> This newsletter + the Lunar Alignment ecosystem (now
+        live). The Lunar Alignment Quick Start Guide is the free entry point — eight phases, 28-day
+        cycle map, the model in your hands. The Lunar Alignment Starter Kit ($7) takes you through
+        your first real cycle. The Lunar Alignment Planner ($27) is the year-long practice — twelve
+        cycles, annual theme, quarterly reviews. Everything is built to use, not to admire.
       </Paragraph>
 
       <Paragraph>
@@ -43,7 +45,7 @@ export default function NewsletterBrandStory() {
       </Paragraph>
 
       <CTA
-        href="https://enchantinglifeunleashed.com/lunar-boundary-planner"
+        href="https://enchantinglifeunleashed.com/sacred-boundary-system"
         label="See the Sacred Boundary System"
       />
 

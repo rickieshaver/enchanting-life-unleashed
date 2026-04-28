@@ -401,7 +401,7 @@ export default function QuizClient() {
               <strong className="text-[#6D2E46]">{areaLabel}</strong>{' '}
               domain, in real time, until the new response is the automatic one.
             </p>
-            <a href="/lunar-boundary-planner" className="btn-primary px-12 py-4 text-base">
+            <a href="/sacred-boundary-system" className="btn-primary px-12 py-4 text-base">
               Get The Sacred Boundary System &rarr;
             </a>
             <p className="font-body text-xs text-[#A26769]/60">$17 &middot; Instant download &middot; Use it this lunar cycle</p>

@@ -6,7 +6,7 @@ import { allPosts } from './_lib/posts'
 export const metadata: Metadata = {
   title: 'The Transmission — Blog — Enchanting Life Unleashed',
   description:
-    'Insights on lunar living, sacred boundaries, and moon magic for the modern mystic.',
+    'Insights on lunar living, sacred boundaries, and the Lunar Alignment System for the modern mystic.',
 }
 
 export default function BlogPage() {

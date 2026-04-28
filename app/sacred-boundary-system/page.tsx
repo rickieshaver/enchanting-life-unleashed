@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'Moon Cycle Life Planner 2026 — Enchanting Life Unleashed',
+  title: 'Sacred Boundary System — Enchanting Life Unleashed',
   description:
-    'A 163-page premium planner synced to the 2026 lunar calendar. Monthly overviews, weekly pages, full and new moon rituals.',
+    'The Sacred Boundary System workbook — a moon-aligned practice for setting, holding, and honoring your boundaries without the guilt. Eight lunar cycles. Four domains. Three archetypes.',
 }
 
-export default function MoonCycleLifePlannerPage() {
+export default function LunarBoundaryPlannerPage() {
   return (
     <>
       {/* HERO */}
@@ -18,21 +18,25 @@ export default function MoonCycleLifePlannerPage() {
             <div className="md:w-3/5 flex flex-col gap-8">
               <div className="flex flex-col gap-4">
                 <div className="w-12 h-[2px] bg-gold" />
-                <p className="eyebrow font-bold">Plan by the Moon. Live by Design.</p>
+                <p className="eyebrow font-bold">
+                  Your Boundaries, Your Energy, Your Terms
+                </p>
               </div>
               <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-light text-primary leading-[0.95]">
-                Moon Cycle Life<br />
-                <span className="italic font-normal">Planner</span>
+                Sacred Boundary<br />
+                <span className="italic font-normal">System</span>
               </h1>
               <p className="font-body text-lg text-on-surface-variant leading-relaxed max-w-lg">
-                A 163-page premium planner synced to the 2026 lunar calendar. Monthly overviews,
-                weekly pages, full &amp; new moon rituals — everything you need to live in flow with
-                the moon.
+                A lunar-aligned workbook designed to help you set, hold, and honor your boundaries —
+                without the guilt. Eight phases of intentional structure built around the cycle so your
+                energy stays protected, cycle after cycle.
               </p>
               <div className="flex flex-col sm:flex-row gap-5 items-start">
-                <a href="#buy" className="btn-primary">
-                  Get Instant Access — $17
-                </a>
+                <form action="/api/checkout-sbs" method="post">
+                  <button type="submit" className="btn-primary">
+                    Get Instant Access — $17
+                  </button>
+                </form>
                 <span className="font-label text-sm text-primary border-b-2 border-gold pb-1 self-end tracking-wide">
                   Digital Download &middot; Instant Access
                 </span>
@@ -42,15 +46,15 @@ export default function MoonCycleLifePlannerPage() {
             {/* Right: Image */}
             <div className="md:w-2/5 relative">
               <Image
-                src="/images/moon-cover.jpeg"
-                alt="Overhead view of an elegant monthly planner"
+                src="/images/planner-cover.jpeg"
+                alt="Open lunar planner showing moon phase spreads"
                 width={500}
                 height={600}
                 className="w-full h-auto object-cover"
                 priority
               />
               <div className="absolute bottom-6 left-6 bg-white px-6 py-4">
-                <p className="font-script text-3xl text-primary">The Moon Perspective</p>
+                <p className="font-script text-3xl text-primary">The Boundary Perspective</p>
               </div>
             </div>
           </div>
@@ -63,16 +67,23 @@ export default function MoonCycleLifePlannerPage() {
           {/* Left: Statement */}
           <div className="flex flex-col gap-8">
             <h2 className="font-headline text-4xl md:text-5xl font-light text-primary leading-tight">
-              The Cost of<br />Living Out of Sync.
+              The Cost of<br />Weak Boundaries.
             </h2>
             <p className="font-body text-base text-on-surface-variant leading-relaxed">
-              When you fight the cycle, you fight yourself. Burnout isn&apos;t from doing too much —
-              it&apos;s from doing the wrong things at the wrong time.
+              Every time you say yes when you mean no, you spend energy you don&apos;t have. The
+              resentment builds quietly. The exhaustion becomes your baseline. And the people who
+              matter most — including you — get what&apos;s left over.
+            </p>
+            <p className="font-body text-base text-on-surface-variant leading-relaxed">
+              It&apos;s not a willpower problem. It&apos;s a systems problem. And the lunar cycle
+              gives you a natural, repeating framework to reset, reflect, and reinforce what you
+              actually value.
             </p>
             <div className="flex flex-col gap-4">
               <div className="w-[2px] h-24 bg-gold" />
               <p className="font-headline text-xl italic text-primary leading-snug max-w-xs">
-                &ldquo;The moon doesn&apos;t negotiate. But she always shows you the way.&rdquo;
+                &ldquo;You can&apos;t pour from a cup that everyone else is allowed to
+                drain.&rdquo;
               </p>
             </div>
           </div>
@@ -84,11 +95,12 @@ export default function MoonCycleLifePlannerPage() {
                 Observation 01
               </p>
               <h3 className="font-headline text-2xl font-light text-primary mb-4">
-                The Burnout Cycle
+                The Energy Drain
               </h3>
               <p className="font-body text-sm text-on-surface-variant leading-relaxed">
-                You push when you should rest, rest when you should act. The planner maps when to do
-                which — so you stop working against your own nature.
+                Unclear boundaries don&apos;t just cost you time — they cost you the mental and
+                emotional bandwidth you need to do the work that actually matters. Every ambiguous
+                commitment is a slow leak.
               </p>
             </div>
             <div className="bg-white p-10">
@@ -96,11 +108,12 @@ export default function MoonCycleLifePlannerPage() {
                 Observation 02
               </p>
               <h3 className="font-headline text-2xl font-light text-primary mb-4">
-                The Missed Moments
+                The Guilt Loop
               </h3>
               <p className="font-body text-sm text-on-surface-variant leading-relaxed">
-                Life happens to you instead of with you. Intention without a container is just a
-                wish. The planner gives your magic a home.
+                You know you need to say no. You say yes anyway. Then you resent the commitment —
+                and feel guilty for resenting it. The loop repeats until something breaks. Usually
+                you.
               </p>
             </div>
           </div>
@@ -125,18 +138,19 @@ export default function MoonCycleLifePlannerPage() {
                   The Foundation
                 </p>
                 <h3 className="font-headline text-4xl md:text-5xl font-light text-white leading-tight mb-6">
-                  12 Months of<br />
-                  <span className="italic">Moon-Aligned Planning.</span>
+                  The Lunar<br />
+                  <span className="italic">Framework.</span>
                 </h3>
                 <p className="font-body text-sm text-gold/70 leading-relaxed max-w-md">
-                  163 pages built around the 2026 lunar calendar. Every full moon, new moon, and
-                  phase mapped and given space to work with.
+                  Built around the eight phases of the moon, this planner gives you a natural rhythm
+                  for setting intentions, taking action, releasing what no longer serves you, and
+                  restoring your energy — month after month for a full year.
                 </p>
               </div>
               <div className="flex items-center gap-4 mt-8">
                 <div className="w-8 h-[1px] bg-gold" />
                 <p className="font-label text-xs uppercase tracking-widest text-gold">
-                  163 Pages &middot; 2026 Lunar Calendar
+                  12 Months &middot; Moon-Aligned Planning
                 </p>
               </div>
             </div>
@@ -145,44 +159,44 @@ export default function MoonCycleLifePlannerPage() {
             <div className="col-span-12 md:col-span-4 bg-surface-high p-10 flex flex-col justify-between min-h-[320px]">
               <div>
                 <p className="font-label text-xs uppercase tracking-[0.2em] text-secondary mb-6">
-                  Every Cycle
+                  Daily Practice
                 </p>
                 <h3 className="font-headline text-3xl font-light text-primary leading-tight mb-4">
-                  Full Moon Ritual Pages
+                  Daily Check-In Pages
                 </h3>
                 <p className="font-body text-sm text-on-surface-variant leading-relaxed">
-                  Release + intention setting each cycle. Monthly ritual structure built in — all 12
-                  full moons, all 12 new moons.
+                  Short, intentional prompts for each day. Review your commitments, check your
+                  energy, and realign with what you said yes to — and why.
                 </p>
               </div>
               <div className="w-8 h-[2px] bg-gold mt-8" />
             </div>
 
-            {/* Small burgundy card: 4 cols */}
+            {/* Moon Phase: 4 cols */}
             <div className="col-span-12 md:col-span-4 bg-primary p-10 flex flex-col justify-between min-h-[240px]">
               <div>
                 <p className="font-label text-xs uppercase tracking-[0.2em] text-gold/80 mb-6">
-                  New Moon
+                  Visual Tool
                 </p>
                 <h3 className="font-headline text-2xl font-light text-white leading-tight mb-4">
-                  New Moon Intentions
+                  Moon Phase Tracker
                 </h3>
                 <p className="font-body text-sm text-gold/60 leading-relaxed">
-                  Dedicated spread for setting intentions each new moon. Space for what you&apos;re
-                  calling in and what you&apos;re releasing.
+                  A visual reference for each lunar phase so you always know where you are in the
+                  cycle — and what kind of energy to lean into.
                 </p>
               </div>
               <div className="w-8 h-[1px] bg-gold mt-6" />
             </div>
 
-            {/* Image placeholder card: 8 cols */}
+            {/* Image card: 8 cols */}
             <div className="col-span-12 md:col-span-8 relative h-[280px] overflow-hidden min-h-[240px] bg-surface-low">
               <div className="absolute bottom-6 left-6 bg-white px-6 py-4 z-10">
                 <p className="font-label text-xs uppercase tracking-[0.2em] text-primary mb-1">
-                  Day-by-Day Planning
+                  Each Month
                 </p>
                 <p className="font-headline text-xl font-light text-primary">
-                  Weekly Rhythm Pages
+                  Monthly Reflection Spreads
                 </p>
               </div>
             </div>
@@ -194,8 +208,8 @@ export default function MoonCycleLifePlannerPage() {
       <section className="bg-velvet py-24 md:py-32 px-8">
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
           <h2 className="font-headline text-4xl md:text-5xl font-light italic text-white leading-snug">
-            &ldquo;You already have the magic. The moon just helps you remember when to{' '}
-            <span className="text-gold">use it.</span>&rdquo;
+            &ldquo;Boundaries aren&apos;t walls. They&apos;re the architecture of your most{' '}
+            <em className="not-italic font-normal text-gold">aligned</em> life.&rdquo;
           </h2>
           <div className="flex flex-col items-center gap-4">
             <div className="w-16 h-[1px] bg-gold" />
@@ -210,11 +224,11 @@ export default function MoonCycleLifePlannerPage() {
       <section id="buy" className="py-24 md:py-40 px-8">
         <div className="max-w-xl mx-auto text-center flex flex-col items-center gap-8">
           <h2 className="font-headline text-5xl md:text-6xl font-light text-primary leading-tight">
-            Your most aligned<br />year starts now.
+            Your boundaries<br />start here.
           </h2>
           <p className="font-body text-base text-on-surface-variant leading-relaxed">
-            163 pages. 12 months. Every moon phase mapped. One download changes how you move through
-            the entire year.
+            Stop managing the aftermath of saying yes when you meant no. The Sacred Boundary System
+            gives you a gentle, repeatable structure to finally get clear — and stay that way.
           </p>
 
           {/* Price Card */}
@@ -229,9 +243,11 @@ export default function MoonCycleLifePlannerPage() {
                 Full planner &middot; 12 months &middot; Instant access
               </p>
             </div>
-            <a href="#" className="btn-primary w-full block text-center">
-              Buy Now — $17
-            </a>
+            <form action="/api/checkout-sbs" method="post" className="w-full">
+              <button type="submit" className="btn-primary w-full block text-center">
+                Buy Now — $17
+              </button>
+            </form>
             <p className="font-body text-xs text-secondary tracking-wide">
               Instant digital download. PDF format.
             </p>

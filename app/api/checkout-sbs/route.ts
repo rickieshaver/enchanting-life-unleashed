@@ -26,7 +26,7 @@ export async function POST(req: Request) {
       payment_method_types: ['card'],
       line_items: [{ price: SBS.priceId, quantity: 1 }],
       success_url: `${origin}/purchase-complete?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/lunar-boundary-planner?canceled=1`,
+      cancel_url: `${origin}/sacred-boundary-system?canceled=1`,
       allow_promotion_codes: true,
       billing_address_collection: 'auto',
       metadata: {

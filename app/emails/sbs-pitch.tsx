@@ -54,7 +54,7 @@ export default function SbsPitch({ firstName = 'Friend', archetype = 'open-door'
       </Paragraph>
       <Paragraph>$17. Instant PDF download. Works on printed paper or on a tablet.</Paragraph>
 
-      <CTA href="https://enchantinglifeunleashed.com/lunar-boundary-planner" label="Get it here" />
+      <CTA href="https://enchantinglifeunleashed.com/sacred-boundary-system" label="Get it here" />
 
       <Signature />
 
