@@ -15,7 +15,7 @@ const COPY: Record<Variant, { kicker: string; title: string; body: string; ctaLa
     title: 'The Sacred Boundary System.',
     body: 'A repeatable, cycle-based practice for women who know what they need to do and still aren\'t doing it. Eight lunar cycles. Four domains. Three archetypes. Built to interrupt the pattern at the nervous system level — not through more awareness, but through daily structured practice tied to the lunar rhythm.',
     ctaLabel: 'See the Sacred Boundary System — $17',
-    href: '/lunar-boundary-planner',
+    href: '/sacred-boundary-system',
   },
 }
 

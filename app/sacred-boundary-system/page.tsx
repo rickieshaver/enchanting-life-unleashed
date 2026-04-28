@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'Lunar Boundary Planner — Enchanting Life Unleashed',
+  title: 'Sacred Boundary System — Enchanting Life Unleashed',
   description:
-    'A moon-aligned planner designed to help you set, hold, and honor your boundaries — without the guilt. Twelve months of intentional structure built around the lunar cycle.',
+    'The Sacred Boundary System workbook — a moon-aligned practice for setting, holding, and honoring your boundaries without the guilt. Eight lunar cycles. Four domains. Three archetypes.',
 }
 
 export default function LunarBoundaryPlannerPage() {

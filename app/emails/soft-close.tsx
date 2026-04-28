@@ -18,7 +18,7 @@ export default function SoftClose({ firstName = 'Friend' }: SoftCloseProps) {
         If it&apos;s a yes — you know where to go. <strong>Sacred Boundary System, $17.</strong>
       </Paragraph>
 
-      <CTA href="https://enchantinglifeunleashed.com/lunar-boundary-planner" label="Get it here" />
+      <CTA href="https://enchantinglifeunleashed.com/sacred-boundary-system" label="Get it here" />
 
       <Paragraph>
         If it&apos;s a not yet — stay on my newsletter. Three notes a week from me. Boundaries,
