@@ -170,7 +170,7 @@ export default function HomePage() {
                 alt="The Lunar Alignment Starter Kit"
                 width={800}
                 height={800}
-                className="w-[78%] h-[78%] object-contain"
+                className="w-[92%] h-[92%] object-contain"
               />
             </div>
             <p className="eyebrow mb-2 font-bold">Workbook &middot; Step Two</p>
