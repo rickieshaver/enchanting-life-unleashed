@@ -6,6 +6,9 @@ import * as lunar from '@/app/blog/posts/lunar-cycle-for-boundary-work'
 import * as justSayNo from '@/app/blog/posts/just-say-no-doesnt-work'
 import * as practice from '@/app/blog/posts/practice-problem-not-knowledge'
 import * as absorbing from '@/app/blog/posts/stop-absorbing-other-peoples-stress'
+import * as shadowWork from '@/app/blog/posts/when-shadow-work-becomes-shadow-avoidance'
+import * as newMoonRitual from '@/app/blog/posts/new-moon-ritual-without-the-pinterest-aesthetic'
+import * as tarot from '@/app/blog/posts/how-to-read-tarot-without-becoming-insufferable'
 
 const modules: Record<string, Post> = {
   [sayingYes.meta.slug]: { meta: sayingYes.meta, Body: sayingYes.Body },
@@ -14,6 +17,9 @@ const modules: Record<string, Post> = {
   [justSayNo.meta.slug]: { meta: justSayNo.meta, Body: justSayNo.Body },
   [practice.meta.slug]: { meta: practice.meta, Body: practice.Body },
   [absorbing.meta.slug]: { meta: absorbing.meta, Body: absorbing.Body },
+  [shadowWork.meta.slug]: { meta: shadowWork.meta, Body: shadowWork.Body },
+  [newMoonRitual.meta.slug]: { meta: newMoonRitual.meta, Body: newMoonRitual.Body },
+  [tarot.meta.slug]: { meta: tarot.meta, Body: tarot.Body },
 }
 
 export const allPosts: Post[] = Object.values(modules).sort(

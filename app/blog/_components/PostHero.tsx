@@ -5,14 +5,14 @@ export function PostHero({ meta }: { meta: PostMeta }) {
   return (
     <header className="bg-surface-low">
       {meta.image && (
-        <div className="relative aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden bg-surface-mid">
+        <div className="relative aspect-[4/3] md:aspect-[3/2] w-full overflow-hidden bg-surface-mid">
           <Image
             src={meta.image}
             alt={meta.imageAlt ?? meta.title}
             fill
             sizes="100vw"
             priority
-            className="object-cover"
+            className="object-cover object-[50%_25%]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-surface-low/40" />
         </div>
