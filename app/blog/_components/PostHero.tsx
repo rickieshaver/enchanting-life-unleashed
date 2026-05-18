@@ -12,7 +12,7 @@ export function PostHero({ meta }: { meta: PostMeta }) {
             fill
             sizes="100vw"
             priority
-            className="object-cover"
+            className="object-cover object-top"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-surface-low/40" />
         </div>
