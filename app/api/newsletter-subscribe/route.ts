@@ -55,7 +55,7 @@ async function subscribe(email: string, source: string): Promise<SubscribeResult
   try {
     await resend.contacts.create({
       email,
-      audienceId,
+      segments: [{ id: audienceId }],
       unsubscribed: false,
       properties: {
         source,
