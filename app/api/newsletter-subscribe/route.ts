@@ -48,9 +48,14 @@ async function subscribe(email: string, source: string): Promise<SubscribeResult
   }
 
   // 1. Create contact in Resend
+  const audienceId = process.env.RESEND_NEWSLETTER_AUDIENCE_ID
+  if (!audienceId) {
+    throw new Error('RESEND_NEWSLETTER_AUDIENCE_ID env var not set')
+  }
   try {
     await resend.contacts.create({
       email,
+      audienceId,
       unsubscribed: false,
       properties: {
         source,
