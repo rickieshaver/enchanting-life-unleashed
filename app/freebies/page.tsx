@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import NewsletterForm from '../_components/NewsletterForm'
 
 export const metadata: Metadata = {
   title: 'Freebies — Enchanting Life Unleashed',
@@ -185,23 +186,12 @@ export default function FreebiesPage() {
             Join the coven. Weekly notes on lunar living, sacred boundaries, and sacred strategy —
             straight to your inbox.
           </p>
-          <form
-            action="/api/newsletter-subscribe"
-            method="post"
-            className="flex flex-col sm:flex-row gap-4 w-full max-w-md"
-          >
-            <input type="hidden" name="source" value="freebies-newsletter" />
-            <input
-              type="email"
-              name="email_address"
-              placeholder="your@email.com"
-              required
-              className="flex-1 bg-transparent border-0 border-b-2 border-gold text-white placeholder-white/50 font-body text-sm px-0 py-4 focus:outline-none focus:ring-0"
-            />
-            <button type="submit" className="bg-white text-primary px-8 py-4 font-label text-xs uppercase tracking-widest font-bold hover:bg-surface transition-colors shrink-0">
-              Subscribe
-            </button>
-          </form>
+          <NewsletterForm
+            source="freebies-newsletter"
+            theme="dark"
+            inputClassName="flex-1 bg-transparent border-0 border-b-2 border-gold text-white placeholder-white/50 font-body text-sm px-0 py-4 focus:outline-none focus:ring-0"
+            buttonClassName="bg-white text-primary px-8 py-4 font-label text-xs uppercase tracking-widest font-bold hover:bg-surface transition-colors shrink-0"
+          />
           <p className="font-body text-xs text-white/40">No spam. Unsubscribe anytime.</p>
         </div>
       </section>
