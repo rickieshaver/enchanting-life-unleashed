@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { resend } from '@/lib/resend/client'
 import { sendEmail } from '@/lib/resend/send'
+import { verifyTurnstileToken } from '@/lib/turnstile/verify'
 
 export const runtime = 'nodejs'
 
@@ -13,6 +14,7 @@ type Body = {
   archetype: ArchetypeKey
   primaryArea: AreaKey
   resultKey: string
+  turnstileToken: string
   scores: {
     archetype: Record<ArchetypeKey, number>
     area: Record<AreaKey, number>
@@ -29,6 +31,8 @@ function isValidBody(b: unknown): b is Body {
     typeof o.primaryArea === 'string' &&
     typeof o.resultKey === 'string' &&
     typeof o.scores === 'object'
+    // turnstileToken is extracted separately — not required in body type guard
+    // to preserve backwards compat shape; absence yields empty string which fails verify
   )
 }
 
@@ -44,6 +48,15 @@ export async function POST(req: Request) {
 
   if (!isValidBody(body)) {
     return NextResponse.json({ ok: false, error: 'invalid payload' }, { status: 400 })
+  }
+
+  // Bot protection: verify Turnstile token BEFORE any Resend calls.
+  const rawBody = body as Record<string, unknown>
+  const turnstileToken = typeof rawBody.turnstileToken === 'string' ? rawBody.turnstileToken : ''
+  const verification = await verifyTurnstileToken(turnstileToken)
+  if (!verification.success) {
+    console.warn('[quiz-submit] Turnstile verification failed', verification.errorCodes)
+    return NextResponse.json({ error: 'verification_failed' }, { status: 403 })
   }
 
   const { firstName, email, archetype, primaryArea, resultKey, scores } = body

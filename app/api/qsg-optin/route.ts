@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { resend } from '@/lib/resend/client'
 import { sendEmail } from '@/lib/resend/send'
+import { verifyTurnstileToken } from '@/lib/turnstile/verify'
 
 export const runtime = 'nodejs'
 
@@ -9,8 +10,8 @@ const QSG_DOWNLOAD_URL =
   'https://enchantinglifeunleashed.com/downloads/lunar-alignment-quick-start-guide.pdf'
 
 type ParsedInput =
-  | { email: string; firstName: string; source: string; contentType: 'form' | 'json' }
-  | { error: string }
+  | { email: string; firstName: string; source: string; contentType: 'form' | 'json'; turnstileToken: string }
+  | { error: string; contentType?: 'form' | 'json' }
 
 async function readInput(req: Request): Promise<ParsedInput> {
   const contentType = req.headers.get('content-type') || ''
@@ -24,10 +25,11 @@ async function readInput(req: Request): Promise<ParsedInput> {
           ? body.firstName.trim()
           : 'Friend'
       const source = typeof body.source === 'string' ? body.source : 'qsg-optin'
-      if (!email) return { error: 'email required' }
-      return { email, firstName, source, contentType: 'json' }
+      const turnstileToken = typeof body.turnstileToken === 'string' ? body.turnstileToken : ''
+      if (!email) return { error: 'email required', contentType: 'json' }
+      return { email, firstName, source, contentType: 'json', turnstileToken }
     } catch {
-      return { error: 'invalid JSON' }
+      return { error: 'invalid JSON', contentType: 'json' }
     }
   }
 
@@ -41,10 +43,11 @@ async function readInput(req: Request): Promise<ParsedInput> {
       const rawFirstName = String(form.get('first_name') || form.get('firstName') || '').trim()
       const firstName = rawFirstName.length > 0 ? rawFirstName : 'Friend'
       const source = String(form.get('source') || 'qsg-optin')
-      if (!email) return { error: 'email required' }
-      return { email, firstName, source, contentType: 'form' }
+      const turnstileToken = String(form.get('cf-turnstile-response') || form.get('turnstileToken') || '')
+      if (!email) return { error: 'email required', contentType: 'form' }
+      return { email, firstName, source, contentType: 'form', turnstileToken }
     } catch {
-      return { error: 'invalid form data' }
+      return { error: 'invalid form data', contentType: 'form' }
     }
   }
 
@@ -78,6 +81,18 @@ export async function POST(req: Request) {
   const parsed = await readInput(req)
   if ('error' in parsed) {
     return NextResponse.json({ ok: false, error: parsed.error }, { status: 400 })
+  }
+
+  // Bot protection: verify Turnstile token BEFORE any Resend calls.
+  const verification = await verifyTurnstileToken(parsed.turnstileToken)
+  if (!verification.success) {
+    console.warn('[qsg-optin] Turnstile verification failed', verification.errorCodes)
+    if (parsed.contentType === 'form') {
+      const url = new URL('/lunar-alignment-quick-start-guide', req.url)
+      url.searchParams.set('error', 'verification_failed')
+      return NextResponse.redirect(url, 303)
+    }
+    return NextResponse.json({ error: 'verification_failed' }, { status: 403 })
   }
 
   const { email, firstName, source, contentType } = parsed

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import QsgOptinForm from './QsgOptinForm'
 
 export const metadata: Metadata = {
   title: 'The Lunar Alignment Quick Start Guide — Enchanting Life Unleashed',
@@ -8,16 +9,7 @@ export const metadata: Metadata = {
     'Step One of the Lunar Alignment System. A free guide to the eight lunar phases, the Action framework, and the 28-day cycle map. Built to use, not to admire.',
 }
 
-type SearchParams = Promise<{ delivered?: string; error?: string }>
-
-export default async function LunarAlignmentQuickStartGuidePage({
-  searchParams,
-}: {
-  searchParams: SearchParams
-}) {
-  const params = await searchParams
-  const delivered = params.delivered === '1'
-  const errored = params.error === 'send_failed' || params.error === 'invalid_email'
+export default async function LunarAlignmentQuickStartGuidePage() {
 
   return (
     <>
@@ -42,68 +34,7 @@ export default async function LunarAlignmentQuickStartGuidePage({
                 Action framework, and a 28-day cycle map you can hold in one hand.
               </p>
 
-              {delivered ? (
-                <div className="bg-surface-low border-l-4 border-gold p-8 max-w-lg flex flex-col gap-4">
-                  <p className="font-label text-xs uppercase tracking-[0.2em] text-gold font-bold">
-                    Check your email
-                  </p>
-                  <h2 className="font-headline text-2xl font-light text-primary leading-snug">
-                    Your QSG is on the way.
-                  </h2>
-                  <p className="font-body text-sm text-on-surface-variant leading-relaxed">
-                    The download link is in your inbox. If it&apos;s not there in a minute, check
-                    promotions or spam — and add{' '}
-                    <strong>connect@enchantinglifeunleashed.com</strong> to your contacts so the next
-                    one lands clean.
-                  </p>
-                  <p className="font-body text-sm text-primary">
-                    Read it once. Run one cycle. Then come back for the Starter Kit ($7).
-                  </p>
-                </div>
-              ) : (
-                <form
-                  action="/api/qsg-optin"
-                  method="post"
-                  className="flex flex-col gap-4 w-full max-w-md"
-                >
-                  <input type="hidden" name="source" value="qsg-landing" />
-                  <div className="flex flex-col gap-2">
-                    <label className="font-label text-xs uppercase tracking-widest text-primary font-bold">
-                      First name
-                    </label>
-                    <input
-                      type="text"
-                      name="first_name"
-                      placeholder="Your first name"
-                      className="w-full bg-transparent border-0 border-b border-gold px-0 py-3 text-lg font-body focus:outline-none focus:ring-0 focus:border-primary transition-colors"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label className="font-label text-xs uppercase tracking-widest text-primary font-bold">
-                      Email address
-                    </label>
-                    <input
-                      type="email"
-                      name="email_address"
-                      placeholder="email@example.com"
-                      required
-                      className="w-full bg-transparent border-0 border-b border-gold px-0 py-3 text-lg font-body focus:outline-none focus:ring-0 focus:border-primary transition-colors"
-                    />
-                  </div>
-                  <button type="submit" className="btn-primary w-full text-center mt-2">
-                    Send me the Guide
-                  </button>
-                  {errored && (
-                    <p className="font-body text-xs text-secondary mt-1">
-                      Something didn&apos;t go through. Try again, or email{' '}
-                      connect@enchantinglifeunleashed.com.
-                    </p>
-                  )}
-                  <p className="font-body text-[10px] uppercase tracking-wider text-on-surface-variant/60 mt-1 text-center">
-                    No spam. Unsubscribe anytime.
-                  </p>
-                </form>
-              )}
+              <QsgOptinForm variant="hero" source="qsg-landing" />
             </div>
 
             {/* Right: Cover image */}
@@ -249,44 +180,21 @@ export default async function LunarAlignmentQuickStartGuidePage({
         </div>
       </section>
 
-      {/* FINAL CTA — only show when not yet delivered */}
-      {!delivered && (
-        <section className="bg-velvet text-white py-24 md:py-32 px-8">
-          <div className="max-w-3xl mx-auto flex flex-col gap-10 items-start">
-            <div className="w-12 h-[2px] bg-gold" />
-            <h2 className="font-headline text-5xl md:text-7xl font-light leading-[0.95]">
-              Start with<br />
-              <span className="italic font-normal">orientation.</span>
-            </h2>
-            <p className="font-body text-lg leading-relaxed max-w-xl opacity-90">
-              The QSG is free because the model is the easy part. Running the cycle is the work.
-              Read the guide, then come back when you&apos;re ready to actually run it.
-            </p>
-            <form
-              action="/api/qsg-optin"
-              method="post"
-              className="flex flex-col gap-4 w-full max-w-md"
-            >
-              <input type="hidden" name="source" value="qsg-footer" />
-              <div className="flex flex-col gap-2">
-                <label className="font-label text-xs uppercase tracking-widest text-white/80 font-bold">
-                  Email address
-                </label>
-                <input
-                  type="email"
-                  name="email_address"
-                  placeholder="email@example.com"
-                  required
-                  className="w-full bg-transparent border-0 border-b-2 border-gold text-white placeholder-white/50 font-body text-sm px-0 py-3 focus:outline-none focus:ring-0"
-                />
-              </div>
-              <button type="submit" className="btn-primary w-full text-center">
-                Send me the Guide
-              </button>
-            </form>
-          </div>
-        </section>
-      )}
+      {/* FINAL CTA */}
+      <section className="bg-velvet text-white py-24 md:py-32 px-8">
+        <div className="max-w-3xl mx-auto flex flex-col gap-10 items-start">
+          <div className="w-12 h-[2px] bg-gold" />
+          <h2 className="font-headline text-5xl md:text-7xl font-light leading-[0.95]">
+            Start with<br />
+            <span className="italic font-normal">orientation.</span>
+          </h2>
+          <p className="font-body text-lg leading-relaxed max-w-xl opacity-90">
+            The QSG is free because the model is the easy part. Running the cycle is the work.
+            Read the guide, then come back when you&apos;re ready to actually run it.
+          </p>
+          <QsgOptinForm variant="footer" source="qsg-footer" />
+        </div>
+      </section>
     </>
   )
 }

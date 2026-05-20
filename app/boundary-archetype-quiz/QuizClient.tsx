@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile'
 import {
   questions,
   archetypes,
@@ -12,12 +13,15 @@ import {
   type QuizResult,
 } from './quiz-data'
 
+const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
+
 type Stage = 'intro' | 'questions' | 'email-gate' | 'submitting' | 'results'
 
 async function submitQuiz(
   firstName: string,
   email: string,
-  result: QuizResult
+  result: QuizResult,
+  turnstileToken: string
 ): Promise<void> {
   const resultKey = `${result.archetype}--${result.primaryArea}`
 
@@ -31,12 +35,13 @@ async function submitQuiz(
       primaryArea: result.primaryArea,
       resultKey,
       scores: result.scores,
+      turnstileToken,
     }),
   })
 
   if (!res.ok) {
-    const body = await res.json().catch(() => ({}))
-    throw new Error(body.error || `quiz-submit failed (${res.status})`)
+    const body = await res.json().catch(() => ({})) as Record<string, unknown>
+    throw new Error(typeof body.error === 'string' ? body.error : `quiz-submit failed (${res.status})`)
   }
 }
 
@@ -49,6 +54,8 @@ export default function QuizClient() {
   const [email, setEmail] = useState('')
   const [result, setResult] = useState<QuizResult | null>(null)
   const [error, setError] = useState('')
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const turnstileRef = useRef<TurnstileInstance>(null)
 
   const question = questions[currentQuestion]
   const progress = (currentQuestion / questions.length) * 100
@@ -74,16 +81,27 @@ export default function QuizClient() {
     e.preventDefault()
     if (!firstName.trim() || !email.trim()) return
 
+    if (!turnstileToken) {
+      setError('Complete the human verification below.')
+      return
+    }
+
     setStage('submitting')
     const quizResult = calculateResult(answers)
     setResult(quizResult)
 
     try {
-      await submitQuiz(firstName.trim(), email.trim(), quizResult)
+      await submitQuiz(firstName.trim(), email.trim(), quizResult, turnstileToken)
     } catch (err) {
       console.error('[quiz] submit failed', err)
-      setError('Something went wrong sending your results. Please try again.')
+      const msg = err instanceof Error ? err.message : String(err)
+      setError(
+        msg === 'verification_failed'
+          ? 'Verification failed. Please refresh and try again.'
+          : 'Something went wrong sending your results. Please try again.',
+      )
       setStage('email-gate')
+      turnstileRef.current?.reset()
       return
     }
 
@@ -242,6 +260,15 @@ export default function QuizClient() {
                 className="w-full bg-transparent border-0 border-b border-[#EDB74D] px-0 py-3 text-lg font-body text-[#6D2E46] focus:outline-none focus:ring-0 focus:border-[#6D2E46] transition-colors placeholder:text-[#A26769]/40"
               />
             </div>
+
+            <Turnstile
+              ref={turnstileRef}
+              siteKey={SITE_KEY}
+              onSuccess={setTurnstileToken}
+              onError={() => setError('Verification error. Please refresh.')}
+              onExpire={() => { setTurnstileToken(''); turnstileRef.current?.reset() }}
+              options={{ theme: 'light', size: 'normal' }}
+            />
 
             {error && (
               <p className="font-body text-sm text-red-600">{error}</p>

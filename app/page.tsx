@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import NewsletterForm from './_components/NewsletterForm'
 
 export const metadata: Metadata = {
   title: 'Enchanting Life Unleashed — Where Soul Meets Strategy',
@@ -248,23 +249,7 @@ export default function HomePage() {
             Join the coven. Weekly moon intel, boundary work, and sacred strategy — straight to your
             inbox. No fluff. Just the good stuff.
           </p>
-          <form
-            action="/api/newsletter-subscribe"
-            method="post"
-            className="flex flex-col sm:flex-row gap-4 w-full max-w-md"
-          >
-            <input type="hidden" name="source" value="homepage-newsletter" />
-            <input
-              type="email"
-              name="email_address"
-              placeholder="your@email.com"
-              required
-              className="flex-1 bg-transparent border-0 border-b-2 border-gold text-primary placeholder-on-surface-variant/50 font-body text-sm px-0 py-4 focus:outline-none focus:ring-0"
-            />
-            <button type="submit" className="btn-primary shrink-0">
-              Subscribe
-            </button>
-          </form>
+          <NewsletterForm source="homepage-newsletter" theme="light" />
           <p className="font-body text-xs text-on-surface-variant/60">
             No spam. Unsubscribe anytime.
           </p>

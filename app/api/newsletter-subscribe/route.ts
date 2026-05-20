@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { resend } from '@/lib/resend/client'
 import { sendEmail } from '@/lib/resend/send'
+import { verifyTurnstileToken } from '@/lib/turnstile/verify'
 
 export const runtime = 'nodejs'
 
@@ -11,7 +12,10 @@ type SubscribeResult =
   | { ok: true; debug: Record<string, unknown> }
   | { ok: false; error: string; debug?: Record<string, unknown> }
 
-async function readEmail(req: Request): Promise<{ email: string; source: string; contentType: 'form' | 'json' } | { error: string }> {
+async function readEmail(req: Request): Promise<
+  | { email: string; source: string; contentType: 'form' | 'json'; turnstileToken: string }
+  | { error: string; contentType?: 'form' | 'json' }
+> {
   const contentType = req.headers.get('content-type') || ''
 
   if (contentType.includes('application/json')) {
@@ -19,10 +23,11 @@ async function readEmail(req: Request): Promise<{ email: string; source: string;
       const body = (await req.json()) as Record<string, unknown>
       const email = typeof body.email === 'string' ? body.email.trim() : ''
       const source = typeof body.source === 'string' ? body.source : 'newsletter'
-      if (!email) return { error: 'email required' }
-      return { email, source, contentType: 'json' }
+      const turnstileToken = typeof body.turnstileToken === 'string' ? body.turnstileToken : ''
+      if (!email) return { error: 'email required', contentType: 'json' }
+      return { email, source, contentType: 'json', turnstileToken }
     } catch {
-      return { error: 'invalid JSON' }
+      return { error: 'invalid JSON', contentType: 'json' }
     }
   }
 
@@ -31,10 +36,11 @@ async function readEmail(req: Request): Promise<{ email: string; source: string;
       const form = await req.formData()
       const email = String(form.get('email_address') || form.get('email') || '').trim()
       const source = String(form.get('source') || 'newsletter')
-      if (!email) return { error: 'email required' }
-      return { email, source, contentType: 'form' }
+      const turnstileToken = String(form.get('cf-turnstile-response') || form.get('turnstileToken') || '')
+      if (!email) return { error: 'email required', contentType: 'form' }
+      return { email, source, contentType: 'form', turnstileToken }
     } catch {
-      return { error: 'invalid form data' }
+      return { error: 'invalid form data', contentType: 'form' }
     }
   }
 
@@ -160,6 +166,18 @@ export async function POST(req: Request) {
   const parsed = await readEmail(req)
   if ('error' in parsed) {
     return NextResponse.json({ ok: false, error: parsed.error }, { status: 400 })
+  }
+
+  // Bot protection: verify Turnstile token BEFORE any Resend calls.
+  const verification = await verifyTurnstileToken(parsed.turnstileToken)
+  if (!verification.success) {
+    console.warn('[newsletter-subscribe] Turnstile verification failed', verification.errorCodes)
+    if (parsed.contentType === 'form') {
+      const url = new URL('/thanks', req.url)
+      url.searchParams.set('error', 'verification_failed')
+      return NextResponse.redirect(url, 303)
+    }
+    return NextResponse.json({ error: 'verification_failed' }, { status: 403 })
   }
 
   const { email, source, contentType } = parsed
