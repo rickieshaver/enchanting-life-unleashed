@@ -2,14 +2,14 @@ import { BaseEmail, CTA, Heading, Paragraph, Signature } from '../_base'
 
 export default function NewsletterQuizNudge() {
   return (
-    <BaseEmail preview="Take the quiz if you haven't.">
-      <Heading>Take the quiz if you haven&apos;t.</Heading>
+    <BaseEmail preview="Five minutes. Two specific answers. Free.">
+      <Heading>Take the quiz if you have not.</Heading>
 
       <Paragraph>Quick check-in.</Paragraph>
 
       <Paragraph>
-        If you&apos;re reading this without having taken the Boundary Archetype Quiz,
-        you&apos;re flying blind on your own pattern.
+        If you are reading this without having taken the Boundary Archetype Quiz, you are flying
+        blind on your own pattern.
       </Paragraph>
 
       <Paragraph>The quiz takes five minutes. It tells you two things:</Paragraph>
@@ -28,11 +28,11 @@ export default function NewsletterQuizNudge() {
 
       <Paragraph>
         You already have an archetype. You already have a primary leak domain. The only question is
-        whether you&apos;ve named it yet — or you&apos;re still trying to fix &ldquo;your
-        boundaries&rdquo; in general.
+        whether you have named it yet — or you are still trying to fix &ldquo;your boundaries&rdquo;{' '}
+        in general.
       </Paragraph>
 
-      <Paragraph>General doesn&apos;t change. Specific does.</Paragraph>
+      <Paragraph>General does not change. Specific does.</Paragraph>
 
       <CTA
         href="https://enchantinglifeunleashed.com/boundary-archetype-quiz"
@@ -40,12 +40,12 @@ export default function NewsletterQuizNudge() {
       />
 
       <Paragraph>
-        When you finish, you&apos;ll get your Blueprint (archetype) and a Domain Deep Dive (the one
-        that&apos;s leaking hardest) — both PDFs, delivered instantly. They&apos;re designed to be
-        read once and reread quarterly.
+        When you finish, you will get your Blueprint (archetype) and a Domain Deep Dive (the one
+        that is leaking hardest) — both PDFs, delivered instantly. They are built to be read once
+        and reread quarterly.
       </Paragraph>
 
-      <Paragraph>No charge. No upsell on the result page. It&apos;s a real diagnostic.</Paragraph>
+      <Paragraph>No charge. No upsell on the result page. It is a real diagnostic.</Paragraph>
 
       <Signature />
     </BaseEmail>
