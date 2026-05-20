@@ -3,11 +3,11 @@ import { BaseEmail, COLORS, CTA, Heading, Paragraph, Signature } from '../_base'
 
 export default function NewsletterWelcome() {
   return (
-    <BaseEmail preview="You're in. Here's what you just joined.">
+    <BaseEmail preview="You're in. Here's what just landed in your inbox.">
       <Heading>Welcome in.</Heading>
-      <Paragraph>You just joined a list that doesn&apos;t do cute.</Paragraph>
+      <Paragraph>You just joined a list that does not do cute.</Paragraph>
 
-      <Paragraph>Here&apos;s what I send:</Paragraph>
+      <Paragraph>Here is what lands in your inbox:</Paragraph>
       <Text
         style={{
           fontSize: '15px',
@@ -16,15 +16,16 @@ export default function NewsletterWelcome() {
           margin: '0 0 20px',
         }}
       >
-        — Weekly intel on boundaries, work, and the lunar rhythm — the stuff that actually makes a
-        difference, not the stuff that sounds like a meme.
+        — Twice a week. A short field note on Wednesday recapping what published on the blog. A
+        longer essay on Sunday on something I have been turning over in my own practice.
         <br />
-        — Occasional longer pieces when something needs more than a tweet&apos;s worth of thinking.
-        <br />— Straight-talk about what I&apos;m building over here, why, and what it costs you
-        (or doesn&apos;t).
+        — The work itself. Boundaries. The lunar rhythm as a real container, not a candle aesthetic.
+        The way old reflexes keep firing even after you have read every book.
+        <br />— Occasional notes on what is live over here — the workbook, the planner, the next
+        thing — when it is actually ready and not before.
       </Text>
 
-      <Paragraph>Here&apos;s what I don&apos;t send:</Paragraph>
+      <Paragraph>Here is what does not:</Paragraph>
       <Text
         style={{
           fontSize: '15px',
@@ -38,7 +39,7 @@ export default function NewsletterWelcome() {
         — Affirmation content that dodges the hard part.
         <br />
         — &ldquo;Signs the universe is testing you&rdquo; posts.
-        <br />— More than one email a week unless something is actually happening.
+        <br />— More than two emails a week unless something is actually happening.
       </Text>
 
       <Paragraph>One thing before you close this tab.</Paragraph>
@@ -55,7 +56,7 @@ export default function NewsletterWelcome() {
       />
 
       <Paragraph>
-        If you&apos;ve already taken it, ignore me. The next email lands in two days.
+        If you have already taken it, ignore me. The next email lands in two days.
       </Paragraph>
 
       <Signature />
@@ -70,8 +71,8 @@ export default function NewsletterWelcome() {
           margin: '20px 0 0',
         }}
       >
-        P.S. If the first email in the next two weeks doesn&apos;t feel like it&apos;s for you,
-        unsubscribe. Truly. My list is small on purpose.
+        P.S. If the first email in the next two weeks does not feel like it is for you, unsubscribe.
+        Truly. This list is small on purpose.
       </Text>
     </BaseEmail>
   )

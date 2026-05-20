@@ -3,21 +3,21 @@ import { BaseEmail, COLORS, Heading, Paragraph, Signature } from '../_base'
 
 export default function NewsletterLunarRhythm() {
   return (
-    <BaseEmail preview="The lunar rhythm you can actually use.">
+    <BaseEmail preview="The moon is not magic. It is a rhythm.">
       <Heading>The lunar rhythm you can actually use.</Heading>
 
       <Paragraph>
-        I want to name something that might feel weird if you&apos;re here for the boundary work
-        but got spooked by the word &ldquo;lunar.&rdquo;
+        I want to name something that might feel weird if you are here for the boundary work but
+        got spooked by the word &ldquo;lunar.&rdquo;
       </Paragraph>
 
       <Paragraph>
-        The moon isn&apos;t magic because it&apos;s mystical. It&apos;s a rhythm. A 28-day cycle
-        with predictable phases that have been used as a time-keeping structure in every culture on
-        the planet, long before anyone turned them into candle aesthetics.
+        The moon is not magic because it is mystical. It is a rhythm. A 28-day cycle with
+        predictable phases that have been used as a time-keeping structure in every culture on the
+        planet, long before anyone turned them into candle aesthetics.
       </Paragraph>
 
-      <Paragraph>Here&apos;s how I actually use them:</Paragraph>
+      <Paragraph>Here is how I actually use them:</Paragraph>
 
       <Text
         style={{
@@ -29,32 +29,32 @@ export default function NewsletterLunarRhythm() {
       >
         — <strong>New moon</strong> — set one thing. Not a list. One.
         <br />
-        — <strong>Waxing phase</strong> — build the reps. Show up daily toward that one thing.
+        — <strong>Waxing phase.</strong> Build the reps. Show up daily toward that one thing.
         <br />
-        — <strong>Full moon</strong> — honest audit. What held? What cracked?
+        — <strong>Full moon.</strong> Honest audit. What held? What cracked?
         <br />
-        — <strong>Waning phase</strong> — release what didn&apos;t serve, rest, renegotiate.
+        — <strong>Waning phase.</strong> Release what did not serve, rest, renegotiate.
         <br />— Repeat.
       </Text>
 
       <Paragraph>
-        That&apos;s the whole system. No altar required. No ritual robes. No specific crystals.
-        Just a structure that gives a 28-day container to do something — instead of the
-        infinite-scroll of &ldquo;I&apos;ll start Monday.&rdquo;
+        That is the whole system. No altar required. No ritual robes. No specific crystals. Just a
+        structure that gives a 28-day container to do something, instead of the infinite-scroll of
+        &ldquo;I will start Monday.&rdquo;
       </Paragraph>
 
-      <Paragraph>Why I use it for boundary work specifically:</Paragraph>
+      <Paragraph>Why this rhythm works for boundary work specifically:</Paragraph>
 
       <Paragraph>
-        Boundary patterns don&apos;t change in a weekend. They change through repetition under
-        pressure, evaluated honestly, adjusted with data. The lunar cycle gives that process a
-        shape. Four stages. Each one with a different job. Nothing you have to remember.
+        Boundary patterns do not change in a weekend. They change through repetition under pressure,
+        evaluated honestly, adjusted with data. The lunar cycle gives that process a shape. Four
+        stages. Each one with a different job. Nothing you have to remember.
       </Paragraph>
 
       <Paragraph>
-        The Sacred Boundary System — the thing I&apos;ll tell you more about next email — runs on
-        this cycle. Eight of them. One for each domain, with room to double-back on the hardest
-        ones.
+        The Sacred Boundary System (the workbook that arrives in your inbox a couple of emails from
+        now) runs on this cycle. Eight of them. One for each domain, with room to double-back on
+        the hardest ones.
       </Paragraph>
 
       <Paragraph>
