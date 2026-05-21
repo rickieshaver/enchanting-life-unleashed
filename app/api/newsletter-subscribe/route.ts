@@ -53,29 +53,57 @@ async function subscribe(email: string, source: string): Promise<SubscribeResult
     source,
   }
 
-  // 1. Create contact in Resend
-  const audienceId = process.env.RESEND_NEWSLETTER_AUDIENCE_ID
-  if (!audienceId) {
+  // 1. Create contact in Resend, then attach to newsletter segment.
+  //
+  // Two-step pattern required by Resend v6:
+  //   contacts.create({ segments: [{ id }] }) is accepted by the API but silently
+  //   drops the segment attachment — contacts never appear in the segment listing.
+  //   The correct path: create contact → contacts.segments.add({ contactId, segmentId }).
+  //   Verified via live smoke test 2026-05-20 (PR voss/resend-v6-segments-fix).
+  const segmentId = process.env.RESEND_NEWSLETTER_AUDIENCE_ID
+  if (!segmentId) {
     throw new Error('RESEND_NEWSLETTER_AUDIENCE_ID env var not set')
   }
-  try {
-    await resend.contacts.create({
-      email,
-      segments: [{ id: audienceId }],
-      unsubscribed: false,
-      properties: {
-        source,
-      },
-    })
-    debug.contactStep = 'ok'
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err)
-    debug.contactStep = 'error'
-    debug.contactError = msg
-    if (!msg.toLowerCase().includes('already exist') && !msg.toLowerCase().includes('already been')) {
-      console.error('[newsletter-subscribe] resend.contacts.create failed', err)
+
+  // Step 1a: create (or confirm existence of) the contact globally.
+  let contactId: string | null = null
+  const createResult = await resend.contacts.create({
+    email,
+    unsubscribed: false,
+    properties: { source },
+  })
+  if (createResult.error) {
+    const msg = createResult.error.message ?? String(createResult.error)
+    const isAlreadyExists =
+      msg.toLowerCase().includes('already exist') ||
+      msg.toLowerCase().includes('already been')
+    if (!isAlreadyExists) {
+      debug.contactStep = 'error'
+      debug.contactError = msg
+      console.error('[newsletter-subscribe] resend.contacts.create failed', createResult.error)
       return { ok: false, error: `contact: ${msg}`, debug }
     }
+    // Contact already exists — segmentAdd below will match by email.
+    debug.contactStep = 'already-exists'
+  } else {
+    contactId = createResult.data?.id ?? null
+    debug.contactStep = 'created'
+  }
+
+  // Step 1b: attach the contact to the newsletter segment.
+  // Uses contactId when available (fresh create), falls back to email (existing contact).
+  const addOptions = contactId
+    ? { contactId, segmentId }
+    : { email, segmentId }
+  const segmentResult = await resend.contacts.segments.add(addOptions)
+  if (segmentResult.error) {
+    const msg = segmentResult.error.message ?? String(segmentResult.error)
+    // Non-fatal: contact is created, drip still fires. Log and continue.
+    debug.segmentStep = 'error'
+    debug.segmentError = msg
+    console.error('[newsletter-subscribe] contacts.segments.add failed', segmentResult.error)
+  } else {
+    debug.segmentStep = 'ok'
   }
 
   // 2. Fire 5-email welcome drip — Day 0 immediate, rest scheduled via Resend.
