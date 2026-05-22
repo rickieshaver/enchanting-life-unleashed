@@ -122,7 +122,7 @@ export default function QsgOptinForm({ variant, source }: Props) {
           onSuccess={setTurnstileToken}
           onError={() => setErrorMsg('Verification error. Please refresh.')}
           onExpire={() => { setTurnstileToken(''); turnstileRef.current?.reset() }}
-          options={{ theme: 'light', size: 'normal' }}
+          options={{ theme: 'light', size: 'normal', appearance: 'interaction-only' }}
         />
         {errorMsg && (
           <p className="font-body text-xs text-secondary mt-1">{errorMsg}</p>
@@ -163,7 +163,7 @@ export default function QsgOptinForm({ variant, source }: Props) {
         onSuccess={setTurnstileToken}
         onError={() => setErrorMsg('Verification error. Please refresh.')}
         onExpire={() => { setTurnstileToken(''); turnstileRef.current?.reset() }}
-        options={{ theme: 'dark', size: 'normal' }}
+        options={{ theme: 'dark', size: 'normal', appearance: 'interaction-only' }}
       />
       {errorMsg && (
         <p className="font-body text-xs text-white/70 mt-1">{errorMsg}</p>

@@ -106,7 +106,7 @@ export default function NewsletterForm({
         onSuccess={setTurnstileToken}
         onError={() => setErrorMsg('Verification error. Please refresh.')}
         onExpire={() => { setTurnstileToken(''); turnstileRef.current?.reset() }}
-        options={{ theme, size: 'normal' }}
+        options={{ theme, size: 'normal', appearance: 'interaction-only' }}
       />
       {errorMsg && (
         <p className="font-body text-xs text-secondary">{errorMsg}</p>
