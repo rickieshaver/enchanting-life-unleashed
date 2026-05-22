@@ -267,7 +267,7 @@ export default function QuizClient() {
               onSuccess={setTurnstileToken}
               onError={() => setError('Verification error. Please refresh.')}
               onExpire={() => { setTurnstileToken(''); turnstileRef.current?.reset() }}
-              options={{ theme: 'light', size: 'normal' }}
+              options={{ theme: 'light', size: 'normal', appearance: 'interaction-only' }}
             />
 
             {error && (
