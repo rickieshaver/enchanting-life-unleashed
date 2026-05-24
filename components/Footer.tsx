@@ -80,12 +80,20 @@ export default function Footer() {
           <p className="font-label text-xs text-surface/40 uppercase tracking-widest">
             © {new Date().getFullYear()} Enchanting Life Unleashed. All rights reserved.
           </p>
-          <Link
-            href="/contact"
-            className="font-label text-xs text-surface/40 uppercase tracking-widest hover:text-surface/60 transition-colors"
-          >
-            Contact
-          </Link>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/privacy"
+              className="font-label text-xs text-surface/40 uppercase tracking-widest hover:text-surface/60 transition-colors"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/contact"
+              className="font-label text-xs text-surface/40 uppercase tracking-widest hover:text-surface/60 transition-colors"
+            >
+              Contact
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

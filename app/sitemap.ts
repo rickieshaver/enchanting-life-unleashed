@@ -83,6 +83,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.4,
     },
+    // Legal
+    {
+      url: `${SITE}/privacy`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.2,
+    },
   ]
 
   // Blog posts — read from canonical registry, sorted newest-first
