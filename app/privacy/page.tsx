@@ -344,10 +344,10 @@ export default function PrivacyPage() {
               <p>
                 To exercise any of these rights, email{' '}
                 <a
-                  href="mailto:rickieshaver@gmail.com"
+                  href="mailto:connect@enchantinglifeunleashed.com"
                   className="text-secondary underline decoration-gold/40 hover:decoration-gold transition-colors"
                 >
-                  rickieshaver@gmail.com
+                  connect@enchantinglifeunleashed.com
                 </a>
                 . We will respond within 30 days.
               </p>
@@ -434,10 +434,10 @@ export default function PrivacyPage() {
                 No security system is perfect. If you believe your data has been compromised,
                 contact us immediately at{' '}
                 <a
-                  href="mailto:rickieshaver@gmail.com"
+                  href="mailto:connect@enchantinglifeunleashed.com"
                   className="text-secondary underline decoration-gold/40 hover:decoration-gold transition-colors"
                 >
-                  rickieshaver@gmail.com
+                  connect@enchantinglifeunleashed.com
                 </a>
                 .
               </p>
@@ -494,10 +494,10 @@ export default function PrivacyPage() {
                 Enchanting Life Unleashed
                 <br />
                 <a
-                  href="mailto:rickieshaver@gmail.com"
+                  href="mailto:connect@enchantinglifeunleashed.com"
                   className="text-secondary underline decoration-gold/40 hover:decoration-gold transition-colors"
                 >
-                  rickieshaver@gmail.com
+                  connect@enchantinglifeunleashed.com
                 </a>
               </p>
               <p className="text-sm">
