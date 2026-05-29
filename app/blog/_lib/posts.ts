@@ -9,6 +9,9 @@ import * as absorbing from '@/app/blog/posts/stop-absorbing-other-peoples-stress
 import * as shadowWork from '@/app/blog/posts/when-shadow-work-becomes-shadow-avoidance'
 import * as newMoonRitual from '@/app/blog/posts/new-moon-ritual-without-the-pinterest-aesthetic'
 import * as tarot from '@/app/blog/posts/how-to-read-tarot-without-becoming-insufferable'
+import * as mercuryRetrograde from '@/app/blog/posts/mercury-retrograde-and-contract-signing'
+import * as morningRitual from '@/app/blog/posts/what-a-sacred-morning-routine-actually-looks-like'
+import * as spiritualBypassing from '@/app/blog/posts/spiritual-bypassing-is-real-and-youve-probably-done-it'
 
 const modules: Record<string, Post> = {
   [sayingYes.meta.slug]: { meta: sayingYes.meta, Body: sayingYes.Body },
@@ -20,6 +23,9 @@ const modules: Record<string, Post> = {
   [shadowWork.meta.slug]: { meta: shadowWork.meta, Body: shadowWork.Body },
   [newMoonRitual.meta.slug]: { meta: newMoonRitual.meta, Body: newMoonRitual.Body },
   [tarot.meta.slug]: { meta: tarot.meta, Body: tarot.Body },
+  [mercuryRetrograde.meta.slug]: { meta: mercuryRetrograde.meta, Body: mercuryRetrograde.Body },
+  [morningRitual.meta.slug]: { meta: morningRitual.meta, Body: morningRitual.Body },
+  [spiritualBypassing.meta.slug]: { meta: spiritualBypassing.meta, Body: spiritualBypassing.Body },
 }
 
 export const allPosts: Post[] = Object.values(modules).sort(
