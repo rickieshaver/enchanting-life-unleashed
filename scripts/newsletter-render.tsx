@@ -24,10 +24,10 @@
 
 import { render } from '@react-email/render'
 import React from 'react'
-import WedDigest from '../app/emails/newsletter/wed-digest.tsx'
-import type { WedDigestProps } from '../app/emails/newsletter/wed-digest.tsx'
-import SunEditorial from '../app/emails/newsletter/sun-editorial.tsx'
-import type { SunEditorialProps } from '../app/emails/newsletter/sun-editorial.tsx'
+import WedDigest from '../app/emails/newsletter/wed-digest'
+import type { WedDigestProps } from '../app/emails/newsletter/wed-digest'
+import SunEditorial from '../app/emails/newsletter/sun-editorial'
+import type { SunEditorialProps } from '../app/emails/newsletter/sun-editorial'
 
 const TEMPLATES: Record<string, React.ComponentType<any>> = {
   'wed-digest': WedDigest,
