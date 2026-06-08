@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { resend } from '@/lib/resend/client'
 import { sendEmail } from '@/lib/resend/send'
 import { verifyTurnstileToken } from '@/lib/turnstile/verify'
+import { attachToNewsletter } from '@/lib/resend/attach-to-newsletter'
 
 export const runtime = 'nodejs'
 
@@ -54,27 +55,40 @@ async function readInput(req: Request): Promise<ParsedInput> {
   return { error: 'unsupported content-type' }
 }
 
-async function tagContact(email: string, firstName: string, source: string) {
-  try {
-    await resend.contacts.create({
-      email,
-      firstName,
-      unsubscribed: false,
-      properties: {
-        source,
-        qsg_optin_date: new Date().toISOString(),
-      },
-    })
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err)
-    if (
-      !msg.toLowerCase().includes('already exist') &&
-      !msg.toLowerCase().includes('already been')
-    ) {
-      console.error('[qsg-optin] resend.contacts.create failed', err)
-      throw err
+/**
+ * Create (or confirm existence of) the contact in Resend.
+ * Returns the new contactId on fresh create, null if contact already exists.
+ * Throws on hard Resend errors so the caller can surface a 500.
+ */
+async function tagContact(
+  email: string,
+  firstName: string,
+  source: string,
+): Promise<string | null> {
+  const createResult = await resend.contacts.create({
+    email,
+    firstName,
+    unsubscribed: false,
+    properties: {
+      source,
+      qsg_optin_date: new Date().toISOString(),
+    },
+  })
+
+  if (createResult.error) {
+    const msg = createResult.error.message ?? String(createResult.error)
+    const isAlreadyExists =
+      msg.toLowerCase().includes('already exist') ||
+      msg.toLowerCase().includes('already been')
+    if (!isAlreadyExists) {
+      console.error('[qsg-optin] resend.contacts.create failed', createResult.error)
+      throw new Error(msg)
     }
+    // Contact already exists — segment attach will match by email.
+    return null
   }
+
+  return createResult.data?.id ?? null
 }
 
 export async function POST(req: Request) {
@@ -106,12 +120,23 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: 'invalid email' }, { status: 400 })
   }
 
+  // 1. Create / update contact in Resend, then attach to the ELU Newsletter
+  //    segment (soft opt-in — no checkbox required).
+  //
+  //    Two-step pattern mirrors newsletter-subscribe/route.ts: contacts.create
+  //    does NOT reliably attach segments inline (Resend v6 quirk — verified
+  //    2026-05-20). Segment attach is non-fatal; QSG delivery still fires on
+  //    attach failure.
   let contactError: string | null = null
+  let contactId: string | null = null
   try {
-    await tagContact(email, firstName, source)
+    contactId = await tagContact(email, firstName, source)
   } catch (err) {
     contactError = err instanceof Error ? err.message : String(err)
   }
+
+  // 1b. Attach to newsletter segment — non-fatal, swallowed on error.
+  await attachToNewsletter(contactId, email, '[qsg-optin]')
 
   let sendError: string | null = null
   try {
