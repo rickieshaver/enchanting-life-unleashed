@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { resend } from '@/lib/resend/client'
 import { sendEmail } from '@/lib/resend/send'
 import { verifyTurnstileToken } from '@/lib/turnstile/verify'
+import { attachToNewsletter } from '@/lib/resend/attach-to-newsletter'
 
 export const runtime = 'nodejs'
 
@@ -65,33 +66,50 @@ export async function POST(req: Request) {
     resendKeyPresent: Boolean(process.env.RESEND_API_KEY),
   }
 
-  // 1. Create / update contact in Resend with quiz properties
-  try {
-    await resend.contacts.create({
-      email,
-      firstName,
-      unsubscribed: false,
-      properties: {
-        archetype,
-        primary_boundary_area: primaryArea,
-        result_key: resultKey,
-        spellbreaker_score: scores.area.spellbreaker,
-        time_keeper_score: scores.area['time-keeper'],
-        sacred_vessel_score: scores.area['sacred-vessel'],
-        resource_guardian_score: scores.area['resource-guardian'],
-        source: 'boundary-archetype-quiz',
-      },
-    })
-    debug.contactStep = 'ok'
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err)
-    debug.contactStep = 'error'
-    debug.contactError = msg
-    if (!msg.toLowerCase().includes('already exist') && !msg.toLowerCase().includes('already been')) {
-      console.error('[quiz-submit] resend.contacts.create failed', err)
+  // 1. Create / update contact in Resend with quiz properties, then attach to
+  //    the ELU Newsletter segment (soft opt-in — no checkbox required).
+  //
+  //    Two-step pattern mirrors newsletter-subscribe/route.ts: contacts.create
+  //    does NOT reliably attach segments inline (Resend v6 quirk — verified
+  //    2026-05-20). Segment attach is non-fatal; quiz result still delivers on
+  //    attach failure.
+  let contactId: string | null = null
+  const createResult = await resend.contacts.create({
+    email,
+    firstName,
+    unsubscribed: false,
+    properties: {
+      archetype,
+      primary_boundary_area: primaryArea,
+      result_key: resultKey,
+      spellbreaker_score: scores.area.spellbreaker,
+      time_keeper_score: scores.area['time-keeper'],
+      sacred_vessel_score: scores.area['sacred-vessel'],
+      resource_guardian_score: scores.area['resource-guardian'],
+      source: 'boundary-archetype-quiz',
+    },
+  })
+  if (createResult.error) {
+    const msg = createResult.error.message ?? String(createResult.error)
+    const isAlreadyExists =
+      msg.toLowerCase().includes('already exist') ||
+      msg.toLowerCase().includes('already been')
+    if (!isAlreadyExists) {
+      debug.contactStep = 'error'
+      debug.contactError = msg
+      console.error('[quiz-submit] resend.contacts.create failed', createResult.error)
       return NextResponse.json({ ok: false, error: `contact: ${msg}`, debug }, { status: 500 })
     }
+    // Contact already exists — segment attach below will match by email.
+    debug.contactStep = 'already-exists'
+  } else {
+    contactId = createResult.data?.id ?? null
+    debug.contactStep = 'ok'
   }
+
+  // 1b. Attach to newsletter segment — non-fatal, swallowed on error.
+  await attachToNewsletter(contactId, email, '[quiz-submit]')
+  debug.segmentStep = 'attempted'
 
   // 2. Fire the 6-email drip — Day 0 immediate, rest scheduled via Resend.
   // Sends are sequential to stay under Resend's per-second rate limit.
