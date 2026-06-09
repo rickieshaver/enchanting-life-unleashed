@@ -4,9 +4,10 @@ import Link from 'next/link'
 import NewsletterForm from '../_components/NewsletterForm'
 
 export const metadata: Metadata = {
-  title: 'Freebies — Enchanting Life Unleashed',
+  title: 'Freebies',
   description:
-    'Free sacred tools for the modern mystic. Download the Lunar Alignment Quick Start Guide — Step One of the Lunar Alignment System.',
+    'Free tools for the modern mystic — the Lunar Alignment Quick Start Guide and the Boundary Archetype Quiz. Start the practice before you spend a dollar.',
+  alternates: { canonical: '/freebies' },
 }
 
 export default function FreebiesPage() {

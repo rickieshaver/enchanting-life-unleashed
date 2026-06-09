@@ -4,15 +4,41 @@ import Link from 'next/link'
 import QsgOptinForm from './QsgOptinForm'
 
 export const metadata: Metadata = {
-  title: 'The Lunar Alignment Quick Start Guide — Enchanting Life Unleashed',
+  title: 'Lunar Alignment Quick Start Guide',
   description:
     'Step One of the Lunar Alignment System. A free guide to the eight lunar phases, the Action framework, and the 28-day cycle map. Built to use, not to admire.',
+  alternates: { canonical: '/lunar-alignment-quick-start-guide' },
+  openGraph: {
+    images: [{ url: 'https://enchantinglifeunleashed.com/images/lunar-alignment-quick-start-guide-cover.png' }],
+  },
+}
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Lunar Alignment Quick Start Guide',
+  description:
+    'A free guide to the eight lunar phases, the Action framework, and the 28-day cycle map. Step One of the Lunar Alignment System.',
+  image: 'https://enchantinglifeunleashed.com/images/lunar-alignment-quick-start-guide-cover.png',
+  url: 'https://enchantinglifeunleashed.com/lunar-alignment-quick-start-guide',
+  brand: { '@type': 'Brand', name: 'Enchanting Life Unleashed' },
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    url: 'https://enchantinglifeunleashed.com/lunar-alignment-quick-start-guide',
+  },
 }
 
 export default async function LunarAlignmentQuickStartGuidePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       {/* HERO */}
       <section className="pt-24 md:pt-32 pb-24 px-8 md:px-12">
         <div className="max-w-7xl mx-auto">

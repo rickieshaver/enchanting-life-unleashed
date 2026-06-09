@@ -45,6 +45,10 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: 'ClaudeUser',
         allow: '/',
       },
+      {
+        userAgent: 'Claude-SearchBot',
+        allow: '/',
+      },
       // Perplexity
       {
         userAgent: 'PerplexityBot',
@@ -87,6 +91,16 @@ export default function robots(): MetadataRoute.Robots {
       // Cohere
       {
         userAgent: 'cohere-ai',
+        allow: '/',
+      },
+      // DuckDuckGo AI (DuckAssist)
+      {
+        userAgent: 'DuckAssistBot',
+        allow: '/',
+      },
+      // Mistral (Le Chat)
+      {
+        userAgent: 'MistralAI-User',
         allow: '/',
       },
     ],

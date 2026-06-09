@@ -2,14 +2,40 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'The Lunar Alignment Starter Kit — Enchanting Life Unleashed',
+  title: 'The Lunar Alignment Starter Kit',
   description:
-    'A 28-day workbook and reusable cycle tracker for women done reading about cycle-based living and ready to actually run one. $7. Step Two of the Lunar Alignment System.',
+    'A 28-day workbook and reusable cycle tracker for women done reading about cycle-based living and ready to actually run one full cycle. Step Two. $7.',
+  alternates: { canonical: '/lunar-alignment-starter-kit' },
+  openGraph: {
+    images: [{ url: 'https://enchantinglifeunleashed.com/images/lunar-alignment-starter-kit-cover.jpeg' }],
+  },
+}
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Lunar Alignment Starter Kit',
+  description:
+    'A 28-day workbook and reusable cycle tracker for running one full lunar cycle of intentional practice. Step Two of the Lunar Alignment System.',
+  image: 'https://enchantinglifeunleashed.com/images/lunar-alignment-starter-kit-cover.jpeg',
+  url: 'https://enchantinglifeunleashed.com/lunar-alignment-starter-kit',
+  brand: { '@type': 'Brand', name: 'Enchanting Life Unleashed' },
+  offers: {
+    '@type': 'Offer',
+    price: '7',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    url: 'https://enchantinglifeunleashed.com/lunar-alignment-starter-kit',
+  },
 }
 
 export default function LunarAlignmentStarterKitPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       {/* HERO */}
       <section className="pt-24 md:pt-32 pb-24 px-8 md:px-12">
         <div className="max-w-7xl mx-auto">

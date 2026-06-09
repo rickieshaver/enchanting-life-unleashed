@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "You're in — Enchanting Life Unleashed",
+  title: "You're In",
   description: "Thanks for joining. Watch your inbox.",
+  robots: { index: false, follow: false },
 }
 
 type SearchParams = Promise<{ error?: string }>

@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Contact — Enchanting Life Unleashed',
+  title: 'Contact',
   description:
-    'Get in touch with Enchanting Life Unleashed. Inquiries, collaborations, and direct channels.',
+    'Get in touch with Enchanting Life Unleashed — questions, collaborations, and direct channels. Not everything deserves access. Your message might.',
+  alternates: { canonical: '/contact' },
 }
 
 const socialLinks = [

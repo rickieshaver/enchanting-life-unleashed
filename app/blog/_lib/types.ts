@@ -8,6 +8,8 @@ export type PostMeta = {
   metaDescription: string
   readTime: string
   publishedAt: string
+  /** Set when a post is materially edited after publish — feeds dateModified in Article schema */
+  updatedAt?: string
   routesTo: 'quiz' | 'sbs'
   image?: string
   imageAlt?: string

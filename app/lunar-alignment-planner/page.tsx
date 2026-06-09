@@ -2,14 +2,40 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'The Lunar Alignment Planner — Enchanting Life Unleashed',
+  title: 'The Lunar Alignment Planner',
   description:
-    'An undated 202-page planner for twelve cycles of intentional practice. $27. Step Three of the Lunar Alignment System. Built to use, not to admire.',
+    'An undated 202-page planner for twelve full cycles of intentional, moon-paced living. Step Three of the Lunar Alignment System. $27. Built to be used.',
+  alternates: { canonical: '/lunar-alignment-planner' },
+  openGraph: {
+    images: [{ url: 'https://enchantinglifeunleashed.com/images/lunar-alignment-planner-cover.jpeg' }],
+  },
+}
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Lunar Alignment Planner',
+  description:
+    'An undated 202-page planner for twelve cycles of intentional cycle-based living — annual theme, twelve fillable cycles, quarterly reviews. Step Three of the Lunar Alignment System.',
+  image: 'https://enchantinglifeunleashed.com/images/lunar-alignment-planner-cover.jpeg',
+  url: 'https://enchantinglifeunleashed.com/lunar-alignment-planner',
+  brand: { '@type': 'Brand', name: 'Enchanting Life Unleashed' },
+  offers: {
+    '@type': 'Offer',
+    price: '27',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    url: 'https://enchantinglifeunleashed.com/lunar-alignment-planner',
+  },
 }
 
 export default function LunarAlignmentPlannerPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       {/* HERO */}
       <section className="pt-24 md:pt-32 pb-24 px-8 md:px-12">
         <div className="max-w-7xl mx-auto">

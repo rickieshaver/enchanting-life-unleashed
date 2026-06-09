@@ -15,7 +15,7 @@ const PRODUCTS = [
     title: 'Sacred Boundary System',
     path: '/sacred-boundary-system',
     description:
-      'A lunar-aligned workbook for setting, holding, and honoring boundaries across eight 28-day cycles. Four domains. Three archetypes. $27.',
+      'A lunar-aligned workbook for setting, holding, and honoring boundaries across eight 28-day cycles. Four domains. Three archetypes. $17.',
   },
   {
     title: 'Lunar Alignment Starter Kit',
@@ -65,6 +65,12 @@ ${blogLines}
 ## Products
 
 ${productLines}
+
+## Free Resources
+
+- [Freebies](${SITE}/freebies): All free starting points in one place — the Lunar Alignment Quick Start Guide and the Boundary Archetype Quiz.
+- [Lunar Alignment Quick Start Guide](${SITE}/lunar-alignment-quick-start-guide): Free guide to the eight lunar phases and the 28-day cycle map. Step One of the Lunar Alignment System.
+- [Boundary Archetype Quiz](${SITE}/boundary-archetype-quiz): Free five-minute quiz — identify your boundary archetype and primary leak domain.
 
 ## About
 
