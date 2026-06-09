@@ -4,9 +4,10 @@ import Link from 'next/link'
 import { allPosts } from './_lib/posts'
 
 export const metadata: Metadata = {
-  title: 'The Transmission — Blog — Enchanting Life Unleashed',
+  title: 'The Transmission — Blog',
   description:
-    'Insights on lunar living, sacred boundaries, and the Lunar Alignment System for the modern mystic.',
+    'The Transmission — essays on lunar living, sacred boundaries, and shadow work for the modern mystic. No fluff, no performative spirituality. Weekly.',
+  alternates: { canonical: '/blog' },
 }
 
 export default function BlogPage() {

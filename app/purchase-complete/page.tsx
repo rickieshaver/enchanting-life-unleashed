@@ -4,8 +4,9 @@ import { getStripe } from '@/lib/stripe/client'
 import { SBS } from '@/lib/stripe/config'
 
 export const metadata: Metadata = {
-  title: 'Thank you — Enchanting Life Unleashed',
+  title: 'Thank You',
   description: 'Your Sacred Boundary System is ready.',
+  robots: { index: false, follow: false },
 }
 
 type SearchParams = Promise<{ session_id?: string }>

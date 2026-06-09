@@ -3,9 +3,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'The Collection — Enchanting Life Unleashed',
+  title: 'Shop the Collection',
   description:
     'Sacred systems for modern mystics. The Lunar Alignment ecosystem, the Sacred Boundary System, and the Boundary Archetype Quiz. Built to use, not to admire.',
+  alternates: { canonical: '/shop' },
 }
 
 type ProductCopy = {
@@ -138,9 +139,25 @@ const products: Product[] = [
   },
 ]
 
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Enchanting Life Unleashed — The Collection',
+  itemListElement: products.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: p.title,
+    url: `https://enchantinglifeunleashed.com${p.href}`,
+  })),
+}
+
 export default function ShopPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
       {/* HERO */}
       <section className="bg-surface-low">
         <div className="max-w-7xl mx-auto px-8 md:px-12 pt-24 pb-12">

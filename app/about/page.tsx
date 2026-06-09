@@ -3,9 +3,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'About — Enchanting Life Unleashed',
+  title: 'About',
   description:
-    'Redefining the architecture of a spiritual life through the lens of authority, precision, and unapologetic self-governance.',
+    'The philosophy behind Enchanting Life Unleashed — a spiritual life rebuilt through authority, precision, and unapologetic self-governance. Meet Ren.',
+  alternates: { canonical: '/about' },
 }
 
 export default function AboutPage() {
@@ -29,7 +30,7 @@ export default function AboutPage() {
           <div className="md:col-span-7 relative">
             <Image
               src="/images/hero-portrait.jpeg"
-              alt="Founder Portrait"
+              alt="Ren, founder of Enchanting Life Unleashed — portrait in warm editorial light"
               width={800}
               height={1000}
               className="w-full aspect-[4/5] object-cover"
@@ -75,7 +76,7 @@ export default function AboutPage() {
           <div className="order-1 md:order-2 flex flex-col items-end">
             <Image
               src="/images/boundary-quiz-hero.jpeg"
-              alt="Office Detail"
+              alt="A composed workspace — the structured, intentional side of a spiritual practice"
               width={500}
               height={500}
               className="w-4/5 aspect-square object-cover mb-12"

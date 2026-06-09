@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — Enchanting Life Unleashed',
+  title: 'Privacy Policy',
   description:
-    'How Enchanting Life Unleashed collects, uses, and protects your personal information.',
+    'How Enchanting Life Unleashed collects, uses, and protects your personal information — what we store, why we store it, and what we never share.',
+  alternates: { canonical: '/privacy' },
 }
 
 /**

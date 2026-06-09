@@ -4,8 +4,9 @@ import { getStripe } from '@/lib/stripe/client'
 import { STARTER_KIT } from '@/lib/stripe/config'
 
 export const metadata: Metadata = {
-  title: 'Your Starter Kit — Enchanting Life Unleashed',
+  title: 'Your Starter Kit',
   description: 'Your Lunar Alignment Starter Kit is ready.',
+  robots: { index: false, follow: false },
 }
 
 type SearchParams = Promise<{ session_id?: string }>

@@ -4,8 +4,9 @@ import { getStripe } from '@/lib/stripe/client'
 import { PLANNER } from '@/lib/stripe/config'
 
 export const metadata: Metadata = {
-  title: 'Your Planner — Enchanting Life Unleashed',
+  title: 'Your Planner',
   description: 'Your Lunar Alignment Planner is ready.',
+  robots: { index: false, follow: false },
 }
 
 type SearchParams = Promise<{ session_id?: string }>

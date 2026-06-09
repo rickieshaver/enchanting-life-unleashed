@@ -4,9 +4,9 @@ import Link from 'next/link'
 import NewsletterForm from './_components/NewsletterForm'
 
 export const metadata: Metadata = {
-  title: 'Enchanting Life Unleashed — Where Soul Meets Strategy',
   description:
-    'Where modern mystics learn real magic — rooted in intention, guided by intuition, and sprinkled with just the right amount of sparkle.',
+    'Where modern mystics learn real magic — boundary work, lunar-cycle practice, and shadow integration rooted in intention. Built to use, not to admire.',
+  alternates: { canonical: '/' },
 }
 
 export default function HomePage() {
@@ -41,6 +41,7 @@ export default function HomePage() {
                 alt="Confident woman — intentional luxury for the modern mystic"
                 width={600}
                 height={750}
+                sizes="(max-width: 768px) 100vw, 40vw"
                 className="w-full h-auto object-cover"
                 priority
               />

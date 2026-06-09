@@ -2,14 +2,40 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'Sacred Boundary System — Enchanting Life Unleashed',
+  title: 'Sacred Boundary System',
   description:
-    'The Sacred Boundary System workbook — a moon-aligned practice for setting, holding, and honoring your boundaries without the guilt. Eight lunar cycles. Four domains. Three archetypes.',
+    'A moon-aligned workbook for setting, holding, and honoring boundaries without the guilt. Eight lunar cycles, four life domains, three archetypes. $17.',
+  alternates: { canonical: '/sacred-boundary-system' },
+  openGraph: {
+    images: [{ url: 'https://enchantinglifeunleashed.com/images/planner-cover.jpeg' }],
+  },
+}
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Sacred Boundary System',
+  description:
+    'A moon-aligned workbook for setting, holding, and honoring boundaries. Eight lunar cycles of structured practice across four life domains, with archetype-specific prompts.',
+  image: 'https://enchantinglifeunleashed.com/images/planner-cover.jpeg',
+  url: 'https://enchantinglifeunleashed.com/sacred-boundary-system',
+  brand: { '@type': 'Brand', name: 'Enchanting Life Unleashed' },
+  offers: {
+    '@type': 'Offer',
+    price: '17',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    url: 'https://enchantinglifeunleashed.com/sacred-boundary-system',
+  },
 }
 
 export default function LunarBoundaryPlannerPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       {/* HERO */}
       <section className="pt-24 md:pt-32 pb-24 px-8 md:px-12">
         <div className="max-w-7xl mx-auto">
