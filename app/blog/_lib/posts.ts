@@ -12,6 +12,9 @@ import * as tarot from '@/app/blog/posts/how-to-read-tarot-without-becoming-insu
 import * as mercuryRetrograde from '@/app/blog/posts/mercury-retrograde-and-contract-signing'
 import * as morningRitual from '@/app/blog/posts/what-a-sacred-morning-routine-actually-looks-like'
 import * as spiritualBypassing from '@/app/blog/posts/spiritual-bypassing-is-real-and-youve-probably-done-it'
+import * as intuitionVsAnxiety from '@/app/blog/posts/intuition-vs-anxiety-how-to-tell-the-difference'
+import * as planAroundMoon from '@/app/blog/posts/how-to-plan-your-month-around-the-moon'
+import * as imJustBusy from '@/app/blog/posts/the-im-just-busy-excuse'
 
 const modules: Record<string, Post> = {
   [sayingYes.meta.slug]: { meta: sayingYes.meta, Body: sayingYes.Body },
@@ -26,6 +29,9 @@ const modules: Record<string, Post> = {
   [mercuryRetrograde.meta.slug]: { meta: mercuryRetrograde.meta, Body: mercuryRetrograde.Body },
   [morningRitual.meta.slug]: { meta: morningRitual.meta, Body: morningRitual.Body },
   [spiritualBypassing.meta.slug]: { meta: spiritualBypassing.meta, Body: spiritualBypassing.Body },
+  [intuitionVsAnxiety.meta.slug]: { meta: intuitionVsAnxiety.meta, Body: intuitionVsAnxiety.Body },
+  [planAroundMoon.meta.slug]: { meta: planAroundMoon.meta, Body: planAroundMoon.Body },
+  [imJustBusy.meta.slug]: { meta: imJustBusy.meta, Body: imJustBusy.Body },
 }
 
 export const allPosts: Post[] = Object.values(modules).sort(
