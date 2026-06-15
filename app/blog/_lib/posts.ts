@@ -15,6 +15,9 @@ import * as spiritualBypassing from '@/app/blog/posts/spiritual-bypassing-is-rea
 import * as intuitionVsAnxiety from '@/app/blog/posts/intuition-vs-anxiety-how-to-tell-the-difference'
 import * as planAroundMoon from '@/app/blog/posts/how-to-plan-your-month-around-the-moon'
 import * as imJustBusy from '@/app/blog/posts/the-im-just-busy-excuse'
+import * as overExplaining from '@/app/blog/posts/over-explaining-yourself'
+import * as altarIdeas from '@/app/blog/posts/altar-ideas-no-explanation-needed'
+import * as stopApologizing from '@/app/blog/posts/stop-apologizing-for-things-that-dont-need-it'
 
 const modules: Record<string, Post> = {
   [sayingYes.meta.slug]: { meta: sayingYes.meta, Body: sayingYes.Body },
@@ -32,6 +35,9 @@ const modules: Record<string, Post> = {
   [intuitionVsAnxiety.meta.slug]: { meta: intuitionVsAnxiety.meta, Body: intuitionVsAnxiety.Body },
   [planAroundMoon.meta.slug]: { meta: planAroundMoon.meta, Body: planAroundMoon.Body },
   [imJustBusy.meta.slug]: { meta: imJustBusy.meta, Body: imJustBusy.Body },
+  [overExplaining.meta.slug]: { meta: overExplaining.meta, Body: overExplaining.Body },
+  [altarIdeas.meta.slug]: { meta: altarIdeas.meta, Body: altarIdeas.Body },
+  [stopApologizing.meta.slug]: { meta: stopApologizing.meta, Body: stopApologizing.Body },
 }
 
 export const allPosts: Post[] = Object.values(modules).sort(
