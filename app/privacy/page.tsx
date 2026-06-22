@@ -18,7 +18,7 @@ export const metadata: Metadata = {
  * - Payment processing: Stripe (checkout-sbs, checkout-starter-kit, checkout-planner routes)
  * - Bot protection: Cloudflare Turnstile (all 3 form endpoints)
  * - Hosting/logs: Vercel
- * - Analytics: NONE installed (@vercel/analytics and @vercel/speed-insights absent from package.json)
+ * - Analytics: Vercel Web Analytics (@vercel/analytics) — cookieless, anonymized, aggregate page-view counts only; no PII, no cross-site tracking. Speed Insights NOT installed.
  * - Pinterest Tag (pintrk): NOT installed
  * - Cookies: Next.js/Vercel infrastructure only (no app-level cookie setting)
  */
@@ -153,9 +153,14 @@ export default function PrivacyPage() {
                 <ul className="list-disc list-inside space-y-1">
                   <li>
                     No Google Analytics, Facebook Pixel, Pinterest Tag, or any other third-party
-                    behavioral tracking is installed on this site.
+                    behavioral or advertising tracking is installed on this site.
                   </li>
-                  <li>No Vercel Analytics or Speed Insights is active.</li>
+                  <li>
+                    We use Vercel Web Analytics — a privacy-friendly, cookieless tool that records
+                    aggregate page-view counts only. It does not use cookies, does not collect
+                    personal information, and does not track you across other websites. Vercel Speed
+                    Insights is not active.
+                  </li>
                   <li>We do not use session recording tools (Hotjar, FullStory, etc.).</li>
                   <li>We do not sell data to data brokers.</li>
                 </ul>
@@ -365,7 +370,9 @@ export default function PrivacyPage() {
             <div className="space-y-4 font-body text-base text-on-surface-variant leading-relaxed">
               <p>
                 This site does not set any first-party cookies for analytics, advertising, or
-                personalization. We do not use tracking pixels or behavioral targeting scripts.
+                personalization. Our analytics (Vercel Web Analytics) is cookieless and anonymized —
+                it counts page views in aggregate without identifying you or tracking you across
+                sites. We do not use advertising pixels or behavioral targeting scripts.
               </p>
               <p>
                 Infrastructure-level cookies may be set by Vercel (for routing on preview
@@ -373,8 +380,9 @@ export default function PrivacyPage() {
                 interactions). These are strictly functional and do not track you across sites.
               </p>
               <p>
-                Because we run no behavioral tracking, there is no cookie consent banner — there
-                is nothing to consent to beyond the infrastructure described above.
+                Because our analytics is cookieless and we run no cross-site or advertising
+                tracking, there is no cookie consent banner — there is nothing to consent to beyond
+                the infrastructure described above.
               </p>
             </div>
           </section>
