@@ -19,6 +19,9 @@ import * as overExplaining from '@/app/blog/posts/over-explaining-yourself'
 import * as altarIdeas from '@/app/blog/posts/altar-ideas-no-explanation-needed'
 import * as stopApologizing from '@/app/blog/posts/stop-apologizing-for-things-that-dont-need-it'
 
+import * as fawnResponseNervousSystem from '@/app/blog/posts/fawn-response-nervous-system'
+import * as emotionalBandwidthNotCommunityResource from '@/app/blog/posts/emotional-bandwidth-not-community-resource'
+import * as stopPeoplePleasingKeepingPeaceSurvival from '@/app/blog/posts/stop-people-pleasing-keeping-peace-survival'
 const modules: Record<string, Post> = {
   [sayingYes.meta.slug]: { meta: sayingYes.meta, Body: sayingYes.Body },
   [archetypes.meta.slug]: { meta: archetypes.meta, Body: archetypes.Body },
@@ -38,6 +41,9 @@ const modules: Record<string, Post> = {
   [overExplaining.meta.slug]: { meta: overExplaining.meta, Body: overExplaining.Body },
   [altarIdeas.meta.slug]: { meta: altarIdeas.meta, Body: altarIdeas.Body },
   [stopApologizing.meta.slug]: { meta: stopApologizing.meta, Body: stopApologizing.Body },
+  [fawnResponseNervousSystem.meta.slug]: { meta: fawnResponseNervousSystem.meta, Body: fawnResponseNervousSystem.Body },
+  [emotionalBandwidthNotCommunityResource.meta.slug]: { meta: emotionalBandwidthNotCommunityResource.meta, Body: emotionalBandwidthNotCommunityResource.Body },
+  [stopPeoplePleasingKeepingPeaceSurvival.meta.slug]: { meta: stopPeoplePleasingKeepingPeaceSurvival.meta, Body: stopPeoplePleasingKeepingPeaceSurvival.Body },
 }
 
 export const allPosts: Post[] = Object.values(modules).sort(
