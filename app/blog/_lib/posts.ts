@@ -22,6 +22,9 @@ import * as stopApologizing from '@/app/blog/posts/stop-apologizing-for-things-t
 import * as fawnResponseNervousSystem from '@/app/blog/posts/fawn-response-nervous-system'
 import * as emotionalBandwidthNotCommunityResource from '@/app/blog/posts/emotional-bandwidth-not-community-resource'
 import * as stopPeoplePleasingKeepingPeaceSurvival from '@/app/blog/posts/stop-people-pleasing-keeping-peace-survival'
+import * as livingAuthenticallyMeansUnlearningWhatYouWerePraisedFor from '@/app/blog/posts/living-authentically-means-unlearning-what-you-were-praised-for'
+import * as midYearEnergyAuditWomenRunningOnEmpty from '@/app/blog/posts/mid-year-energy-audit-women-running-on-empty'
+import * as needForApprovalWhatItMeans from '@/app/blog/posts/need-for-approval-what-it-means'
 const modules: Record<string, Post> = {
   [sayingYes.meta.slug]: { meta: sayingYes.meta, Body: sayingYes.Body },
   [archetypes.meta.slug]: { meta: archetypes.meta, Body: archetypes.Body },
@@ -44,6 +47,9 @@ const modules: Record<string, Post> = {
   [fawnResponseNervousSystem.meta.slug]: { meta: fawnResponseNervousSystem.meta, Body: fawnResponseNervousSystem.Body },
   [emotionalBandwidthNotCommunityResource.meta.slug]: { meta: emotionalBandwidthNotCommunityResource.meta, Body: emotionalBandwidthNotCommunityResource.Body },
   [stopPeoplePleasingKeepingPeaceSurvival.meta.slug]: { meta: stopPeoplePleasingKeepingPeaceSurvival.meta, Body: stopPeoplePleasingKeepingPeaceSurvival.Body },
+  [livingAuthenticallyMeansUnlearningWhatYouWerePraisedFor.meta.slug]: { meta: livingAuthenticallyMeansUnlearningWhatYouWerePraisedFor.meta, Body: livingAuthenticallyMeansUnlearningWhatYouWerePraisedFor.Body },
+  [midYearEnergyAuditWomenRunningOnEmpty.meta.slug]: { meta: midYearEnergyAuditWomenRunningOnEmpty.meta, Body: midYearEnergyAuditWomenRunningOnEmpty.Body },
+  [needForApprovalWhatItMeans.meta.slug]: { meta: needForApprovalWhatItMeans.meta, Body: needForApprovalWhatItMeans.Body },
 }
 
 export const allPosts: Post[] = Object.values(modules).sort(
