@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/quiz',
+        destination: '/boundary-archetype-quiz',
+        permanent: true,
+      },
+      {
         source: '/lunar-boundary-planner',
         destination: '/sacred-boundary-system',
         permanent: true,
