@@ -25,6 +25,7 @@ import * as stopPeoplePleasingKeepingPeaceSurvival from '@/app/blog/posts/stop-p
 import * as livingAuthenticallyMeansUnlearningWhatYouWerePraisedFor from '@/app/blog/posts/living-authentically-means-unlearning-what-you-were-praised-for'
 import * as midYearEnergyAuditWomenRunningOnEmpty from '@/app/blog/posts/mid-year-energy-audit-women-running-on-empty'
 import * as needForApprovalWhatItMeans from '@/app/blog/posts/need-for-approval-what-it-means'
+import * as whyDoIFeelGuiltyWhenIRest from '@/app/blog/posts/why-do-i-feel-guilty-when-i-rest'
 const modules: Record<string, Post> = {
   [sayingYes.meta.slug]: { meta: sayingYes.meta, Body: sayingYes.Body },
   [archetypes.meta.slug]: { meta: archetypes.meta, Body: archetypes.Body },
@@ -50,6 +51,7 @@ const modules: Record<string, Post> = {
   [livingAuthenticallyMeansUnlearningWhatYouWerePraisedFor.meta.slug]: { meta: livingAuthenticallyMeansUnlearningWhatYouWerePraisedFor.meta, Body: livingAuthenticallyMeansUnlearningWhatYouWerePraisedFor.Body },
   [midYearEnergyAuditWomenRunningOnEmpty.meta.slug]: { meta: midYearEnergyAuditWomenRunningOnEmpty.meta, Body: midYearEnergyAuditWomenRunningOnEmpty.Body },
   [needForApprovalWhatItMeans.meta.slug]: { meta: needForApprovalWhatItMeans.meta, Body: needForApprovalWhatItMeans.Body },
+  [whyDoIFeelGuiltyWhenIRest.meta.slug]: { meta: whyDoIFeelGuiltyWhenIRest.meta, Body: whyDoIFeelGuiltyWhenIRest.Body },
 }
 
 export const allPosts: Post[] = Object.values(modules).sort(

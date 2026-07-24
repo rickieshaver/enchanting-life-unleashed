@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 export type PostMeta = {
   slug: string
   title: string
+  seoTitle?: string
   tag: 'Boundaries' | 'Lunar Living' | 'Practice'
   excerpt: string
   metaDescription: string

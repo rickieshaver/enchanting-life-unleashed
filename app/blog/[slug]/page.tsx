@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     ? `https://enchantinglifeunleashed.com${post.meta.image}`
     : 'https://enchantinglifeunleashed.com/images/og-default.jpg'
   return {
-    title: post.meta.title,
+    title: post.meta.seoTitle ?? post.meta.title,
     description: post.meta.metaDescription,
     alternates: { canonical: url },
     openGraph: {

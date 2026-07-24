@@ -55,9 +55,11 @@ export default function Nav() {
         </button>
 
         {/* CTA */}
-        <Link href="/boundary-archetype-quiz" className="hidden md:inline-block btn-primary">
-          Take the Quiz
-        </Link>
+        <div className="hidden md:block">
+          <Link href="/boundary-archetype-quiz" className="btn-primary">
+            Take the Quiz
+          </Link>
+        </div>
       </div>
 
       {/* Mobile menu */}
