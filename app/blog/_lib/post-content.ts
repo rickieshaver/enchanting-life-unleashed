@@ -1503,4 +1503,117 @@ You have not forgotten. You are reading this.
 
 For more on the automatic yes that fires before you can vote on it, read why you keep saying yes when you mean no at /blog/saying-yes-when-you-mean-no. For why telling yourself to say no more often never solved it, read why just say no does not work at /blog/just-say-no-doesnt-work.
 `.trim(),
+  "how-to-set-texting-boundaries": `
+A message arrives while you are making dinner, finishing a task, or trying to have ten quiet minutes. You have not answered it. You may not have even opened it. Still, it feels as if you have accepted a small assignment.
+
+That feeling can turn ordinary texting into a day-long queue of obligations. The answer is not to disappear or make people guess what happened. A useful texting boundary gives people enough information to understand your normal rhythm. It tells them when replies usually happen and how to reach you when something truly cannot wait.
+
+You can be caring without staying interruptible all day.
+
+## Start with the part that is actually difficult
+
+"I need better texting boundaries" can mean several things. Before changing settings or writing a script, name the problem you are trying to solve.
+
+Maybe you reply quickly because a notification stays in your mind until you clear it. Maybe one person sends several follow-ups if you do not answer. Maybe a group chat produces a hundred messages before lunch. Maybe people use text for urgent requests even though you do not check it reliably. Or perhaps you have enough time to respond, but not enough attention for the kind of answer the message deserves.
+
+Each problem needs a different rule. Muting a group chat will not fix an unclear emergency route. Telling everyone you are "bad at texting" will not create a reply rhythm. A long explanation will not make an unrealistic promise easier to keep.
+
+Use one plain sentence to name the issue:
+
+- "I keep interrupting what I am doing to clear non-urgent messages."
+- "People do not know how to reach me when something is time-sensitive."
+- "I answer before I know whether I have the time or energy for the conversation."
+- "This chat is useful, but I do not need to follow it live."
+
+Now you have something concrete to work with.
+
+## Choose a reply window you can honestly keep
+
+A good reply window is not the fastest response you can manage on your best day. It is a rhythm that still works on a crowded Tuesday.
+
+You might check personal messages at lunch and again after dinner. You might answer non-urgent texts within a day or two. You might keep weekday mornings quiet and catch up in the afternoon. There is no universal correct window. The useful question is whether your window is clear enough to communicate and realistic enough to repeat.
+
+Try this formula:
+
+> I usually check [channel] around [time or frequency]. If it is urgent, [specific urgent route].
+
+For example:
+
+> I usually catch up on texts in the evening. If you need me urgently, call me.
+
+That is more useful than "Sorry, I am the worst at texting." The apology turns your rhythm into a personal flaw. The clear version gives the other person information they can use. If apologizing has become automatic, [this reflection on unnecessary apologies](/blog/stop-apologizing-for-things-that-dont-need-it) can help you notice the habit without replacing it with another speech.
+
+## Keep one urgent route
+
+A boundary feels less confusing when it preserves a simple exception. Choose a route that fits your actual life: a phone call, two calls in a row, a named family contact, or one agreed phrase at the start of a message.
+
+Keep it specific. "Let me know if it is important" still asks both people to interpret importance in the moment. "Call twice if you need an answer today" is easier to understand.
+
+The exception should stay narrow. If every preference, update, and favor uses the urgent route, the system stops being useful. You may need to restate what the route is for:
+
+> Please use the double call for something time-sensitive that needs my response today. Regular plans and updates can stay in text.
+
+You are not promising permanent availability. You are making it easier for the people who genuinely need you to get through.
+
+## Four texting-boundary scripts
+
+Use these as starting points. Change the timing and channel so the words match what you can actually do.
+
+### For a friend
+
+> I want to give our conversations more attention than I can give them between tasks. I am checking personal messages after dinner now. If something is urgent, call me. Otherwise I will get back to you when I sit down with my phone.
+
+### For family
+
+> I am not keeping text notifications on during the day. I will check at lunch and in the evening. If you need me sooner, call twice so I know to pick up or call back.
+
+### For a group chat
+
+> I am muting this thread and dipping in once a day. Please tag me if there is a question for me, and call me directly if something cannot wait. I still want to be here; I just cannot follow the chat live.
+
+### For a recurring check-in
+
+> I cannot keep up with daily back-and-forth right now. Could we do a proper check-in on Sunday instead? I would rather make room for that conversation than send rushed replies all week.
+
+Notice what the scripts do not include: a full calendar, a defense of your needs, or a promise that nobody will feel disappointed. Clear communication does not control another person's reaction. It gives both of you a cleaner starting point. If you tend to build a courtroom case before stating a limit, read [why over-explaining makes a boundary harder to hold](/blog/over-explaining-yourself).
+
+## When someone wants faster access
+
+A person may ask for an exception. Sometimes the request is reasonable. Sometimes it exposes a mismatch that needs a separate conversation. You can listen without immediately agreeing.
+
+Try:
+
+> Tell me what you need and by when. I can let you know whether I am available.
+
+Or:
+
+> Text is not reliable for same-hour requests. If you need an answer quickly, please call.
+
+If the issue is emotional closeness rather than logistics, stay with the actual concern:
+
+> I hear that slower replies feel different. I am not stepping away from our relationship. I am changing when I use my phone. Can we choose a check-in rhythm that works for both of us?
+
+A boundary is not a demand that the other person like your preference. They may need their own limit too. The goal is a workable agreement, not a perfect reaction.
+
+## If you break your own rule
+
+You will sometimes answer during the quiet window. You may forget to check when you said you would. You may leave a message sitting longer than intended. None of that requires throwing out the boundary.
+
+Repair the specific miss:
+
+> I said I would reply yesterday evening and I missed it. I am sorry about that. I am here now.
+
+Then return to the rule. Do not overcorrect by becoming instantly available for the next week. One missed check-in is a reliability issue to repair. It is not proof that you must hand back unlimited access.
+
+This matters if fast replies have become a form of automatic agreement. [Saying yes before you have checked what you want](/blog/saying-yes-when-you-mean-no) can happen in a message just as easily as it happens face to face. A reply window gives you a little room to decide what you are actually available for.
+
+## Pick one boundary for this week
+
+Do not redesign every conversation today. Choose one channel or one person where the current pattern creates the most friction. Decide when you will normally reply. Choose one urgent path. Send one clean sentence before the next delayed response needs explaining.
+
+Then watch what happens for a week. Did people know what to do? Did you keep the window? Was the emergency route too broad? Adjust the rule instead of abandoning it.
+
+If constant access shows up in more than your messages, the [Boundary Archetype Quiz](/boundary-archetype-quiz) can help you notice the broader pattern. It is an ELU self-reflection tool, not a diagnosis. Use the result as a prompt for your next small experiment.
+`.trim(),
+
 }

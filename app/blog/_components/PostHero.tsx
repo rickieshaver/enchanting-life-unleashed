@@ -20,11 +20,16 @@ export function PostHero({ meta }: { meta: PostMeta }) {
       <div className="py-16 md:py-20 px-8 md:px-12">
         <div className="max-w-3xl mx-auto flex flex-col gap-6">
           <span className="font-label text-[10px] uppercase tracking-[0.32em] text-gold">
-            {meta.tag}
+            {meta.eyebrow ?? meta.tag}
           </span>
           <h1 className="font-headline text-4xl md:text-6xl font-light text-primary leading-[1.05] tracking-tight">
             {meta.title}
           </h1>
+          {meta.heroCopy && (
+            <p className="font-body text-lg text-on-surface-variant leading-relaxed">
+              {meta.heroCopy}
+            </p>
+          )}
           <div className="editorial-line" />
           <div className="flex items-center gap-6 text-sm text-secondary font-body">
             <span>By Ren</span>

@@ -4,6 +4,8 @@ export type PostMeta = {
   slug: string
   title: string
   seoTitle?: string
+  eyebrow?: string
+  heroCopy?: string
   tag: 'Boundaries' | 'Lunar Living' | 'Practice'
   excerpt: string
   metaDescription: string
