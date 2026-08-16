@@ -27,6 +27,7 @@ import * as midYearEnergyAuditWomenRunningOnEmpty from '@/app/blog/posts/mid-yea
 import * as needForApprovalWhatItMeans from '@/app/blog/posts/need-for-approval-what-it-means'
 import * as whyDoIFeelGuiltyWhenIRest from '@/app/blog/posts/why-do-i-feel-guilty-when-i-rest'
 import * as howToSetTextingBoundaries from '@/app/blog/posts/how-to-set-texting-boundaries'
+import * as howToAddBufferTime from '@/app/blog/posts/how-to-add-buffer-time-to-your-calendar-without-falling-behind'
 const modules: Record<string, Post> = {
   [sayingYes.meta.slug]: { meta: sayingYes.meta, Body: sayingYes.Body },
   [archetypes.meta.slug]: { meta: archetypes.meta, Body: archetypes.Body },
@@ -54,6 +55,7 @@ const modules: Record<string, Post> = {
   [needForApprovalWhatItMeans.meta.slug]: { meta: needForApprovalWhatItMeans.meta, Body: needForApprovalWhatItMeans.Body },
   [whyDoIFeelGuiltyWhenIRest.meta.slug]: { meta: whyDoIFeelGuiltyWhenIRest.meta, Body: whyDoIFeelGuiltyWhenIRest.Body },
   [howToSetTextingBoundaries.meta.slug]: { meta: howToSetTextingBoundaries.meta, Body: howToSetTextingBoundaries.Body },
+  [howToAddBufferTime.meta.slug]: { meta: howToAddBufferTime.meta, Body: howToAddBufferTime.Body },
 }
 
 export const allPosts: Post[] = Object.values(modules).sort(
